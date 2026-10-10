@@ -84,7 +84,7 @@ export const S6Cta: React.FC<{ hook: Hook }> = ({ hook }) => {
         )}
 
         {/* logo « Cliko. » : le point tombe, rebondit et se pose en point final (clic) */}
-        <div style={{ position: "absolute", left: 0, right: 0, top: logoY - logoSize / 2, display: "flex", justifyContent: "center" }}>
+        <div style={{ position: "absolute", left: 0, right: 100 * up, top: logoY - logoSize / 2, display: "flex", justifyContent: "center" }}>
           <Logo
             size={logoSize}
             reveal={letters}
@@ -115,7 +115,7 @@ export const S6Cta: React.FC<{ hook: Hook }> = ({ hook }) => {
 
         {/* plan final : cliko.be, @cliko_be, devis gratuit */}
         {frame >= aUrlWord - 4 && (
-          <div style={{ position: "absolute", left: 0, right: 0, top: 610, display: "flex", justifyContent: "center", fontFamily: FONT.display, fontWeight: 800, fontSize: 168, letterSpacing: "-0.05em", lineHeight: 1, color: B.text, textShadow: "0 18px 60px rgba(4,6,14,.85)" }}>
+          <div style={{ position: "absolute", left: 0, right: 100, top: 610, display: "flex", justifyContent: "center", fontFamily: FONT.display, fontWeight: 800, fontSize: 168, letterSpacing: "-0.05em", lineHeight: 1, color: B.text, textShadow: "0 18px 60px rgba(4,6,14,.85)" }}>
             {urlText.split("").map((ch, i) => (
               <span key={i} style={{ display: "inline-block", overflow: "hidden", paddingBottom: "0.08em" }}>
                 <span
@@ -133,11 +133,11 @@ export const S6Cta: React.FC<{ hook: Hook }> = ({ hook }) => {
             ))}
           </div>
         )}
-        <div style={{ position: "absolute", left: 0, right: 0, top: 812, display: "flex", justifyContent: "center", fontFamily: FONT.mono, fontWeight: 500, fontSize: 50, letterSpacing: "0.02em", color: B.mist, opacity: handle, transform: `translateY(${(1 - handle) * 20}px)` }}>
+        <div style={{ position: "absolute", left: 0, right: 100, top: 812, display: "flex", justifyContent: "center", fontFamily: FONT.mono, fontWeight: 500, fontSize: 50, letterSpacing: "0.02em", color: B.mist, opacity: handle, transform: `translateY(${(1 - handle) * 20}px)` }}>
           @cliko_be
         </div>
-        <div style={{ position: "absolute", left: 0, right: 0, top: 960, display: "flex", justifyContent: "center", transform: `scale(${0.7 + 0.3 * pill})`, opacity: Math.min(1, pill * 2) }}>
-          <AmberPill size={38}>
+        <div style={{ position: "absolute", left: 0, right: 100, top: 960, display: "flex", justifyContent: "center", transform: `scale(${0.7 + 0.3 * pill})`, opacity: Math.min(1, pill * 2) }}>
+          <AmberPill size={33}>
             <span>Devis gratuit</span>
             <span style={{ opacity: 0.55 }}>·</span>
             <span style={{ fontWeight: 600 }}>Bruxelles et toute la Belgique</span>

@@ -109,8 +109,8 @@ export const S1Hook: React.FC<{ hook: Hook; silent?: boolean }> = ({ hook, silen
 
   // Caméra : plan de poursuite sur la page au point ambre, qui avance vers la presse ; léger travelling avant.
   const camT = interpolate(frame, [0, R - 4], [0, 1], { ...clamp, easing: (x) => x * x * (3 - 2 * x) });
-  const focusX = SPACING * H * 0.82 * (1 - camT);
-  const dolly = interpolate(frame, [0, R - 2], [-120, 150], { ...clamp, easing: (x) => x * x }) + interpolate(frame, [R - 2, R + 8], [0, 50], clamp);
+  const focusX = SPACING * H * (1 - camT);
+  const dolly = interpolate(frame, [0, R * 0.45, R - 2], [90, -40, 150], { ...clamp, easing: (x) => x * x * (3 - 2 * x) }) + interpolate(frame, [R - 2, R + 8], [0, 50], clamp);
   const world = `translateZ(${dolly}px) rotateX(${TILT}deg) rotateZ(${TURN}deg) translate(${-focusX}px, 0px)`;
 
   const plates = [];
@@ -126,7 +126,7 @@ export const S1Hook: React.FC<{ hook: Hook; silent?: boolean }> = ({ hook, silen
           <Template stamp={i < H ? st : 0} label={labelFor(i)} big={hook === "B"} />
           {i === H && (
             <>
-              <div style={{ position: "absolute", inset: 0, background: "radial-gradient(70% 45% at 86% 8%, rgba(255,196,107,.42), transparent 70%)", mixBlendMode: "screen" }} />
+              <div style={{ position: "absolute", inset: 0, background: "radial-gradient(90% 60% at 86% 8%, rgba(255,196,107,.55), rgba(255,196,107,.12) 60%, transparent 85%)", mixBlendMode: "screen" }} />
               <Dot size={44} glow={1.8} style={{ position: "absolute", right: 16, top: 12 }} />
             </>
           )}
@@ -161,6 +161,8 @@ export const S1Hook: React.FC<{ hook: Hook; silent?: boolean }> = ({ hook, silen
           {/* rails latéraux */}
           <Box3D w={5600} d={26} h={34} y={-313} z={-6} top="linear-gradient(90deg,#3a4254,#7d879c 50%,#3a4254)" front="#2a3040" side="#2a3040" />
           <Box3D w={5600} d={26} h={34} y={313} z={-6} top="linear-gradient(90deg,#3a4254,#8e98ad 50%,#3a4254)" front="linear-gradient(180deg,#5b6478,#1d2230)" side="#2a3040" />
+          {/* flaque de lumière chaude sous la page au point : l'anomalie se voit dès la miniature */}
+          <div style={{ position: "absolute", left: (H - p) * SPACING - 420, top: -420, width: 840, height: 840, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,196,107,.34) 0%, rgba(255,196,107,.12) 38%, transparent 68%)", transform: "translateZ(1px)", opacity: lift > 0.001 ? 0 : 1 }} />
           {plates}
           {/* presse */}
           <div style={{ position: "absolute", left: 0, top: 0, transformStyle: "preserve-3d" }}>

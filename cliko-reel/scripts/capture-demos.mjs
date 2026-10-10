@@ -10,7 +10,18 @@ import { mkdir } from "node:fs/promises";
 const SITE = process.env.SITE ?? "https://cliko.be";
 const OUT = "public/captures/demos";
 const DEMOS = ["atelier-verso", "forno-nero", "maison-celest"];
-const SHEETS = 3;
+const SHEETS = Number(process.env.SHEETS ?? 1);
+
+// Floute tout texte contenant un chiffre dans les démos (prix, dates, statistiques fictives) :
+// aucun chiffre inventé ne doit être lisible dans le reel.
+const blurDigits = (page) =>
+  page.evaluate(() => {
+    const panel = document.querySelector("#exemples [role=tabpanel]") ?? document.querySelector("#exemples");
+    for (const el of panel.querySelectorAll("*")) {
+      const own = [...el.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join("");
+      if (/\d/.test(own)) el.style.filter = "blur(7px)";
+    }
+  });
 
 await mkdir(OUT, { recursive: true });
 const browser = await chromium.launch({ proxy: process.env.HTTPS_PROXY ? { server: process.env.HTTPS_PROXY } : undefined });
@@ -30,6 +41,7 @@ async function run(view) {
   for (let d = 0; d < DEMOS.length; d++) {
     await page.locator("#exemples [role=tab]").nth(d).click();
     await page.waitForTimeout(2500);
+    await blurDigits(page);
     for (let s = 0; s < SHEETS; s++) {
       if (view === "mobile") {
         // cadre du mini-site : premier ancêtre du canvas assez grand ; on s'arrête avant la ligne « devis / chantiers / € »
@@ -53,7 +65,7 @@ async function run(view) {
       console.log("→", view, DEMOS[d], s + 1);
       // feuille suivante (flèche ›)
       const next = page.locator("#exemples button", { hasText: "›" }).first();
-      if (await next.count()) { await next.click(); await page.waitForTimeout(2200); }
+      if (await next.count()) { await next.click(); await page.waitForTimeout(2200); await blurDigits(page); }
     }
   }
   await ctx.close();

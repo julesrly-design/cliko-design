@@ -137,7 +137,7 @@ export const S2Problem: React.FC<{ hook: Hook }> = ({ hook }) => {
 
       {/* mot héros « éparpillé. » : il s'assemble, puis vole en éclats */}
       {hero && frame >= heroAt - 1 && (
-        <div style={{ position: "absolute", left: 80, width: 840, top: 690, display: "flex", justifyContent: "center", fontFamily: FONT.display, fontWeight: 900, fontSize: 150, letterSpacing: "-0.045em", color: B.accent, lineHeight: 1 }}>
+        <div style={{ position: "absolute", left: 80, width: 840, top: 690, display: "flex", justifyContent: "center", fontFamily: FONT.display, fontWeight: 900, fontSize: 150, letterSpacing: "-0.045em", color: B.text, lineHeight: 1 }}>
           {letters.map((ch, i) => {
             const a = spring({ frame: frame - heroAt + 2 - i * 0.35, fps, config: { stiffness: 420, damping: 24, mass: 0.5 } });
             const ang = random(`ep${i}`) * Math.PI * 2;
@@ -146,7 +146,7 @@ export const S2Problem: React.FC<{ hook: Hook }> = ({ hook }) => {
             const dy = Math.sin(ang) * dist * scatter;
             const r = (random(`er${i}`) - 0.5) * 140 * scatter;
             return (
-              <span key={i} style={{ display: "inline-block", transform: `translate(${dx}px, ${dy + (1 - a) * 60}px) rotate(${r}deg) scale(${0.6 + 0.4 * a})`, opacity: a * (1 - scatter * 0.6), filter: scatter > 0.05 ? `blur(${scatter * 8}px)` : undefined, textShadow: "0 0 40px rgba(255,196,107,.35), 0 10px 50px rgba(4,6,14,.8)" }}>
+              <span key={i} style={{ display: "inline-block", transform: `translate(${dx}px, ${dy + (1 - a) * 60}px) rotate(${r}deg) scale(${0.6 + 0.4 * a})`, opacity: a * (1 - scatter * 0.6), filter: scatter > 0.05 ? `blur(${scatter * 8}px)` : undefined, textShadow: "0 10px 50px rgba(4,6,14,.9)" }}>
                 {ch}
               </span>
             );
@@ -288,13 +288,13 @@ export const S3Solution: React.FC<{ hook: Hook }> = ({ hook }) => {
 
       {/* tout ce qui était éparpillé, désormais rangé sous la même adresse */}
       {bar > 0.3 && (
-        <div style={{ position: "absolute", left: 0, right: 0, top: CY + 120, display: "flex", justifyContent: "center", gap: 22, opacity: 1 - exit }}>
+        <div style={{ position: "absolute", left: 40, right: 150, top: CY + 120, display: "flex", justifyContent: "center", gap: 14, opacity: 1 - exit }}>
           {TILES.map((t, k) => {
             const s = spring({ frame: frame - (typeStart + 4 + k * 4), fps, config: { stiffness: 220, damping: 15 } });
             return (
-              <div key={t.key} style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 18px 12px 14px", borderRadius: 999, ...glass(), transform: `translateY(${(1 - s) * 40}px) scale(${0.8 + 0.2 * s})`, opacity: Math.min(1, s * 1.6) }}>
-                <LineIcon name={t.icon} size={30} color={B.text} stroke={1.6} />
-                <span style={{ fontFamily: FONT.display, fontWeight: 600, fontSize: 28, color: B.mist }}>{t.label}</span>
+              <div key={t.key} style={{ display: "flex", alignItems: "center", gap: 8, padding: "11px 15px 11px 12px", borderRadius: 999, ...glass(), transform: `translateY(${(1 - s) * 40}px) scale(${0.8 + 0.2 * s})`, opacity: Math.min(1, s * 1.6) }}>
+                <LineIcon name={t.icon} size={28} color={B.text} stroke={1.6} />
+                <span style={{ fontFamily: FONT.display, fontWeight: 600, fontSize: 26, color: B.mist }}>{t.label}</span>
                 <LineIcon name="check" size={24} color={B.accent} stroke={2.6} style={{ opacity: valid > 0.05 ? 1 : 0.0 }} />
               </div>
             );
@@ -317,6 +317,7 @@ export const S3Solution: React.FC<{ hook: Hook }> = ({ hook }) => {
       )}
       <RailScrim strength={0.5} />
 
+      <Sfx name="pop" at={4} db={-2} />
       <Sfx name="suck" at={gather - 2} db={-2} />
       {TILES.map((t, k) => (
         <Sfx key={t.key} name="click" at={gather + 15 + k * 3} db={-10} />

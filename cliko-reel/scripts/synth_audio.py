@@ -215,6 +215,16 @@ def music(tl):
     # respiration : passe-bas sur ce qui reste
     i0, i1 = int(breath0 * SR), int(breath1 * SR)
     mix[i0:i1] = filt(mix[i0:i1], "lowpass", 700)
+    # temps suspendu : le chaos se fige, la musique se coupe ~9 frames quand le point arrive (« Cliko »)
+    sol = sc["solution"]["from"]
+    a, b = int((sol - 0.01) * SR), int((sol + 0.3) * SR)
+    ramp = int(0.006 * SR)
+    gate = np.ones(n)
+    gate[a:b] = 0
+    gate[a - ramp:a] = np.linspace(1, 0, ramp)
+    gate[b:b + ramp] = np.linspace(0, 1, ramp)
+    mix = mix * gate
+
     # fondu de sortie très court
     fade = int(0.08 * SR)
     mix[-fade:] *= np.linspace(1, 0, fade)

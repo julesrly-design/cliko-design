@@ -1,6 +1,6 @@
 import React from "react";
 import { Audio } from "@remotion/media";
-import { Sequence, staticFile, useVideoConfig } from "remotion";
+import { getStaticFiles, Sequence, staticFile, useVideoConfig } from "remotion";
 
 export type SfxName =
   | "whoosh" | "whoosh-deep" | "whip" | "suck" | "riser" | "click-signature" | "click" | "pop" | "stamp" | "brake"
@@ -16,6 +16,13 @@ export const Sfx: React.FC<{ name: SfxName; at: number; db?: number; duration?: 
   );
 };
 
-// Piste musicale temporaire (synthétisée) ; remplacée par la musique ElevenLabs quand elle existe.
-export const Music: React.FC<{ hook: "A" | "B"; muted?: boolean }> = ({ hook, muted }) =>
-  muted ? null : <Audio src={staticFile(`music/temp-music-${hook}.wav`)} volume={Math.pow(10, -4 / 20)} />;
+// Piste musicale : music/music.mp3 (ElevenLabs Music) si elle existe, sinon la piste temporaire synthétisée.
+// Sous une voix off, la musique passe en retrait (−12 dB).
+export const Music: React.FC<{ hook: "A" | "B"; duck?: boolean }> = ({ hook, duck }) => {
+  const custom = getStaticFiles().some((f) => f.name === "music/music.mp3");
+  const src = custom ? "music/music.mp3" : `music/temp-music-${hook}.wav`;
+  return <Audio src={staticFile(src)} volume={Math.pow(10, (duck ? -16 : -4) / 20)} />;
+};
+
+// Voix off ElevenLabs (scripts/voice.mjs).
+export const Voice: React.FC<{ hook: "A" | "B" }> = ({ hook }) => <Audio src={staticFile(`voice/voix-${hook}.mp3`)} />;

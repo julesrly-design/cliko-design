@@ -1,123 +1,103 @@
-# Cliko — Reel de présentation · Storyboard
+# Cliko — Reel de présentation · Storyboard v1
 
-**Format** : 1080×1920 · 30 fps · cible 36 s (fenêtre 30–38 s) · H.264
-**Promesse** : un site unique, fait par deux humains qui écoutent, contre le site « à la chaîne ».
-**Fil rouge visuel** : *la chaîne de montage se casse*. On ouvre sur l'industriel et le gris, on finit sur la couleur et l'humain. Chaque scène retire un peu de machine et ajoute un peu de vie.
+**Format** : 1080×1920 · 30 fps · ≈ 29 s · H.264, son masterisé à −14 LUFS
+**Promesse** : votre commerce mérite mieux qu'un site fait à la chaîne ; chez Cliko, deux humains vous écoutent.
+**Fil rouge** : *le point ambre* du logo « Cliko. ». On le voit dès le frame 0, sur la seule page vivante d'une chaîne de montage grise. C'est lui qui « clique » et sauve la page, qui rassemble la présence éparpillée, qui devient la barre d'adresse, puis le point final du logo.
 
-> **Timings** : les valeurs ci-dessous sont des estimations (débit ≈ 3 mots/s). Le timing réel de chaque coupe, sous-titre et punch-in est calculé à partir des timestamps mot à mot renvoyés par ElevenLabs (`public/voice/alignment.json`). Seuls l'ordre, les ancrages (« sur le mot X ») et les durées minimales sont fixés ici.
+> Les timings sont ceux de l'estimation actuelle (≈ 3,4 mots/s), sans voix off. Tous les ancrages sont écrits « sur le mot X » dans le code (`useScene(id).at("mot")`) : les timestamps ElevenLabs les recaleront automatiquement.
 
 ---
 
-## Grammaire visuelle
+## Charte (extraite de cliko.be)
 
-| Élément | Règle |
+| Élément | Valeur |
 |---|---|
-| Couleurs | Palette Cliko (extraite du site) : fond clair crème/blanc, encre sombre, **accent Cliko** réservé aux mots-clés et aux moments de « vie ». Scène 1 et 2 désaturées, la couleur gagne du terrain scène après scène. |
-| Typo | Police titre du site, en gras (800–900) pour les sous-titres. Police texte du site pour les UI (barre d'adresse, chat). |
-| Mouvement | Tout en `spring()` (damping 12–18, mass 0.6–1). Entrées avec léger dépassement, sorties rapides et sèches. Aucun fondu enchaîné « PowerPoint ». |
-| Profondeur | 3 plans par scène minimum : fond (grille/flou), sujet, éléments flottants en avant-plan avec parallaxe ×1,3. |
-| Flou de mouvement | `<Trail>` / `CameraMotionBlur` sur les déplacements > 40 px/frame (whip-pans, aspirations, chaîne de montage). |
-| Grain | Bruit animé 4 % en overlay `soft-light` sur toute la durée. |
-| Punch-in | Micro-zoom 1,00 → 1,06 en 4 frames (spring raide) sur les mots forts : *mieux*, *éparpillé*, *vôtre*, *sur-mesure*, *écoute*, *Jules et Louis*, *24 h*, *trouvé*. |
-| Coupes | Chaque coupe tombe sur le début d'un mot (timestamp) **et** est arrondie au temps de musique le plus proche (±2 frames) à 122 BPM (1 temps ≈ 14,75 frames). |
-| Sous-titres | 1 à 3 mots, centrés à y ≈ 1220 px (entre la zone utile et la zone basse), 96–110 px, gras, contour/ombre portée pour le contraste, mot-clé en accent Cliko. Pop d'entrée (scale 0,8 → 1, 5 frames) + petit « pop » sonore discret (-24 dB). |
-| Zones de sécurité | Rien d'important dans y < 250, y > 1470, x > 930. Zone utile : x 60–930, y 250–1470. Overlay de contrôle activable dans Studio. |
+| Fond | Nuit `#0b1020`, lueurs pétrole / marine / indigo / royal du site, champ d'étoiles en parallaxe |
+| Accent | Ambre `#ffc46b` (dégradé `#ffd48f` → `#f0a948`), réservé à ~6 mots : *mieux, vôtre, écoute, 24 h, trouvé, cliko.be* (+ *nous* en accroche B) |
+| Texte | `#f2f3fa`, secondaire `#b9c0e3` |
+| Polices | Schibsted Grotesk (titres, sous-titres, logo) · Geist Mono (étiquettes, « machine ») — embarquées dans `public/fonts` |
+| Logo | « Cliko » Schibsted 700, −0,03 em, point final ambre (jamais extrudé ni en minuscules) |
+| Matières | Verre dépoli du site (`glass`, `glass-line`), icônes au trait fin comme les illustrations du site |
+| Mouvement | Ressorts (spring), courbes d'easing du site, flou de mouvement sur les déplacements rapides, grain 6 % |
+
+**Sous-titres** : rail aligné à gauche (x 80 → 920, au-dessus de y 1425), 1 à 3 mots, Schibsted 800 100 px. Chaque mot sort d'un masque à son instant, et les cartons sortent vers le haut, jamais en fondu. Les « mots héros » (*éparpillé, Cliko, sur-mesure, on vous écoute, Jules & Louis, Cliko., trouvé., Devis gratuit, cliko.be*) sont mis en scène en grand par la scène, et le rail les saute.
+**Zones sûres** : rien d'important dans les 250 px du haut, les 450 px du bas et les 150 px de droite ; c'est vérifié image par image avec le calque `showSafeZones`.
 
 ---
 
-## SCÈNE 1 — ACCROCHE · 0,0 → ~2,6 s
+## 1 · ACCROCHE — « Votre commerce mérite mieux qu'un site fait à la chaîne. » (0,0 → 2,9 s)
 
-**VO** : « Votre commerce mérite **mieux** qu'un site fait à la **chaîne**. »
-(Variante B : « Les agences web vous traitent comme un **numéro** ? **Pas nous**. »)
+| Temps | Visuel | Son |
+|---|---|---|
+| f0 (miniature) | Plan serré, plongée sur une chaîne de montage nocturne (CSS 3D). Des pages-modèles grises identiques portent le tampon « MODÈLE N° 034x ». Une seule page porte le **point ambre**, posée dans une flaque de lumière chaude. Néon froid « FAIT À LA CHAÎNE ». Sous-titre « Votre commerce » déjà affiché. | *CLANK* de la presse sur le frame 0 |
+| f0 → f70 | Plan de poursuite sur la page au point, qui avance d'un cran par temps (122 BPM). Travelling avant : la **presse** entre dans le champ et tamponne chaque page sur le temps. Poussières dans les faisceaux. | Tampon sur chaque temps, convoyeur, montée |
+| « chaîne » | La presse descend sur la page au point… **clic** : elle se fige à quelques centimètres, le néon s'éteint. La couleur jaillit du point, la page devient la vraie page d'accueil de cliko.be (vidéo, galaxie), se redresse et fonce vers la caméra. | Clic signature, *whoosh* profond |
+| fin | La page remplit le cadre, flash ambré. | Drop de la musique |
 
-| Plan | Timing | Visuel | Texte à l'écran | Son |
-|---|---|---|---|---|
-| 1A | 0,0–0,9 s | **Frame 0 = miniature** : vue en plongée ¾ d'un tapis roulant industriel qui traverse l'écran en diagonale. Sur le tapis, une file de maquettes de sites gris, toutes identiques (header gris, bloc image gris, 3 lignes grises), chacune frappée d'un tampon « MODÈLE N°… ». Au centre, un site est déjà légèrement teinté de l'accent Cliko : l'œil sait qu'il va se passer quelque chose. Défilement rapide, flou de mouvement, éclairage d'usine froid. | « Votre commerce » | Tampon industriel *CLANK* sur le 1er frame, puis cliquetis mécanique en boucle. |
-| 1B | 0,9–1,6 s | Un bras-tampon descend sur chaque site au rythme des temps (2 coups). Punch-in sur « mieux ». | « mérite **mieux** » | 2 tampons calés sur les temps. |
-| 1C | 1,6–2,6 s | **Arrêt brutal** du tapis (frein, léger recul spring). Le site du centre se soulève hors de la file (translateZ + ombre qui s'élargit), pivote vers la caméra. La couleur se propage depuis son centre (masque radial) : photo, typographie, boutons. Il devient un site unique et vivant. Les autres restent gris, flous, en arrière-plan. | « qu'un site » → « fait à la **chaîne** » | Frein métallique + *whoosh* montant, la musique démarre sur le temps 1 au moment où la couleur explose. |
+**Variante B** : néon « PRENEZ UN NUMÉRO » avec compteur « N° 00344 → 00349 », tampons « N° 0034x ». Le sauvetage tombe sur « Pas nous ».
 
-**Note A/B** : en variante B, le site de la file porte un gros numéro « #00347 » ; sur « Pas nous », le numéro se décolle et la couleur envahit le site. Même plan, seul le texte change (prop `hook`).
+## 2 · PROBLÈME — « Facebook, Google, vos photos… tout est éparpillé. » (2,9 → 5,9 s)
 
----
+| Temps | Visuel | Son |
+|---|---|---|
+| ouverture | Le flash se dissipe sur la nuit étoilée. Un téléphone 3D épais monte au centre ; ses notifications s'empilent. | Impact |
+| « Facebook », « Google », « photos », (pause) | Des tuiles en verre jaillissent du téléphone sur leur mot : pouce levé, épingle, appareil photo (avec 3 tirages), combiné (« Téléphone »). Ce sont des icônes génériques au trait, sans logo. Chacune porte un nœud d'étoile et une étiquette, reliée au téléphone par un trait fin : la constellation « éparpillée » du site. | *Whip* + pop par tuile |
+| « tout est » | Les tuiles s'écartent et tremblent, les traits se cassent en pointillés. | |
+| « éparpillé » | Mot héros géant blanc, lisible ~0,4 s, puis il vole en éclats lettre par lettre. | Grésillement, *whoosh* |
 
-## SCÈNE 2 — PROBLÈME · ~2,6 → ~6,8 s
+## 3 · SOLUTION — « Cliko rassemble tout à une seule adresse : la vôtre. » (5,9 → 8,9 s)
 
-**VO** : « Une page Facebook, une fiche Google, des photos sur un téléphone… tout est **éparpillé**. »
+| Temps | Visuel | Son |
+|---|---|---|
+| « Cliko » | **Temps suspendu** : la musique se coupe ~9 frames. Le téléphone se résorbe en un point ambre ; « Cliko » s'écrit autour de lui, le point en est le point final. | Silence, *pling* |
+| « rassemble tout » | Des traits ambrés partent du point vers chaque tuile (l'animation du site), puis aspirent les tuiles qui s'y fondent. | Aspiration, clics magnétiques |
+| « à une seule adresse » | Le point s'étire en barre d'adresse en verre qui tape « votrecommerce.be ». Dessous, les 4 éléments se rangent en puces : Facebook, Google, Photos, Téléphone. Une orbite tourne autour, comme sur le site. | Frappes clavier |
+| « la vôtre » | Entrée : le cadenas devient ✓ ambre, les puces se cochent, onde de choc. La barre s'envole vers le haut. | Clic signature |
 
-| Plan | Timing | Visuel | Texte à l'écran | Son |
-|---|---|---|---|---|
-| 2A | sur « Une page Facebook » | Whip-pan vers le bas : un téléphone (maquette sombre, écran vide) au centre. Une icône **pouce levé** générique (trait épais, pas de logo) jaillit du téléphone vers le haut-gauche. | « Une page » → « Facebook » | Pop + whoosh court. |
-| 2B | sur « une fiche Google » | Une **épingle de carte** générique jaillit vers la droite. | « une fiche » → « Google » | Pop. |
-| 2C | sur « des photos » | Un **appareil photo** stylisé + 3 vignettes photo floues jaillissent en bas-gauche. | « des photos » → « sur un téléphone » | Pop ×2. |
-| 2D | sur « téléphone » | Un **combiné** (icône téléphone) sonne et tremble. | | Mini-sonnerie. |
-| 2E | sur « éparpillé » | Toutes les icônes dérivent loin du téléphone, tremblent (shake bruité 2–3 px), légère rotation chaotique, profondeur différente (parallaxe). Le téléphone se désature. Punch-in. | « tout est » → « **éparpillé** » | Dissonance légère, la musique se fait plus « sèche ». |
+## 4 · CE QU'ON FAIT — « Un site sur-mesure, parfait sur téléphone. Hébergé, mis à jour, en trois langues. On gère même vos réseaux. » (8,9 → 15,4 s)
 
-Fond : grille fine qui se déforme légèrement (vague), pour le chaos.
+| Temps | Visuel | Son |
+|---|---|---|
+| « Un site » | Un téléphone 3D pivotant monte, avec à l'écran la vraie page d'accueil de cliko.be (vidéo). | *Whoosh* profond |
+| « sur-mesure » | Mot héros « sur- / mesure » en ambre, avec un mètre ruban qui se trace. Le téléphone passe à droite ; l'écran glisse sur la démo **Atelier Verso**. Étiquette « Exemple de style · Atelier Verso ». | *Whoosh* |
+| « parfait » | Le téléphone se met face caméra (punch-in) et passe à **Forno Nero**. | Tuile |
+| « téléphone » | Écran **Maison Célest**. | Tuile |
+| « Hébergé » | Un ordinateur et une tablette entrent en parallaxe ; leurs écrans montrent les vraies captures desktop de la section « Un style différent pour chaque commerce ». Puce « ☁ Hébergé ✓ ». | *Whoosh*, pop |
+| « mis à jour » | Puce « ↻ Mis à jour ✓ » (flèches qui tournent), reflet de rafraîchissement sur les 3 écrans. Badge non lu « En ligne en 1 à 3 semaines ». | Pops |
+| « en trois langues » | Tuiles **FR · NL · EN** qui se retournent, une par mot. | 3 *flaps* |
+| « On gère même vos réseaux » | 4 cartes de publication en verre (cadre photo au trait, cœur qui passe à l'ambre) et des cœurs qui s'envolent. | Pops, *ding* |
+| sortie | Les appareils glissent et se fondent en flou : respiration. | |
 
----
+Démos : ce sont des **exemples de styles**, toujours étiquetés comme tels. Dans les captures, tout texte qui contient un chiffre est flouté (prix, dates, statistiques fictives des démos).
 
-## SCÈNE 3 — SOLUTION · ~6,8 → ~9,8 s
+## 5 · L'HUMAIN — « Et surtout, on vous écoute. Pas de ticket, pas de robot : vous parlez directement à Jules et Louis. Réponse en vingt-quatre heures. » (15,4 → 22,7 s)
 
-**VO** : « **Cliko** rassemble tout à une seule adresse : **la vôtre**. »
+| Temps | Visuel | Son |
+|---|---|---|
+| « Et surtout » | Respiration musicale (passe-bas). La nuit se réchauffe : lumière ambrée qui monte du bas, bokeh chaud. Une tasse de café fume et des notes s'écrivent dans un carnet, au trait (« On se parle… autour d'un café à Bruxelles », comme sur le site). | Nappe chaude |
+| « on vous écoute » | Mot héros : « on vous » puis **« écoute. »** en ambre, lettre par lettre. | Marqueur |
+| « Pas de ticket » | Ticket « SERVICE CLIENT · FILE D'ATTENTE #48213 — Statut : en attente… » ; un trait de marqueur ambre le barre, puis il tombe. | Marqueur |
+| « pas de robot » | Un robot au trait grésille (décalage RVB), puis s'éteint comme un tube cathodique ; il n'en reste qu'un point lumineux ambre. | Grésillement, extinction |
+| « vous parlez directement à » | Le point s'ouvre sur deux pastilles **J** et **L** ; une ligne directe se trace vers elles. | Pops |
+| « Jules et Louis » | Mot héros « Jules / & Louis », étiquette « Fondateurs de Cliko · Bruxelles » (texte du site). | |
+| « Réponse en 24 h » | Conversation : « Pouvez-vous changer mes horaires ? », trois points de saisie, puis « C'est fait ✓ » en ambre. Le tampon **« < 24 h »** frappe : c'est le geste de la presse de l'usine, en version humaine. | Envoi, réception, tampon |
 
-| Plan | Timing | Visuel | Texte à l'écran | Son |
-|---|---|---|---|---|
-| 3A | sur « Cliko rassemble » | Une barre d'adresse de navigateur apparaît au centre (spring). Les icônes de la scène 2 sont **aspirées** vers elle (trajectoires courbes, flou de mouvement, rétrécissement), et s'aimantent sur sa gauche en petite pile. Inspiré de l'animation « Votre présence en ligne est éparpillée » du site. | « **Cliko** » → « rassemble tout » | *Whoosh* d'aspiration (reverse), « clacs » magnétiques. |
-| 3B | sur « une seule adresse » | La barre tape `votrecommerce.be` lettre par lettre (caret clignotant, 1 lettre ≈ 1,5 frame), calé pour finir sur « la vôtre ». | « une seule » → « adresse » | Frappes clavier légères. |
-| 3C | sur « la vôtre » | Validation : la touche « Entrée » s'enfonce, la barre s'illumine en accent Cliko, punch-in, onde de choc douce. | « **la vôtre** » | **Clic sonore** de validation (clic signature, version courte). |
+**Photo de Jules et Louis** : emplacement prêt. Si `public/brand/jules-louis.jpg` (ou `.png` / `.webp`) existe, la photo remplace automatiquement les initiales. Aucun visage n'est inventé.
 
----
+## 6 · APPEL À L'ACTION — « Cliko. Votre commerce mérite d'être trouvé. Devis gratuit sur cliko point be. » (22,7 → 29,3 s)
 
-## SCÈNE 4 — CE QU'ON FAIT · ~9,8 → ~20,0 s
-
-**VO** : « Un site **sur-mesure**, pensé pour votre activité. **Parfait sur téléphone**. Hébergé, mis à jour, en **français, néerlandais et anglais**. Et on peut même gérer vos **réseaux sociaux**. »
-
-| Plan | Timing | Visuel | Texte à l'écran | Son |
-|---|---|---|---|---|
-| 4A | sur « Un site sur-mesure » | La barre d'adresse se transforme (morph) en encoche d'un **téléphone 3D** qui pivote (rotateY −25° → 10°, spring lent) avec reflet spéculaire mobile. À l'écran : capture vidéo réelle du hero de cliko.be (scroll fluide). | « Un site » → « **sur-mesure** » | Whoosh profond. |
-| 4B | sur « pensé pour » / « votre activité » | Changement d'écran à chaque mot-clé (balayage vertical à l'intérieur de l'écran) : démo **Atelier Verso** → **Forno Nero** → **Maison Célest**, captures interactives réelles. Petite étiquette discrète sous le téléphone : « Exemple de style » (jamais présentées comme des clients). | « pensé pour » → « votre **activité** » | Tick à chaque changement d'écran. |
-| 4C | sur « Parfait sur téléphone » | Le téléphone se redresse face caméra, punch-in, la démo défile en douceur. | « **Parfait** » → « sur téléphone » | |
-| 4D | sur « Hébergé, mis à jour » | Le téléphone recule ; une **tablette** puis un **ordinateur** glissent en parallaxe derrière lui, chacun montrant la version adaptée (capture desktop réelle). Chips flottantes : un nuage ✓ (« Hébergé »), une flèche circulaire ✓ (« Mis à jour »). | « Hébergé » → « mis à jour » | Deux pops. |
-| 4E | sur « français, néerlandais et anglais » | 3 tuiles **FR · NL · EN** se retournent (flip 3D 180°, spring, décalage 4 frames) une par mot. | « **FR** » → « **NL** » → « **EN** » | 3 « flaps » de tuiles. |
-| 4F | en parallèle de 4D–4E | Badge texte non lu par la voix, en haut de la zone utile : « **En ligne en 1 à 3 semaines** » (pilule accent, entrée spring, reste ≥ 2 s). | | |
-| 4G | sur « réseaux sociaux » | Les 3 écrans se resserrent ; autour, des bulles de posts stylisées (icônes génériques cœur, bulle, partage — aucun logo officiel) se publient en cascade. | « Et on peut même » → « gérer vos » → « **réseaux sociaux** » | Pops en cascade. |
-
----
-
-## SCÈNE 5 — L'HUMAIN · ~20,0 → ~31,3 s
-
-**VO** : « Mais surtout, on vous **écoute**. Pas de ticket, pas de robot : vous parlez directement à **Jules et Louis**, ceux qui construisent votre site. Une question ? Réponse en **vingt-quatre heures**. »
-
-| Plan | Timing | Visuel | Texte à l'écran | Son |
-|---|---|---|---|---|
-| 5A | sur « Mais surtout » (+0,5 s de respiration) | **Respiration** : la musique se coupe en filtre passe-bas pendant ~0,5 s. Les écrans s'effacent, fond qui se réchauffe (gradient crème → pêche chaud, lumière douce), grain plus présent. | « Mais surtout, » → « on vous **écoute** » | Silence musical, room tone chaud. Punch-in doux sur « écoute ». |
-| 5B | sur « Pas de ticket » | Un ticket de support « **#48213** » (style reçu, bord dentelé) entre et se fait **barrer** d'un trait accent tracé à la main (stroke-dashoffset), puis tombe. | « Pas de **ticket** » | Trait de marqueur. |
-| 5C | sur « pas de robot » | Une icône de **robot** grésille (glitch RGB, scanlines), clignote et s'**éteint** (écran CRT qui se referme). | « pas de **robot** » | Grésillement + extinction. La musique revient en douceur. |
-| 5D | sur « vous parlez directement à Jules et Louis » | **Photo de Jules et Louis** : entrée en carte inclinée, qui se redresse (spring), légère parallaxe du sujet/fond, cadre arrondi. Punch-in sur leurs noms. | « vous parlez » → « directement à » → « **Jules et Louis** » | Accord chaud. |
-| 5E | sur « ceux qui construisent votre site » | La photo glisse en haut ; dessous, petit plan de « construction » : blocs du site qui s'empilent. | « ceux qui » → « construisent » → « votre site » | |
-| 5F | sur « Une question ? » | **Conversation** type messagerie : bulle client « Pouvez-vous changer mes horaires ? » (indicateur de saisie 3 points avant). | « Une question ? » | Son d'envoi. |
-| 5G | sur « Réponse en vingt-quatre heures » | Bulle de réponse « C'est fait ✓ » (avatar J&L), puis badge **« < 24 h »** qui tamponne la conversation (scale 1,4 → 1 spring). | « Réponse » → « en **24 h** » | Son de réception + tampon doux. |
+| Temps | Visuel | Son |
+|---|---|---|
+| « Cliko » | Retour à la nuit. Le point ambre tombe, rebondit et se pose en **point final du logo « Cliko. »**, avec une onde de choc. | Clic signature, impact |
+| « Votre commerce mérite d'être » | Une **galaxie de particules** (three.js), écho du hero de cliko.be « Votre commerce mérite d'être trouvé. », s'épanouit ; le logo monte. | Montée |
+| « trouvé » | Mot héros **« trouvé. »** en ambre ; une épingle se plante dans les étoiles avec des ondes. | Pop |
+| « Devis gratuit sur cliko.be » | **Plan final lisible ≥ 2 s** : logo, **cliko.be** (« .be » ambre, reflet), **@cliko_be**, pilule ambre « Devis gratuit · Bruxelles et toute la Belgique » (le bouton du site). | Clic, clic signature |
+| 0,4 dernière s | Saut en hyperespace : les étoiles filent, et on retombe exactement sur le frame 0 (usine, « Votre commerce ») pour une **boucle** invisible. | *Whoosh* profond, le *CLANK* du frame 0 relance la boucle |
 
 ---
 
-## SCÈNE 6 — APPEL À L'ACTION · ~31,3 → ~37,0 s
-
-**VO** : « **Cliko**. Votre commerce mérite d'être **trouvé**. Devis gratuit sur **cliko point be**. »
-
-| Plan | Timing | Visuel | Texte à l'écran | Son |
-|---|---|---|---|---|
-| 6A | sur « Cliko » | Tout converge en un point → **révélation du logo Cliko** (tracé/scale spring, éclat). | « **Cliko** » | **Clic signature** pleine version. |
-| 6B | sur « Votre commerce mérite d'être trouvé » | Logo monte ; une épingle de carte se plante sous le logo avec une petite onde. | « Votre commerce » → « mérite d'être » → « **trouvé** » | Pop + accent musical. |
-| 6C | sur « Devis gratuit sur cliko point be » → fin | **Plan final, lisible ≥ 2 s** : logo, **cliko.be** (gros), **@cliko_be**, puis pilule « **Devis gratuit · Bruxelles et toute la Belgique** ». Tout est dans la zone sûre. | « Devis gratuit » → « sur **cliko.be** » | Fin musicale sur le temps. |
-| 6D | 0,4 dernières s | **Raccord de boucle** : en arrière-plan, le tapis roulant gris réapparaît et défile, dans le même cadrage que le frame 0, pour que la boucle Reels/TikTok soit invisible. | | Cliquetis mécanique qui reprend (identique au début). |
-
----
-
-## Mixage
-- Voix : priorité absolue, -16 LUFS court terme, léger compresseur + de-esser.
-- Musique : ducking -12 dB sous la voix (sidechain par l'enveloppe des timestamps), remonte entre les phrases et sur la scène 6.
-- Bruitages : -18 à -24 dB, jamais sur une consonne forte de la voix.
-- Master : **-14 LUFS intégrés**, true peak ≤ -1 dBTP (passage `ffmpeg loudnorm` en 2 passes).
-
-## Livrables
-`out/cliko-reel.mp4` (accroche A) · `out/cliko-reel-accroche-B.mp4` · `out/cliko-reel-voix-seule.mp4` · `out/couverture.png` · `out/legende.txt`
+## Son (temporaire, en attendant ElevenLabs)
+- **Musique** : house minimaliste à 122 BPM, synthétisée (`scripts/synth_audio.py`), calée sur la timeline. Elle comprend une intro mécanique filtrée, un drop sur la scène 2, une coupure sur « Cliko », une respiration sur la scène 5 et un impact final.
+- **Bruitages** : 19 sons synthétisés (tampon, convoyeur, clic signature, *whooshes*, pops, frappes, tuiles, marqueur, grésillement, messages…), placés au mot près dans chaque scène.
+- **Master** : −14 LUFS intégrés, crête ≤ −1 dBTP (`scripts/master.sh`).
+- **Voix off** : à générer avec ElevenLabs (`npm run casting:list`, `casting:gen`, puis `npm run voice`). Les timestamps mot à mot recaleront automatiquement sous-titres, coupes et bruitages.

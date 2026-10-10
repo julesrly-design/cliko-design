@@ -1,54 +1,51 @@
-# Remotion video
+# Cliko — Reel de présentation (Remotion)
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.apng">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+Reel vertical 1080×1920 / 30 fps, ≈ 29 s, sur la charte de cliko.be. Le storyboard est dans [`STORYBOARD.md`](STORYBOARD.md).
 
-Welcome to your Remotion project!
+## Livrables (`out/`)
 
-## Commands
+| Fichier | Contenu |
+|---|---|
+| `cliko-reel.mp4` | Accroche A, musique et bruitages temporaires, sous-titres incrustés, son à −14 LUFS |
+| `cliko-reel-accroche-B.mp4` | Variante B (« Les agences web vous traitent comme un numéro ? Pas nous. ») |
+| `couverture.png`, `couverture-accroche-B.png` | Miniatures 1080×1920 ; l'accroche reste lisible dans le recadrage 4:5 de la grille |
+| `legende.txt` | Légendes Instagram et TikTok, hashtags, commentaire épinglé |
 
-**Install Dependencies**
+`cliko-reel-voix-seule.mp4` sera produit dès que la voix ElevenLabs existera (composition `ClikoReelVoixSeule` : sans musique, avec voix et bruitages).
 
-```console
-npm i --loglevel=error
+## Commandes
+
+```bash
+npm i
+npm run fx          # trames de grain (public/fx)
+npm run audio       # timeline + musique temporaire 122 BPM + bruitages (public/music, public/sfx)
+npx remotion studio # prévisualisation (compositions ClikoReel, ClikoReelB, Scene-*, Couverture)
+
+# rendus
+npx remotion render src/index.ts ClikoReel out/raw-A.mp4 --crf=17 --audio-bitrate=256k
+scripts/master.sh out/raw-A.mp4 out/cliko-reel.mp4          # −14 LUFS, crête ≤ −1 dBTP
+npx remotion still src/index.ts Couverture out/couverture.png
 ```
 
-**Start Preview**
+Dans ce conteneur cloud, il faut d'abord exporter `REMOTION_BROWSER=$(ls -d /opt/pw-browsers/chromium_headless_shell-*/*/)headless_shell`.
 
-```console
-npm run dev
-```
+## Brancher la voix ElevenLabs
 
-**Render video**
+1. Mettre la clé dans `.env` (`ELEVENLABS_API_KEY=…`). Le fichier est ignoré par git.
+2. `npm run casting:list`, puis `npm run casting:gen -- <id1> <id2> <id3>` : génère l'accroche avec 3 voix, pour en choisir une.
+3. `VOICE_ID=<id> npm run voice` : produit `public/voice/voix-A.mp3`, `voix-B.mp3` et leurs timestamps mot à mot.
+4. `npm run audio` recale la musique et les bruitages sur ces timestamps, puis on relance les rendus.
 
-```console
-npx remotion render
-```
+Les compositions détectent la voix toute seule (`src/voice.ts`). Les timestamps pilotent alors les sous-titres, les coupes et les bruitages, et la musique passe en retrait. Si « Cliko » est mal prononcé, il faut relancer avec `CLIKO_SAY=Kliko` (par exemple) ; les sous-titres gardent « Cliko ».
 
-**Upgrade Remotion**
+## Remplacer / compléter les éléments
 
-```console
-npx remotion upgrade
-```
+- **Photo de Jules et Louis** : déposer `public/brand/jules-louis.jpg` (ou `.png` / `.webp`). Elle remplace automatiquement les initiales de la scène 5.
+- **Musique** : déposer `public/music/music.mp3`. Elle remplace la piste temporaire.
+- **Captures de cliko.be** : `npm run capture` (vidéos, horloge pilotée) et `npm run capture-demos` (démos en images nettes, chiffres floutés).
+- **Couleurs, polices, courbes** : tout est dans `src/brand.ts`.
+- **Texte** : `src/script.json` contient la voix, `src/captions.ts` le découpage des sous-titres et les mots en ambre.
 
-## Docs
+## Règles de contenu respectées
 
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+Pas de prix, pas de chiffre ni d'avis inventé, pas de client. Les démos Atelier Verso, Forno Nero et Maison Célest sont présentées comme des *exemples de styles*, et leurs chiffres fictifs sont floutés. Les icônes sont génériques, sans logo Facebook, Google ou Instagram.

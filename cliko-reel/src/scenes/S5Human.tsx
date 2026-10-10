@@ -29,6 +29,56 @@ const Avatar: React.FC<{ letter: string; size: number; s: number; style?: React.
   </div>
 );
 
+// « On se parle… autour d'un café à Bruxelles » (déroulé de cliko.be) : tasse fumante et carnet où l'on prend note.
+const CafeNotes: React.FC<{ frame: number; draw: number; out: number }> = ({ frame, draw, out }) => {
+  const stroke = "rgba(242,243,250,.92)";
+  const lines = [0, 1, 2, 3];
+  return (
+    <svg width={1080} height={520} viewBox="0 0 1080 520" style={{ position: "absolute", left: 0, top: 860, opacity: 1 - out, transform: `translateY(${out * 60}px)`, overflow: "visible" }}>
+      <g fill="none" stroke={stroke} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round">
+        {/* tasse */}
+        <path d="M150 250 h190 v70 a95 95 0 0 1 -190 0 z" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - Math.min(1, draw * 1.6)} />
+        <path d="M340 270 a38 38 0 0 1 0 76" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - Math.min(1, draw * 1.6)} />
+        <path d="M110 430 h270" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - Math.min(1, draw * 1.8)} />
+        {/* vapeur */}
+        {[0, 1, 2].map((k) => (
+          <path
+            key={k}
+            d={`M${200 + k * 45} 225 c -18 -26 18 -40 0 -66 c -18 -26 18 -40 0 -66`}
+            stroke="rgba(255,212,143,.85)"
+            strokeWidth={3.5}
+            pathLength={1}
+            strokeDasharray="0.55 0.45"
+            strokeDashoffset={-((frame / 26 + k * 0.33) % 1)}
+            opacity={Math.min(1, draw * 2)}
+          />
+        ))}
+        {/* carnet à spirale */}
+        <rect x={500} y={120} width={470} height={330} rx={22} pathLength={1} strokeDasharray="1" strokeDashoffset={1 - Math.min(1, draw * 1.4)} />
+        {Array.from({ length: 9 }).map((_, k) => (
+          <circle key={k} cx={540 + k * 50} cy={120} r={10} opacity={Math.min(1, draw * 2)} />
+        ))}
+        {/* notes qui s'écrivent */}
+        {lines.map((k) => {
+          const p = Math.max(0, Math.min(1, draw * 2.2 - 0.5 - k * 0.32));
+          const w = [330, 380, 260, 300][k];
+          const y = 200 + k * 58;
+          return (
+            <path
+              key={k}
+              d={`M545 ${y} q 20 -14 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0`}
+              stroke={k === 3 ? B.accent : "rgba(185,192,227,.75)"}
+              strokeWidth={k === 3 ? 4.5 : 3.5}
+              pathLength={1}
+              strokeDasharray={`${(w / 360) * p} 2`}
+            />
+          );
+        })}
+      </g>
+    </svg>
+  );
+};
+
 export const S5Human: React.FC<{ hook: Hook }> = ({ hook }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -49,8 +99,6 @@ export const S5Human: React.FC<{ hook: Hook }> = ({ hook }) => {
   const a24 = T.at("vingt-quatre");
   const photo = teamPhoto();
 
-  // 0 · respiration : le point ambre flotte dans la lumière chaude
-  const dotIn = spring({ frame: frame - 2, fps, config: { stiffness: 80, damping: 14 } });
   // 1 · « on vous écoute »
   const ecIn = spring({ frame: frame - aEc, fps, config: { stiffness: 200, damping: 20 } });
   const ecOut = interpolate(frame, [aPas - 2, aPas + 4], [0, 1], { ...clamp, easing: (x) => x * x });
@@ -76,8 +124,6 @@ export const S5Human: React.FC<{ hook: Hook }> = ({ hook }) => {
   const rIn = spring({ frame: frame - (aRep + 9), fps, config: { stiffness: 210, damping: 15 } });
   const stamp = spring({ frame: frame - a24, fps, config: { stiffness: 320, damping: 11, mass: 0.6 } });
 
-  const waves = (k: number) => ((frame / 26 + k / 3) % 1);
-
   return (
     <AbsoluteFill>
       {/* bokeh chaud */}
@@ -88,17 +134,8 @@ export const S5Human: React.FC<{ hook: Hook }> = ({ hook }) => {
         return <div key={k} style={{ position: "absolute", left: x - r, top: y - r, width: r * 2, height: r * 2, borderRadius: "50%", background: "radial-gradient(circle, rgba(255,212,143,.22), rgba(255,196,107,0) 70%)", opacity: 0.4 + 0.6 * random(`bo${k}`) }} />;
       })}
 
-      {/* point ambre + ondes d'écoute */}
-      {frame < aPas + 4 && (
-        <>
-          <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: (1 - ecOut) * dotIn }}>
-            {[0, 1, 2].map((k) => (
-              <circle key={k} cx={540} cy={1010} r={40 + waves(k) * 420} fill="none" stroke={B.accent} strokeWidth={2} strokeOpacity={(1 - waves(k)) * 0.55} />
-            ))}
-          </svg>
-          <Dot size={46} glow={2} style={{ position: "absolute", left: 517, top: 987, transform: `scale(${dotIn * (1 + 0.08 * Math.sin(frame / 5))})`, opacity: 1 - ecOut }} />
-        </>
-      )}
+      {/* tasse de café et carnet : on vous écoute vraiment (pas une IA) */}
+      {frame < aPas + 6 && <CafeNotes frame={frame} draw={interpolate(frame, [0, aEcWord + 10], [0, 1], { ...clamp, easing: (x) => 1 - Math.pow(1 - x, 2) })} out={ecOut} />}
 
       {/* « on vous écoute. » */}
       {ecoute && frame >= aEc - 1 && ecOut < 1 && (
@@ -237,7 +274,7 @@ export const S5Human: React.FC<{ hook: Hook }> = ({ hook }) => {
 
       <RailScrim strength={0.65} />
 
-      <Sfx name="msg-receive" at={aEcWord} db={-10} />
+      <Sfx name="marker" at={aEcWord} db={-12} />
       <Sfx name="whoosh" at={aPas - 2} db={-6} />
       <Sfx name="marker" at={aTicket + 2} db={-2} />
       <Sfx name="whip" at={aPas2 - 3} db={-6} />

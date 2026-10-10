@@ -24,10 +24,8 @@ const PLAN: Record<SceneId, string[]> & { accrocheB: string[] } = {
   cta: ["*Cliko.", "Votre commerce", "mérite d'être", "*trouvé.", "*Devis gratuit", "*sur cliko.be"],
 };
 
-const KEYWORDS = new Set([
-  "mieux", "chaîne", "numéro", "nous", "éparpillé", "cliko", "vôtre", "sur-mesure", "parfait",
-  "langues", "réseaux", "écoute", "ticket", "robot", "jules", "louis", "24\u00a0h", "trouvé", "gratuit", "cliko.be",
-]);
+// L'ambre est rare : il ne marque que les mots qui portent la promesse (≈ 5 + cliko.be).
+const KEYWORDS = new Set(["mieux", "nous", "vôtre", "écoute", "24\u00a0h", "trouvé", "cliko.be"]);
 
 export type CapWord = { text: string; key: boolean; start: number; end: number }; // secondes absolues
 export type CapGroup = { scene: SceneId; text: string; hero: boolean; words: CapWord[]; start: number; end: number };

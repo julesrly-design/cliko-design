@@ -120,7 +120,7 @@ export const S4Offer: React.FC<{ hook: Hook }> = ({ hook }) => {
   const multi = spring({ frame: frame - aHeb, fps, config: { stiffness: 100, damping: 18 } });
   const outro = interpolate(frame, [end - 22, end], [0, 1], { ...clamp, easing: (x) => x * x });
   const sideAmt = side * (1 - face);
-  const phoneX = lerp(lerp(540, 790, sideAmt), 300, multi);
+  const phoneX = lerp(lerp(540, 750, sideAmt), 300, multi);
   const phoneY = lerp(lerp(1500, 830, enter), 900, multi) + outro * 500;
   const phoneW = lerp(lerp(390, 330, sideAmt), 250, multi);
   const rotY = lerp(lerp(-34, -18, enter), -26, sideAmt) * (1 - face) + face * (Math.sin(frame / 20) * 3) + multi * 16;

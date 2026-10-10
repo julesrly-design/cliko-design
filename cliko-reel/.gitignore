@@ -3,8 +3,8 @@ dist
 .DS_Store
 .env
 
-# Ignore the output video from Git but not videos you import into src/.
-out
+# Rendus intermédiaires (les livrables finaux d'out/ sont versionnés)
+out/raw-*.mp4
 
 # secrets
 .env
@@ -12,7 +12,6 @@ out
 !.env.example
 
 # rendus
-out/*.mp4
 frames/
 
 # audio et timeline générés (npm run audio)
