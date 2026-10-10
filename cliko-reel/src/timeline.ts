@@ -10,7 +10,7 @@ export type SceneId = (typeof SCENES)[number];
 export type Word = { text: string; start: number; end: number; scene: SceneId };
 export type Timeline = { words: Word[]; scenes: Record<SceneId, { from: number; to: number }>; total: number };
 
-const CTA_HOLD = 2.6; // plan final lisible ≥ 2 s + raccord de boucle
+const CTA_HOLD = 2.4; // plan final lisible ≥ 2 s + raccord de boucle
 const BREATH = 0.5; // respiration avant la scène 5
 
 export const norm = (t: string) =>
@@ -89,5 +89,30 @@ export const useScene = (id: SceneId) => {
     at: (match: string, nth = 0) => f(find(match, nth).start),
     end: (match: string, nth = 0) => f(find(match, nth).end),
     dur: Math.round((tl.scenes[id].to - from) * fps),
+  };
+};
+
+// Grille de beat de la musique (122 BPM), alignée comme dans scripts/synth_audio.py :
+// un temps tombe exactement sur le début de la scène 2 (le « drop »).
+export const BPM = 122;
+export const BEAT_S = 60 / BPM;
+
+export const beatsFor = (tl: Timeline): number[] => {
+  const drop = tl.scenes.probleme.from;
+  const grid0 = drop - BEAT_S * Math.ceil(drop / BEAT_S);
+  const beats: number[] = [];
+  for (let b = grid0; b <= tl.total + BEAT_S; b += BEAT_S) if (b >= 0) beats.push(b);
+  return beats;
+};
+
+// Cale une frame (relative à la scène) sur le temps le plus proche si l'écart est ≤ `tolerance` frames.
+export const useBeatSnap = (id: SceneId, tolerance = 2) => {
+  const tl = useTimeline();
+  const { fps } = useVideoConfig();
+  const from = tl.scenes[id].from;
+  const beats = beatsFor(tl).map((b) => Math.round((b - from) * fps));
+  return (frame: number) => {
+    const nearest = beats.reduce((best, b) => (Math.abs(b - frame) < Math.abs(best - frame) ? b : best), Infinity);
+    return Math.abs(nearest - frame) <= tolerance ? nearest : frame;
   };
 };

@@ -14,3 +14,9 @@ out
 # rendus
 out/*.mp4
 frames/
+
+# audio et timeline générés (npm run audio)
+public/music/temp-*.wav
+public/music/beats-*.json
+public/sfx/*.wav
+public/timeline-*.json

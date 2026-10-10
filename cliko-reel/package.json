@@ -6,11 +6,25 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "10.7.6",
+    "@react-three/fiber": "9.4.0",
     "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/light-leaks": "4.0.534",
+    "@remotion/media": "4.0.534",
+    "@remotion/media-utils": "4.0.534",
+    "@remotion/motion-blur": "4.0.534",
+    "@remotion/noise": "4.0.534",
+    "@remotion/paths": "4.0.534",
+    "@remotion/shapes": "4.0.534",
+    "@remotion/three": "4.0.534",
+    "@remotion/transitions": "4.0.534",
     "@remotion/zod-types": "^4.0.534",
+    "@types/three": "0.180.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "remotion": "4.0.534",
+    "three": "0.180.0",
     "zod": "4.5.4"
   },
   "devDependencies": {
@@ -20,6 +34,7 @@
     "eslint": "9.39.5",
     "playwright": "1.56",
     "prettier": "3.8.1",
+    "tsx": "4.20.6",
     "typescript": "5.9.3"
   },
   "scripts": {
@@ -33,6 +48,7 @@
     "casting:gen": "node --env-file=.env scripts/voice-casting.mjs gen",
     "voice": "node --env-file=.env scripts/voice.mjs",
     "sfx": "node --env-file=.env scripts/sfx.mjs",
-    "music": "node --env-file=.env scripts/music.mjs"
+    "music": "node --env-file=.env scripts/music.mjs",
+    "audio": "tsx scripts/export-timeline.ts && python3 scripts/synth_audio.py public/timeline-A.json && python3 scripts/synth_audio.py public/timeline-B.json"
   }
 }

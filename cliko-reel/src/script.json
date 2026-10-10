@@ -4,10 +4,10 @@
     "B": "Les agences web vous traitent comme un numéro ? Pas nous."
   },
   "body": [
-    { "scene": "probleme", "say": "Une page Facebook, une fiche Google, des photos sur un téléphone… tout est éparpillé." },
+    { "scene": "probleme", "say": "Facebook, Google, vos photos… tout est éparpillé." },
     { "scene": "solution", "say": "Cliko rassemble tout à une seule adresse : la vôtre." },
-    { "scene": "offre", "say": "Un site sur-mesure, pensé pour votre activité. Parfait sur téléphone. Hébergé, mis à jour, en français, néerlandais et anglais. Et on peut même gérer vos réseaux sociaux." },
-    { "scene": "humain", "say": "Mais surtout, on vous écoute. Pas de ticket, pas de robot : vous parlez directement à Jules et Louis, ceux qui construisent votre site. Une question ? Réponse en vingt-quatre heures." },
+    { "scene": "offre", "say": "Un site sur-mesure, parfait sur téléphone. Hébergé, mis à jour, en trois langues. On gère même vos réseaux." },
+    { "scene": "humain", "say": "Et surtout, on vous écoute. Pas de ticket, pas de robot : vous parlez directement à Jules et Louis. Réponse en vingt-quatre heures." },
     { "scene": "cta", "say": "Cliko. Votre commerce mérite d'être trouvé. Devis gratuit sur cliko point be." }
   ]
 }

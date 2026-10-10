@@ -11,3 +11,4 @@ Config.setRspack(true);
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
 Config.setBrowserExecutable(process.env.REMOTION_BROWSER ?? null);
+Config.setChromiumOpenGlRenderer("angle");
