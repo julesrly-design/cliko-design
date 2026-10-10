@@ -62,9 +62,9 @@
 | « sur-mesure » | Mot héros « sur- / mesure » en ambre, avec un mètre ruban qui se trace. Le téléphone passe à droite ; l'écran glisse sur la démo **Atelier Verso**. Étiquette « Exemple de style · Atelier Verso ». | *Whoosh* |
 | « parfait » | Le téléphone se met face caméra (punch-in) et passe à **Forno Nero**. | Tuile |
 | « téléphone » | Écran **Maison Célest**. | Tuile |
-| « Hébergé » | Un ordinateur et une tablette entrent en parallaxe ; leurs écrans montrent les vraies captures desktop de la section « Un style différent pour chaque commerce ». Puce « ☁ Hébergé ✓ ». | *Whoosh*, pop |
+| « Hébergé » | Plan « maquette produit » : un ordinateur vu de face (écran épais, fine base en aluminium) monte au centre, la tablette entre devant à gauche, le téléphone passe devant à droite. Le même site s'affiche sur les trois écrans (démo Maison Célest, vraies captures) : il s'adapte à toutes les tailles. Puce « ☁ Hébergé ✓ ». | *Whoosh*, pop |
 | « mis à jour » | Puce « ↻ Mis à jour ✓ » (flèches qui tournent), reflet de rafraîchissement sur les 3 écrans. Badge non lu « En ligne en 1 à 3 semaines ». | Pops |
-| « en trois langues » | Tuiles **FR · NL · EN** qui se retournent, une par mot. | 3 *flaps* |
+| « en trois langues » | Tuiles **FR · NL · EN** en verre qui pivotent depuis la tranche, une par mot, devant l'écran de l'ordinateur. | 3 *flaps* |
 | « On gère même vos réseaux » | 4 cartes de publication en verre (cadre photo au trait, cœur qui passe à l'ambre) et des cœurs qui s'envolent. | Pops, *ding* |
 | sortie | Les appareils glissent et se fondent en flou : respiration. | |
 

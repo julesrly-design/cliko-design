@@ -96,36 +96,38 @@ export const Tablet3D: React.FC<Pose & { width: number; landscape?: boolean; chi
   );
 };
 
-// Ordinateur portable : écran incliné + base (clavier) dans le même espace 3D.
-export const Laptop3D: React.FC<Pose & { width: number; open?: number; children?: React.ReactNode; style?: React.CSSProperties }> = ({
-  width, rotateX = 0, rotateY = 0, rotateZ = 0, open = 1, children, style,
+// Ordinateur portable vu de face (façon maquette produit) : écran épais (tranche en couches)
+// et fine base en aluminium sombre avec son encoche, solidaire de l'écran.
+export const Laptop3D: React.FC<Pose & { width: number; children?: React.ReactNode; style?: React.CSSProperties }> = ({
+  width, rotateX = 0, rotateY = 0, rotateZ = 0, children, style,
 }) => {
-  const sh = width * 0.64;
-  const r = width * 0.025;
-  const depth = width * 0.018;
-  const bezel = width * 0.02;
-  const baseH = width * 0.68;
+  const sh = width * 0.63;
+  const r = width * 0.028;
+  const depth = width * 0.016;
+  const bezel = width * 0.022;
+  const baseH = width * 0.032;
   return (
-    <div style={{ width, height: sh, position: "relative", transformStyle: "preserve-3d", transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`, ...style }}>
-      {/* base */}
-      <div
-        style={{
-          position: "absolute", left: -width * 0.03, top: sh, width: width * 1.06, height: baseH, borderRadius: r * 1.5,
-          background: "linear-gradient(180deg, #3a4152 0%, #232837 60%, #1a1e29 100%)",
-          transformOrigin: "top center", transform: "rotateX(90deg)",
-          boxShadow: "inset 0 0 0 2px #4b5468",
-        }}
-      >
-        <div style={{ position: "absolute", left: "8%", right: "8%", top: "7%", height: "52%", borderRadius: 8, background: "repeating-linear-gradient(90deg, #151924 0 22px, #1d2230 22px 26px), #151924", opacity: 0.9 }} />
-        <div style={{ position: "absolute", left: "36%", right: "36%", top: "66%", height: "26%", borderRadius: 10, background: "#1c2130", boxShadow: "inset 0 0 0 1px #2f3647" }} />
-      </div>
-      {/* écran, articulé sur la charnière */}
-      <div style={{ position: "absolute", inset: 0, transformStyle: "preserve-3d", transformOrigin: "bottom center", transform: `rotateX(${(1 - open) * -88}deg)` }}>
-        <Slices w={width} h={sh} r={r} depth={depth} n={5} />
-        <div style={{ position: "absolute", inset: 0, borderRadius: r, background: "#07080d", transform: `translateZ(${depth / 2 + 0.5}px)`, boxShadow: "inset 0 0 0 2px #3b4152" }}>
-          <div style={{ position: "absolute", inset: bezel, borderRadius: 4, overflow: "hidden", background: "#05070f" }}>{children}</div>
+    <div style={{ width, height: sh + baseH, position: "relative", transformStyle: "preserve-3d", transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`, ...style }}>
+      {/* écran */}
+      <div style={{ position: "absolute", left: 0, top: 0, width, height: sh, transformStyle: "preserve-3d" }}>
+        <Slices w={width} h={sh} r={r} depth={depth} n={5} dark="#151821" light="#3d4454" />
+        <div style={{ position: "absolute", inset: 0, borderRadius: r, background: "#06070b", transform: `translateZ(${depth / 2 + 0.5}px)`, boxShadow: "inset 0 0 0 2px #2c3240" }}>
+          <div style={{ position: "absolute", left: bezel, right: bezel, top: bezel, bottom: bezel * 1.6, borderRadius: r * 0.35, overflow: "hidden", background: "#05070f" }}>{children}</div>
+          <div style={{ position: "absolute", left: "50%", top: bezel * 0.32, width: bezel * 0.36, height: bezel * 0.36, marginLeft: -bezel * 0.18, borderRadius: "50%", background: "#1b2030" }} />
           <Glare angle={rotateY} radius={r} />
         </div>
+      </div>
+      {/* base : fine lame d'aluminium plus large que l'écran, avec l'encoche d'ouverture */}
+      <div
+        style={{
+          position: "absolute", left: -width * 0.075, top: sh - 1, width: width * 1.15, height: baseH,
+          borderRadius: `${baseH * 0.25}px ${baseH * 0.25}px ${baseH * 0.9}px ${baseH * 0.9}px / ${baseH * 0.25}px ${baseH * 0.25}px ${baseH}px ${baseH}px`,
+          background: "linear-gradient(180deg, #9aa1b0 0%, #5c6372 22%, #383e4b 70%, #23272f 100%)",
+          boxShadow: "0 30px 60px -18px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.35)",
+          transform: `translateZ(${depth / 2}px)`,
+        }}
+      >
+        <div style={{ position: "absolute", left: "42%", width: "16%", top: 0, height: "42%", borderRadius: `0 0 ${baseH}px ${baseH}px`, background: "linear-gradient(180deg, #2a2f3a, #3b414e)" }} />
       </div>
     </div>
   );

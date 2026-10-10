@@ -42,6 +42,16 @@ const DesktopScreen: React.FC<{ demo: (typeof DEMOS)[number]; t: number; zoom?: 
   />
 );
 
+// Écran cadré sur une zone précise d'une capture desktop (2160×1350) : ex. le mini-site seul, pour la tablette.
+const CropScreen: React.FC<{ src: string; crop: { x: number; y: number; w: number; h: number }; width: number; t: number }> = ({ src, crop, width, t }) => {
+  const k = (width / crop.w) * (1 + 0.04 * t);
+  return (
+    <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: B.night }}>
+      <Img src={staticFile(src)} style={{ position: "absolute", left: -crop.x * k, top: -crop.y * k - 30 * t, width: 2160 * k, height: 1350 * k }} />
+    </div>
+  );
+};
+
 // Écran qui glisse par-dessus le précédent sur son mot-clé.
 const Swap: React.FC<{ steps: { at: number; node: React.ReactNode }[] }> = ({ steps }) => {
   const frame = useCurrentFrame();
@@ -72,12 +82,17 @@ const Chip: React.FC<{ icon: LineIconName; label: string; s: number; spin?: numb
 );
 
 const LangTile: React.FC<{ label: string; flip: number }> = ({ label, flip }) => (
-  <div style={{ width: 170, height: 150, perspective: 900, opacity: flip > 0.02 ? 1 : 0 }}>
-    <div style={{ position: "relative", width: "100%", height: "100%", transformStyle: "preserve-3d", transform: `rotateX(${180 - 180 * flip}deg) scale(${0.7 + 0.3 * Math.min(1, flip * 1.5)})` }}>
-      <div style={{ position: "absolute", inset: 0, borderRadius: 30, background: B.nightRaised, border: `1.5px solid ${B.glassLine}`, backfaceVisibility: "hidden", transform: "rotateX(180deg)" }} />
-      <div style={{ position: "absolute", inset: 0, borderRadius: 30, ...glass(true), border: "1.5px solid rgba(255,196,107,.55)", backfaceVisibility: "hidden", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT.display, fontWeight: 800, fontSize: 76, letterSpacing: "-0.03em", color: B.accent, boxShadow: "0 0 50px rgba(255,196,107,.22), 0 30px 60px -20px rgba(2,4,12,.8)" }}>
-        {label}
-      </div>
+  <div style={{ width: 170, height: 150, perspective: 900, opacity: flip > 0.02 ? Math.min(1, flip * 3) : 0 }}>
+    <div
+      style={{
+        position: "absolute", inset: 0, borderRadius: 30, ...glass(true), border: "1.5px solid rgba(255,196,107,.6)",
+        display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT.display, fontWeight: 800, fontSize: 76,
+        letterSpacing: "-0.03em", color: B.accent, boxShadow: "0 0 50px rgba(255,196,107,.25), 0 30px 60px -20px rgba(2,4,12,.85)",
+        background: "rgba(11,16,32,.72)",
+        transform: `rotateX(${(1 - flip) * 90}deg) scale(${0.75 + 0.25 * Math.min(1, flip)})`,
+      }}
+    >
+      {label}
     </div>
   </div>
 );
@@ -120,11 +135,11 @@ export const S4Offer: React.FC<{ hook: Hook }> = ({ hook }) => {
   const multi = spring({ frame: frame - aHeb, fps, config: { stiffness: 100, damping: 18 } });
   const outro = interpolate(frame, [end - 22, end], [0, 1], { ...clamp, easing: (x) => x * x });
   const sideAmt = side * (1 - face);
-  const phoneX = lerp(lerp(540, 750, sideAmt), 300, multi);
-  const phoneY = lerp(lerp(1500, 830, enter), 900, multi) + outro * 500;
-  const phoneW = lerp(lerp(390, 330, sideAmt), 250, multi);
-  const rotY = lerp(lerp(-34, -18, enter), -26, sideAmt) * (1 - face) + face * (Math.sin(frame / 20) * 3) + multi * 16;
-  const rotX = lerp(14, 4, enter) * (1 - face) + multi * 4;
+  const phoneX = lerp(lerp(540, 750, sideAmt), 768, multi);
+  const phoneY = lerp(lerp(1500, 830, enter), 968, multi) + outro * 500;
+  const phoneW = lerp(lerp(390, 330, sideAmt), 228, multi);
+  const rotY = (lerp(lerp(-34, -18, enter), -26, sideAmt) * (1 - face) + face * (Math.sin(frame / 20) * 3)) * (1 - multi) + multi * (-12 + Math.sin(frame / 24) * 3);
+  const rotX = (lerp(14, 4, enter) * (1 - face)) * (1 - multi) + multi * 5;
   const screenW = phoneW * 0.936;
   const screenH = phoneW * 2.006;
   const local = (from: number, len = 40) => interpolate(frame, [from, from + len], [0, 1], clamp);
@@ -147,24 +162,24 @@ export const S4Offer: React.FC<{ hook: Hook }> = ({ hook }) => {
 
   return (
     <AbsoluteFill style={{ transform: `translateY(${-outro * 40}px)`, filter: outro > 0 ? `blur(${outro * 14}px)` : undefined, opacity: 1 - outro * 0.6 }}>
-      {/* ordinateur (plan arrière) */}
+      {/* ordinateur (plan arrière, centré dans la zone utile) */}
       {laptopIn > 0.005 && (
-        <div style={{ position: "absolute", left: 520, top: 560, perspective: 2400, transform: `translateX(${(1 - laptopIn) * -900}px)`, opacity: Math.min(1, laptopIn * 2) }}>
+        <div style={{ position: "absolute", left: 470, top: 700, perspective: 2600, transform: `translateY(${(1 - laptopIn) * 260}px) scale(${0.88 + 0.12 * laptopIn})`, opacity: Math.min(1, laptopIn * 1.8), filter: laptopIn < 0.95 ? `blur(${(1 - laptopIn) * 10}px)` : undefined }}>
           <div style={{ transform: "translate(-50%,-50%)" }}>
-            <Laptop3D width={700} rotateX={14} rotateY={lerp(40, 10, laptopIn)} open={Math.min(1, 0.3 + laptopIn)}>
-              <DesktopScreen demo={DEMOS[0]} t={local(aHeb, 90)} />
-              <div style={{ position: "absolute", inset: 0, background: `linear-gradient(110deg, transparent ${refresh * 120 - 30}%, rgba(255,255,255,.25) ${refresh * 120 - 15}%, transparent ${refresh * 120}%)` }} />
+            <Laptop3D width={760} rotateX={6} rotateY={lerp(-16, -5, laptopIn) + Math.sin(frame / 30) * 2}>
+              <DesktopScreen demo={DEMOS[2]} t={local(aHeb, 120)} zoom={1.0} />
+              <div style={{ position: "absolute", inset: 0, background: `linear-gradient(110deg, transparent ${refresh * 120 - 30}%, rgba(255,255,255,.22) ${refresh * 120 - 15}%, transparent ${refresh * 120}%)` }} />
             </Laptop3D>
           </div>
         </div>
       )}
-      {/* tablette paysage (plan intermédiaire) */}
+      {/* tablette (premier plan gauche) : le même site, cadré sur le mini-site */}
       {tabletIn > 0.005 && (
-        <div style={{ position: "absolute", left: 760, top: 900, perspective: 2000, transform: `translateX(${(1 - tabletIn) * 700}px)`, opacity: Math.min(1, tabletIn * 2) }}>
+        <div style={{ position: "absolute", left: 255, top: 1000, perspective: 2000, transform: `translateX(${(1 - tabletIn) * -520}px)`, opacity: Math.min(1, tabletIn * 2) }}>
           <div style={{ transform: "translate(-50%,-50%)" }}>
-            <Tablet3D width={330} landscape rotateY={lerp(-50, -20, tabletIn)} rotateX={8}>
-              <DesktopScreen demo={DEMOS[2]} t={local(aMaj, 80)} zoom={1.1} />
-              <div style={{ position: "absolute", inset: 0, background: `linear-gradient(110deg, transparent ${refresh * 120 - 30}%, rgba(255,255,255,.25) ${refresh * 120 - 15}%, transparent ${refresh * 120}%)` }} />
+            <Tablet3D width={340} landscape rotateY={lerp(34, 14, tabletIn)} rotateX={6}>
+              <CropScreen src={`captures/demos/${DEMOS[2].key}-desktop-1.png`} crop={{ x: 234, y: 740, w: 924, h: 610 }} width={340 * 0.92} t={local(aMaj, 90)} />
+              <div style={{ position: "absolute", inset: 0, background: `linear-gradient(110deg, transparent ${refresh * 120 - 30}%, rgba(255,255,255,.22) ${refresh * 120 - 15}%, transparent ${refresh * 120}%)` }} />
             </Tablet3D>
           </div>
         </div>
@@ -218,7 +233,7 @@ export const S4Offer: React.FC<{ hook: Hook }> = ({ hook }) => {
       </div>
 
       {/* FR · NL · EN */}
-      <div style={{ position: "absolute", left: 0, right: 150, top: 1062, display: "flex", justifyContent: "center", gap: 24, opacity: 1 - chipsOut, transform: `translateY(${chipsOut * 30}px)` }}>
+      <div style={{ position: "absolute", left: 0, width: 940, top: 600, display: "flex", justifyContent: "center", gap: 24, opacity: 1 - chipsOut, transform: `translateY(${chipsOut * 30}px)` }}>
         {["FR", "NL", "EN"].map((l, i) => <LangTile key={l} label={l} flip={flips[i]} />)}
       </div>
 
