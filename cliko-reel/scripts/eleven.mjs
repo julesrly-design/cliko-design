@@ -31,3 +31,5 @@ export async function save(path, data) {
 // Réglages orientés expressivité (Eleven v3 : stability 0 = Creative, 0.5 = Natural).
 export const MODEL = process.env.ELEVEN_MODEL ?? "eleven_v3";
 export const VOICE_SETTINGS = { stability: 0.3, similarity_boost: 0.8, style: 0.6, use_speaker_boost: true };
+// 192 kbit/s est réservé à l'offre Creator et au-dessus : 128 kbit/s passe sur toutes les offres.
+export const FORMAT = process.env.ELEVEN_FORMAT ?? "mp3_44100_128";
