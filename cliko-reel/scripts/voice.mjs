@@ -20,7 +20,8 @@ function toWords(text, { characters, character_start_times_seconds: s, character
   return words;
 }
 
-for (const variant of ["A", "B"]) {
+// VARIANTS=B pour ne régénérer qu'une variante.
+for (const variant of (process.env.VARIANTS ?? "A,B").split(",")) {
   const parts = [{ scene: "accroche", say: HOOKS[variant] }, ...BODY];
   const text = parts.map((p) => toSay(p.say)).join(" ");
   const res = await api(`/v1/text-to-speech/${voiceId}/with-timestamps`, {

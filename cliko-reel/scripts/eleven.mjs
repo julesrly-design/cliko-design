@@ -17,8 +17,13 @@ export async function api(path, { method = "GET", body, query, raw = false } = {
     headers: { ...(key() ? { "xi-api-key": key() } : {}), ...(body ? { "content-type": "application/json" } : {}) },
     body: body ? JSON.stringify(body) : undefined,
   });
-  if (res.status === 401 && !key()) throw new Error("Clé ElevenLabs introuvable : ajouter ELEVENLABS_API_KEY à l'environnement (ou en secret réseau pour api.elevenlabs.io).");
-  if (!res.ok) throw new Error(`${method} ${url.pathname} -> ${res.status} ${await res.text()}`);
+  if (!res.ok) {
+    const detail = await res.text();
+    // 401 couvre aussi le quota épuisé : on ne parle de clé manquante que si ElevenLabs le dit.
+    if (res.status === 401 && !key() && detail.includes("needs_authorization"))
+      throw new Error("Clé ElevenLabs introuvable : ajouter ELEVENLABS_API_KEY à l'environnement (ou en secret réseau pour api.elevenlabs.io).");
+    throw new Error(`${method} ${url.pathname} -> ${res.status} ${detail}`);
+  }
   return raw ? Buffer.from(await res.arrayBuffer()) : res.json();
 }
 
