@@ -9,6 +9,7 @@
     "@react-three/drei": "10.7.6",
     "@react-three/fiber": "9.4.0",
     "@remotion/cli": "4.0.534",
+    "@remotion/fonts": "4.0.534",
     "@remotion/google-fonts": "4.0.534",
     "@remotion/light-leaks": "4.0.534",
     "@remotion/media": "4.0.534",
@@ -49,6 +50,8 @@
     "voice": "node --env-file=.env scripts/voice.mjs",
     "sfx": "node --env-file=.env scripts/sfx.mjs",
     "music": "node --env-file=.env scripts/music.mjs",
-    "audio": "tsx scripts/export-timeline.ts && python3 scripts/synth_audio.py public/timeline-A.json && python3 scripts/synth_audio.py public/timeline-B.json"
+    "audio": "tsx scripts/export-timeline.ts && python3 scripts/synth_audio.py public/timeline-A.json && python3 scripts/synth_audio.py public/timeline-B.json",
+    "capture-demos": "node scripts/capture-demos.mjs",
+    "fx": "python3 scripts/make_fx.py"
   }
 }

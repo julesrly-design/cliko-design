@@ -20,3 +20,14 @@ public/music/temp-*.wav
 public/music/beats-*.json
 public/sfx/*.wav
 public/timeline-*.json
+public/fx/grain-*.png
+
+# captures non utilisées par le montage (régénérables : npm run capture / capture-demos)
+public/captures/.frames-*
+public/captures/desktop-*.mp4
+public/captures/mobile-deroule.mp4
+public/captures/mobile-eparpillee.mp4
+public/captures/mobile-hero-scroll.mp4
+public/captures/mobile-partenaire.mp4
+public/captures/demos/*-2.png
+public/captures/demos/*-3.png

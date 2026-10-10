@@ -1,99 +1,92 @@
-import React, { useMemo } from "react";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
-import { C, F } from "../brand";
-import { norm, useTimeline, Word } from "../timeline";
-import { sp } from "../utils";
+import React from "react";
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { B, FONT } from "../brand";
+import { CapGroup, useCaptions } from "../captions";
+import { Hook } from "../timeline";
 
-// Forme phonétique → forme écrite (« vingt-quatre heures » → « 24 h »).
-const DISPLAY: [string[], string][] = [
-  [["vingt-quatre", "heures"], "24 h"],
-  [["cliko", "point", "be"], "cliko.be"],
-  [["kliko"], "Cliko"],
-  [["clicko"], "Cliko"],
-];
+// Rail de sous-titres : fer à gauche (comme les titres de cliko.be), ancré par le bas.
+// Zone sûre : x 80 → 920, dernière ligne au-dessus de y = 1420.
+export const RAIL = { left: 80, width: 840, bottom: 1920 - 1425, size: 100 };
 
-const KEYWORDS = new Set([
-  "mieux", "chaîne", "numéro", "nous", "éparpillé", "cliko", "vôtre", "sur-mesure", "parfait",
-  "français", "néerlandais", "anglais", "réseaux", "sociaux", "écoute", "ticket", "robot",
-  "jules", "louis", "24 h", "trouvé", "gratuit", "cliko.be",
-]);
+const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
-type Group = { words: { text: string; key: boolean }[]; start: number; end: number };
-
-const applyDisplay = (words: Word[]): Word[] => {
-  const out: Word[] = [];
-  for (let i = 0; i < words.length; i++) {
-    const rule = DISPLAY.find(([seq]) => seq.every((s, k) => norm(words[i + k]?.text ?? "") === s));
-    if (!rule) { out.push(words[i]); continue; }
-    const last = words[i + rule[0].length - 1];
-    const trail = last.text.match(/[.,?!…:]+$/)?.[0] ?? "";
-    out.push({ ...words[i], text: rule[1] + trail, end: last.end });
-    i += rule[0].length - 1;
-  }
-  return out;
+const Word: React.FC<{ text: string; keyword: boolean; at: number; frame: number; fps: number; still: boolean }> = ({ text, keyword, at, frame, fps, still }) => {
+  const p = still ? 1 : spring({ frame: frame - at, fps, config: { stiffness: 420, damping: 32, mass: 0.5 } });
+  return (
+    <span style={{ display: "inline-block", overflow: "hidden", paddingBottom: "0.12em", marginBottom: "-0.12em", verticalAlign: "bottom" }}>
+      <span
+        style={{
+          display: "inline-block",
+          transform: `translateY(${(1 - p) * 105}%)`,
+          filter: p < 0.98 ? `blur(${(1 - p) * 6}px)` : undefined,
+          color: keyword ? B.accent : B.text,
+          textShadow: keyword ? "0 0 36px rgba(255,196,107,.35)" : "0 4px 30px rgba(4,6,14,.55)",
+        }}
+      >
+        {text}
+      </span>
+    </span>
+  );
 };
 
-// 1 à 3 mots par carton ; coupe sur la ponctuation et au-delà de ~15 caractères.
-export const groupCaptions = (words: Word[]): Group[] => {
-  const groups: Group[] = [];
-  let cur: Word[] = [];
-  const flush = () => {
-    if (!cur.length) return;
-    groups.push({
-      words: cur.map((w) => {
-        const text = w.text.replace(/[.,:…]+$/, "");
-        return { text, key: KEYWORDS.has(norm(text)) };
-      }),
-      start: cur[0].start,
-      end: cur[cur.length - 1].end,
-    });
-    cur = [];
-  };
-  for (const w of applyDisplay(words)) {
-    const len = cur.reduce((n, x) => n + x.text.length + 1, 0) + w.text.length;
-    if (cur.length && (cur.length >= 3 || len > 15)) flush();
-    cur.push(w);
-    if (/[.,?!…:]$/.test(w.text)) flush();
-  }
-  flush();
-  return groups;
-};
-
-export const Captions: React.FC = () => {
+export const CaptionRail: React.FC<{ hook: Hook }> = ({ hook }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const { words } = useTimeline();
-  const groups = useMemo(() => groupCaptions(words), [words]);
+  const groups = useCaptions(hook);
   const t = frame / fps;
-  const i = groups.findIndex((g, k) => t >= g.start - 0.03 && t < (groups[k + 1]?.start ?? g.end + 0.6) && t < g.end + 0.6);
-  if (i < 0) return null;
-  const g = groups[i];
-  const local = frame - Math.round((g.start - 0.03) * fps);
-  const s = sp(local, fps, 0, { damping: 11, stiffness: 260, mass: 0.5 });
+
+  // Carton courant = le dernier commencé ; il sort dès que le suivant (même héros) commence.
+  let idx = -1;
+  for (let i = 0; i < groups.length; i++) if (groups[i].start - 1.5 / fps <= t) idx = i;
+  if (idx < 0) return null;
+  const g: CapGroup = groups[idx];
+  const next = groups[idx + 1];
+  const startF = Math.round(g.start * fps) - 1;
+  const exitAt = next ? Math.round(next.start * fps) - 1 : Math.round((g.end + 0.6) * fps);
+  const holdEnd = Math.round((g.end + 1.1) * fps);
+  const exitF = Math.min(exitAt, holdEnd);
+  const out = interpolate(frame, [exitF - 1, exitF + 3], [0, 1], clamp);
+  if (g.hero || out >= 1) return null;
+  const still = startF <= 1; // miniature : le premier carton est lisible dès le frame 0
 
   return (
     <AbsoluteFill style={{ pointerEvents: "none" }}>
       <div
         style={{
-          position: "absolute", left: 60, width: 870, top: 1360, transform: `translateY(-50%) scale(${0.82 + 0.18 * s})`,
-          display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0 32px",
-          fontFamily: F.display, fontWeight: 900, fontSize: 104, lineHeight: 1.05, letterSpacing: -2, textAlign: "center",
+          position: "absolute",
+          left: RAIL.left,
+          width: RAIL.width,
+          bottom: RAIL.bottom,
+          display: "flex",
+          flexWrap: "wrap",
+          columnGap: "0.24em",
+          alignItems: "flex-end",
+          fontFamily: FONT.display,
+          fontWeight: 800,
+          fontSize: RAIL.size,
+          lineHeight: 1.0,
+          letterSpacing: "-0.035em",
+          transform: `translateY(${-out * 34}px)`,
+          opacity: 1 - out,
+          filter: out > 0 ? `blur(${out * 8}px)` : undefined,
         }}
       >
         {g.words.map((w, k) => (
-          <span
-            key={k}
-            style={{
-              color: w.key ? C.accent : C.white,
-              WebkitTextStroke: `16px ${C.ink}`,
-              paintOrder: "stroke fill",
-              textShadow: "0 10px 30px rgba(0,0,0,.35)",
-            }}
-          >
-            {w.text}
-          </span>
+          <Word key={k} text={w.text} keyword={w.key} at={Math.round(w.start * fps) - 1} frame={frame} fps={fps} still={still} />
         ))}
       </div>
     </AbsoluteFill>
   );
 };
+
+// Voile de lisibilité sous le rail, dosé par scène (0 = aucun, 1 = fort).
+export const RailScrim: React.FC<{ strength: number }> = ({ strength }) =>
+  strength <= 0 ? null : (
+    <AbsoluteFill
+      style={{
+        pointerEvents: "none",
+        opacity: strength,
+        background: "linear-gradient(180deg, transparent 0%, transparent 58%, rgba(6,9,20,.55) 68%, rgba(6,9,20,.7) 76%, rgba(6,9,20,.35) 88%, transparent 100%)",
+      }}
+    />
+  );
