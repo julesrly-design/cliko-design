@@ -30,3 +30,6 @@ public/captures/mobile-hero-scroll.mp4
 public/captures/mobile-partenaire.mp4
 public/captures/demos/*-2.png
 public/captures/demos/*-3.png
+
+# liste des voix candidates (régénérable : npm run casting:list)
+public/voice/casting/candidates.json
