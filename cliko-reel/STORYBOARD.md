@@ -54,7 +54,7 @@
 | « à une seule adresse » | Le point s'étire en barre d'adresse en verre qui tape « votrecommerce.be ». Dessous, les 4 éléments se rangent en puces : Facebook, Google, Photos, Téléphone. Une orbite tourne autour, comme sur le site. | Frappes clavier |
 | « la vôtre » | Entrée : le cadenas devient ✓ ambre, les puces se cochent, onde de choc. La barre s'envole vers le haut. | Clic signature |
 
-## 4 · CE QU'ON FAIT — « Un site sur-mesure, parfait sur téléphone. Hébergé, mis à jour, en trois langues. On gère même vos réseaux. » (8,9 → 15,4 s)
+## 4 · CE QU'ON FAIT — « Un site sur-mesure, parfait sur téléphone. Hébergé, mis à jour, en trois langues. »
 
 | Temps | Visuel | Son |
 |---|---|---|
@@ -64,8 +64,7 @@
 | « téléphone » | Écran **Maison Célest**. | Tuile |
 | « Hébergé » | Plan « maquette produit » : un ordinateur vu de face (écran épais, fine base en aluminium) monte au centre, la tablette entre devant à gauche, le téléphone passe devant à droite. Le même site s'affiche sur les trois écrans (démo Maison Célest, vraies captures) : il s'adapte à toutes les tailles. Puce « ☁ Hébergé ✓ ». | *Whoosh*, pop |
 | « mis à jour » | Puce « ↻ Mis à jour ✓ » (flèches qui tournent), reflet de rafraîchissement sur les 3 écrans. Badge non lu « En ligne en 1 à 3 semaines ». | Pops |
-| « en trois langues » | Tuiles **FR · NL · EN** en verre qui pivotent depuis la tranche, une par mot, devant l'écran de l'ordinateur. | 3 *flaps* |
-| « On gère même vos réseaux » | 4 cartes de publication en verre (cadre photo au trait, cœur qui passe à l'ambre) et des cœurs qui s'envolent. | Pops, *ding* |
+| « en trois langues » | Tuiles **FR · NL · EN** en verre qui pivotent depuis la tranche, une par mot, devant l'écran de l'ordinateur. Les puces et les tuiles restent à l'écran jusqu'à la sortie. | 3 *flaps* |
 | sortie | Les appareils glissent et se fondent en flou : respiration. | |
 
 Démos : ce sont des **exemples de styles**, toujours étiquetés comme tels. Dans les captures, tout texte qui contient un chiffre est flouté (prix, dates, statistiques fictives des démos).

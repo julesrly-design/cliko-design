@@ -97,20 +97,6 @@ const LangTile: React.FC<{ label: string; flip: number }> = ({ label, flip }) =>
   </div>
 );
 
-// Carte de publication (style des illustrations « réseaux sociaux » du site) : cadre photo au trait + cœur.
-const PostCard: React.FC<{ s: number; liked: number; tint: string; style: React.CSSProperties }> = ({ s, liked, tint, style }) => (
-  <div style={{ position: "absolute", width: 168, height: 196, borderRadius: 28, ...glass(true), padding: 14, transform: `translateY(${(1 - s) * 60}px) scale(${0.6 + 0.4 * s})`, opacity: Math.min(1, s * 1.8), ...style }}>
-    <div style={{ height: 118, borderRadius: 16, background: tint, display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(255,255,255,.12)" }}>
-      <LineIcon name="image" size={56} color="rgba(242,243,250,.9)" stroke={1.4} />
-    </div>
-    <div style={{ display: "flex", gap: 12, marginTop: 14, alignItems: "center" }}>
-      <LineIcon name="heart" size={32} color={liked > 0.5 ? B.accent : B.mist} fill={liked > 0.5 ? B.accent : "none"} stroke={1.8} style={{ transform: `scale(${1 + 0.35 * Math.sin(Math.PI * Math.min(1, liked))})` }} />
-      <LineIcon name="bubble" size={30} color={B.mist} stroke={1.7} />
-      <LineIcon name="send" size={28} color={B.mist} stroke={1.7} />
-    </div>
-  </div>
-);
-
 export const S4Offer: React.FC<{ hook: Hook }> = ({ hook }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -124,8 +110,6 @@ export const S4Offer: React.FC<{ hook: Hook }> = ({ hook }) => {
   const aTrois = T.at("trois");
   const aLang = T.at("langues");
   const aEn = T.at("en");
-  const aOn = T.at("on");
-  const aRes = T.at("réseaux");
   const end = T.dur;
 
   // —— téléphone héros ——
@@ -153,10 +137,8 @@ export const S4Offer: React.FC<{ hook: Hook }> = ({ hook }) => {
   const tagIn = spring({ frame: frame - aSur, fps, config: { stiffness: 160, damping: 18 } });
   const tagOut = interpolate(frame, [aHeb - 4, aHeb + 2], [0, 1], clamp);
   const demoIdx = frame < aParf ? 0 : frame < aTel ? 1 : 2;
-  const chipsOut = interpolate(frame, [aOn - 4, aOn + 4], [0, 1], clamp);
   const badge = spring({ frame: frame - (aMaj + 10), fps, config: { stiffness: 140, damping: 16 } });
   const flips = [aEn, aTrois, aLang].map((a, i) => spring({ frame: frame - (a + i * 2), fps, config: { stiffness: 150, damping: 12 } }));
-  const social = (i: number) => spring({ frame: frame - (aOn + i * 4), fps, config: { stiffness: 170, damping: 13 } });
   const heroIn = spring({ frame: frame - aSur, fps, config: { stiffness: 240, damping: 20 } });
   const heroOut = interpolate(frame, [aParf - 3, aParf + 3], [0, 1], clamp);
 
@@ -225,37 +207,17 @@ export const S4Offer: React.FC<{ hook: Hook }> = ({ hook }) => {
       </div>
 
       {/* puces hébergé / mis à jour + badge non lu */}
-      <Chip icon="cloud" label="Hébergé" s={spring({ frame: frame - aHeb, fps, config: { stiffness: 180, damping: 14 } }) * (1 - chipsOut)} style={{ left: 80, top: 276 }} />
-      <Chip icon="refresh" label="Mis à jour" spin={interpolate(frame, [aMaj, aMaj + 20], [0, 360], clamp)} s={spring({ frame: frame - aMaj, fps, config: { stiffness: 180, damping: 14 } }) * (1 - chipsOut)} style={{ left: 430, top: 276 }} />
-      <div style={{ position: "absolute", left: 80, top: 384, display: "flex", alignItems: "center", gap: 14, padding: "14px 26px", borderRadius: 999, background: `linear-gradient(180deg, ${B.accentBright}, ${B.accent})`, color: B.night, fontFamily: FONT.display, fontWeight: 700, fontSize: 34, transform: `scale(${0.8 + 0.2 * badge})`, transformOrigin: "left center", opacity: Math.min(1, badge * 1.6) * (1 - chipsOut), boxShadow: "0 0 40px rgba(255,196,107,.3)" }}>
+      <Chip icon="cloud" label="Hébergé" s={spring({ frame: frame - aHeb, fps, config: { stiffness: 180, damping: 14 } })} style={{ left: 80, top: 276 }} />
+      <Chip icon="refresh" label="Mis à jour" spin={interpolate(frame, [aMaj, aMaj + 20], [0, 360], clamp)} s={spring({ frame: frame - aMaj, fps, config: { stiffness: 180, damping: 14 } })} style={{ left: 430, top: 276 }} />
+      <div style={{ position: "absolute", left: 80, top: 384, display: "flex", alignItems: "center", gap: 14, padding: "14px 26px", borderRadius: 999, background: `linear-gradient(180deg, ${B.accentBright}, ${B.accent})`, color: B.night, fontFamily: FONT.display, fontWeight: 700, fontSize: 34, transform: `scale(${0.8 + 0.2 * badge})`, transformOrigin: "left center", opacity: Math.min(1, badge * 1.6), boxShadow: "0 0 40px rgba(255,196,107,.3)" }}>
         <LineIcon name="clock" size={32} color={B.night} stroke={2.2} />
         En ligne en 1 à 3 semaines
       </div>
 
       {/* FR · NL · EN */}
-      <div style={{ position: "absolute", left: 0, width: 940, top: 600, display: "flex", justifyContent: "center", gap: 24, opacity: 1 - chipsOut, transform: `translateY(${chipsOut * 30}px)` }}>
+      <div style={{ position: "absolute", left: 0, width: 940, top: 600, display: "flex", justifyContent: "center", gap: 24 }}>
         {["FR", "NL", "EN"].map((l, i) => <LangTile key={l} label={l} flip={flips[i]} />)}
       </div>
-
-      {/* réseaux sociaux */}
-      {[
-        { x: 70, y: 300, tint: "linear-gradient(135deg,#c98b5e,#5a3a26)", r: -8 },
-        { x: 300, y: 250, tint: "linear-gradient(135deg,#e0452b,#3a120c)", r: 5 },
-        { x: 540, y: 280, tint: "linear-gradient(135deg,#a9bdb1,#2c3d35)", r: -4 },
-        { x: 760, y: 330, tint: "linear-gradient(135deg,#7f95e6,#1a2a86)", r: 9 },
-      ].map((c, i) => (
-        <PostCard key={i} s={social(i)} liked={interpolate(frame, [aRes + i * 3, aRes + 4 + i * 3], [0, 1], clamp)} tint={c.tint} style={{ left: c.x, top: c.y - Math.sin((frame - aOn) / 14 + i) * 8, transform: `rotate(${c.r}deg)` }} />
-      ))}
-      {Array.from({ length: 8 }).map((_, k) => {
-        const t0 = aRes + (k % 4) * 3;
-        const t = interpolate(frame, [t0, t0 + 26], [0, 1], clamp);
-        if (t <= 0 || t >= 1) return null;
-        return (
-          <div key={k} style={{ position: "absolute", left: 150 + (k % 4) * 230 + Math.sin(k * 3 + frame / 6) * 20, top: 360 - t * 200 - k * 6, opacity: Math.sin(Math.PI * t), transform: `scale(${0.6 + 0.6 * t})` }}>
-            <LineIcon name="heart" size={40} color={B.accent} fill={B.accent} />
-          </div>
-        );
-      })}
 
       <RailScrim strength={0.75} />
 
@@ -268,8 +230,6 @@ export const S4Offer: React.FC<{ hook: Hook }> = ({ hook }) => {
       <Sfx name="pop" at={aMaj + 2} db={-4} />
       <Sfx name="pop" at={aMaj + 12} db={-6} />
       {[aEn, aTrois, aLang].map((a, i) => <Sfx key={i} name="flap" at={a + i * 2} db={-3} />)}
-      {[0, 1, 2, 3].map((i) => <Sfx key={i} name="pop" at={aOn + i * 4} db={-6} />)}
-      <Sfx name="msg-receive" at={aRes} db={-8} />
     </AbsoluteFill>
   );
 };

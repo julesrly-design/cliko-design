@@ -19,7 +19,7 @@ const PLAN: Record<SceneId, string[]> & { accrocheB: string[] } = {
   accrocheB: ["Les agences web", "vous traitent", "comme un numéro\u00a0?", "Pas nous."],
   probleme: ["Facebook,", "Google,", "vos photos…", "tout est", "*éparpillé."],
   solution: ["*Cliko", "rassemble tout", "à une seule", "adresse\u00a0:", "la vôtre."],
-  offre: ["Un site", "*sur-mesure,", "parfait", "sur téléphone.", "Hébergé,", "mis à jour,", "en trois langues.", "On gère même", "vos réseaux."],
+  offre: ["Un site", "*sur-mesure,", "parfait", "sur téléphone.", "Hébergé,", "mis à jour,", "en trois langues."],
   humain: ["Et surtout,", "*on vous écoute.", "Pas de ticket,", "pas de robot\u00a0:", "vous parlez", "directement à", "*Jules et Louis.", "Réponse", "en 24\u00a0h."],
   cta: ["*Cliko.", "Votre commerce", "mérite d'être", "*trouvé.", "*Devis gratuit", "*sur cliko.be"],
 };
