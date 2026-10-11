@@ -2,7 +2,7 @@
 // Chaque variante = 1 seule requête (prosodie continue). On écrit :
 //   public/voice/voix-<A|B>.mp3 et public/voice/alignment-<A|B>.json (mots + scènes, en secondes)
 // Usage : VOICE_ID=xxx node --env-file=.env scripts/voice.mjs
-import { api, save, MODEL, VOICE_SETTINGS } from "./eleven.mjs";
+import { api, save, MODEL, VOICE_SETTINGS, FORMAT } from "./eleven.mjs";
 import { HOOKS, BODY, DISPLAY, toSay } from "./script.mjs";
 
 const voiceId = process.env.VOICE_ID;
@@ -20,12 +20,13 @@ function toWords(text, { characters, character_start_times_seconds: s, character
   return words;
 }
 
-for (const variant of ["A", "B"]) {
+// VARIANTS=B pour ne régénérer qu'une variante.
+for (const variant of (process.env.VARIANTS ?? "A,B").split(",")) {
   const parts = [{ scene: "accroche", say: HOOKS[variant] }, ...BODY];
   const text = parts.map((p) => toSay(p.say)).join(" ");
   const res = await api(`/v1/text-to-speech/${voiceId}/with-timestamps`, {
     method: "POST",
-    query: { output_format: "mp3_44100_192" },
+    query: { output_format: FORMAT },
     body: { text, model_id: MODEL, voice_settings: VOICE_SETTINGS, language_code: "fr" },
   });
   await save(`public/voice/voix-${variant}.mp3`, Buffer.from(res.audio_base64, "base64"));

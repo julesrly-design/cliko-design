@@ -1,7 +1,7 @@
 // Musique via ElevenLabs Music (si l'offre y donne accès) → public/music/music.mp3
 // Sinon : déposer assets/music.mp3. Sinon : pas de musique.
 // Usage : DURATION_MS=40000 BREATH_AT_MS=20000 node --env-file=.env scripts/music.mjs
-import { api, save } from "./eleven.mjs";
+import { api, save, FORMAT } from "./eleven.mjs";
 
 const total = Number(process.env.DURATION_MS ?? 40000);
 const breath = Number(process.env.BREATH_AT_MS ?? 20000);
@@ -17,7 +17,7 @@ const sections = [
 try {
   const audio = await api("/v1/music", {
     method: "POST",
-    query: { output_format: "mp3_44100_192" },
+    query: { output_format: FORMAT },
     body: {
       model_id: "music_v1",
       composition_plan: {

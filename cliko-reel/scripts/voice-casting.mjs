@@ -1,7 +1,7 @@
 // STOP 1 — Génère l'accroche A avec plusieurs voix françaises candidates.
 // 1) `node --env-file=.env scripts/voice-casting.mjs list` : liste les voix FR de la bibliothèque (jeunes, énergiques).
 // 2) `node --env-file=.env scripts/voice-casting.mjs gen <voiceId1> <voiceId2> <voiceId3>` : génère public/voice/casting/*.mp3
-import { api, save, MODEL, VOICE_SETTINGS } from "./eleven.mjs";
+import { api, save, MODEL, VOICE_SETTINGS, FORMAT } from "./eleven.mjs";
 import { HOOKS, toSay } from "./script.mjs";
 
 const [cmd, ...ids] = process.argv.slice(2);
@@ -27,7 +27,7 @@ if (cmd === "list") {
   for (const id of ids) {
     const audio = await api(`/v1/text-to-speech/${id}`, {
       method: "POST",
-      query: { output_format: "mp3_44100_192" },
+      query: { output_format: FORMAT },
       body: { text: toSay(HOOKS.A), model_id: MODEL, voice_settings: VOICE_SETTINGS, language_code: "fr" },
       raw: true,
     });

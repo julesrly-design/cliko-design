@@ -17,8 +17,13 @@ export async function api(path, { method = "GET", body, query, raw = false } = {
     headers: { ...(key() ? { "xi-api-key": key() } : {}), ...(body ? { "content-type": "application/json" } : {}) },
     body: body ? JSON.stringify(body) : undefined,
   });
-  if (res.status === 401 && !key()) throw new Error("Clé ElevenLabs introuvable : ajouter ELEVENLABS_API_KEY à l'environnement (ou en secret réseau pour api.elevenlabs.io).");
-  if (!res.ok) throw new Error(`${method} ${url.pathname} -> ${res.status} ${await res.text()}`);
+  if (!res.ok) {
+    const detail = await res.text();
+    // 401 couvre aussi le quota épuisé : on ne parle de clé manquante que si ElevenLabs le dit.
+    if (res.status === 401 && !key() && detail.includes("needs_authorization"))
+      throw new Error("Clé ElevenLabs introuvable : ajouter ELEVENLABS_API_KEY à l'environnement (ou en secret réseau pour api.elevenlabs.io).");
+    throw new Error(`${method} ${url.pathname} -> ${res.status} ${detail}`);
+  }
   return raw ? Buffer.from(await res.arrayBuffer()) : res.json();
 }
 
@@ -31,3 +36,5 @@ export async function save(path, data) {
 // Réglages orientés expressivité (Eleven v3 : stability 0 = Creative, 0.5 = Natural).
 export const MODEL = process.env.ELEVEN_MODEL ?? "eleven_v3";
 export const VOICE_SETTINGS = { stability: 0.3, similarity_boost: 0.8, style: 0.6, use_speaker_boost: true };
+// 192 kbit/s est réservé à l'offre Creator et au-dessus : 128 kbit/s passe sur toutes les offres.
+export const FORMAT = process.env.ELEVEN_FORMAT ?? "mp3_44100_128";

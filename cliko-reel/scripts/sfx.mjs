@@ -1,6 +1,6 @@
 // Bruitages via l'API Sound Effects d'ElevenLabs → public/sfx/*.mp3
 // Usage : node --env-file=.env scripts/sfx.mjs [nom...]
-import { api, save } from "./eleven.mjs";
+import { api, save, FORMAT } from "./eleven.mjs";
 
 export const SFX = {
   tampon: ["Heavy industrial rubber stamp slam on metal conveyor belt, punchy, dry, close mic", 0.8],
@@ -26,7 +26,7 @@ for (const [name, [text, duration_seconds]] of Object.entries(SFX)) {
   if (names.length && !names.includes(name)) continue;
   const audio = await api("/v1/sound-generation", {
     method: "POST",
-    query: { output_format: "mp3_44100_192" },
+    query: { output_format: FORMAT },
     body: { text, duration_seconds, prompt_influence: 0.6 },
     raw: true,
   });

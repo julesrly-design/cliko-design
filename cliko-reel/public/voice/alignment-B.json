@@ -1,0 +1,582 @@
+{
+  "variant": "B",
+  "voiceId": "iP95p4xoKVk53GoZ742B",
+  "model": "eleven_v3",
+  "display": [
+    [
+      "vingt-quatre heures",
+      "24 h"
+    ],
+    [
+      "cliko point be",
+      "cliko.be"
+    ]
+  ],
+  "scenes": [
+    {
+      "scene": "accroche",
+      "start": 0,
+      "end": 2.64
+    },
+    {
+      "scene": "probleme",
+      "start": 2.756,
+      "end": 6.4
+    },
+    {
+      "scene": "solution",
+      "start": 6.64,
+      "end": 9.68
+    },
+    {
+      "scene": "offre",
+      "start": 9.813,
+      "end": 14.96
+    },
+    {
+      "scene": "humain",
+      "start": 15.89,
+      "end": 23.97
+    },
+    {
+      "scene": "cta",
+      "start": 24.01,
+      "end": 28.93
+    }
+  ],
+  "words": [
+    {
+      "text": "Les",
+      "start": 0,
+      "end": 0.08,
+      "charStart": 0,
+      "scene": "accroche"
+    },
+    {
+      "text": "agences",
+      "start": 0.133,
+      "end": 0.4,
+      "charStart": 4,
+      "scene": "accroche"
+    },
+    {
+      "text": "web",
+      "start": 0.46,
+      "end": 0.64,
+      "charStart": 12,
+      "scene": "accroche"
+    },
+    {
+      "text": "vous",
+      "start": 0.672,
+      "end": 0.8,
+      "charStart": 16,
+      "scene": "accroche"
+    },
+    {
+      "text": "traitent",
+      "start": 0.827,
+      "end": 1.04,
+      "charStart": 21,
+      "scene": "accroche"
+    },
+    {
+      "text": "comme",
+      "start": 1.053,
+      "end": 1.12,
+      "charStart": 30,
+      "scene": "accroche"
+    },
+    {
+      "text": "un",
+      "start": 1.147,
+      "end": 1.2,
+      "charStart": 36,
+      "scene": "accroche"
+    },
+    {
+      "text": "numéro",
+      "start": 1.257,
+      "end": 1.6,
+      "charStart": 39,
+      "scene": "accroche"
+    },
+    {
+      "text": "?",
+      "start": 1.92,
+      "end": 2.24,
+      "charStart": 46,
+      "scene": "accroche"
+    },
+    {
+      "text": "Pas",
+      "start": 2.28,
+      "end": 2.4,
+      "charStart": 48,
+      "scene": "accroche"
+    },
+    {
+      "text": "nous.",
+      "start": 2.432,
+      "end": 2.64,
+      "charStart": 52,
+      "scene": "accroche"
+    },
+    {
+      "text": "Facebook,",
+      "start": 2.756,
+      "end": 3.76,
+      "charStart": 58,
+      "scene": "probleme"
+    },
+    {
+      "text": "Google,",
+      "start": 3.829,
+      "end": 4.32,
+      "charStart": 68,
+      "scene": "probleme"
+    },
+    {
+      "text": "vos",
+      "start": 4.36,
+      "end": 4.48,
+      "charStart": 76,
+      "scene": "probleme"
+    },
+    {
+      "text": "photos…",
+      "start": 4.549,
+      "end": 5.44,
+      "charStart": 80,
+      "scene": "probleme"
+    },
+    {
+      "text": "tout",
+      "start": 5.488,
+      "end": 5.68,
+      "charStart": 88,
+      "scene": "probleme"
+    },
+    {
+      "text": "est",
+      "start": 5.72,
+      "end": 5.84,
+      "charStart": 93,
+      "scene": "probleme"
+    },
+    {
+      "text": "éparpillé.",
+      "start": 5.88,
+      "end": 6.4,
+      "charStart": 97,
+      "scene": "probleme"
+    },
+    {
+      "text": "Cliko",
+      "start": 6.64,
+      "end": 7.12,
+      "charStart": 108,
+      "scene": "solution"
+    },
+    {
+      "text": "rassemble",
+      "start": 7.16,
+      "end": 7.68,
+      "charStart": 114,
+      "scene": "solution"
+    },
+    {
+      "text": "tout",
+      "start": 7.712,
+      "end": 7.84,
+      "charStart": 124,
+      "scene": "solution"
+    },
+    {
+      "text": "à",
+      "start": 7.96,
+      "end": 8.08,
+      "charStart": 129,
+      "scene": "solution"
+    },
+    {
+      "text": "une",
+      "start": 8.12,
+      "end": 8.24,
+      "charStart": 131,
+      "scene": "solution"
+    },
+    {
+      "text": "seule",
+      "start": 8.28,
+      "end": 8.48,
+      "charStart": 135,
+      "scene": "solution"
+    },
+    {
+      "text": "adresse",
+      "start": 8.53,
+      "end": 8.88,
+      "charStart": 141,
+      "scene": "solution"
+    },
+    {
+      "text": ":",
+      "start": 8.96,
+      "end": 9.04,
+      "charStart": 149,
+      "scene": "solution"
+    },
+    {
+      "text": "la",
+      "start": 9.093,
+      "end": 9.2,
+      "charStart": 151,
+      "scene": "solution"
+    },
+    {
+      "text": "vôtre.",
+      "start": 9.253,
+      "end": 9.68,
+      "charStart": 154,
+      "scene": "solution"
+    },
+    {
+      "text": "Un",
+      "start": 9.813,
+      "end": 10.08,
+      "charStart": 161,
+      "scene": "offre"
+    },
+    {
+      "text": "site",
+      "start": 10.144,
+      "end": 10.4,
+      "charStart": 164,
+      "scene": "offre"
+    },
+    {
+      "text": "sur-mesure,",
+      "start": 10.44,
+      "end": 11.04,
+      "charStart": 169,
+      "scene": "offre"
+    },
+    {
+      "text": "parfait",
+      "start": 11.11,
+      "end": 11.6,
+      "charStart": 181,
+      "scene": "offre"
+    },
+    {
+      "text": "sur",
+      "start": 11.62,
+      "end": 11.68,
+      "charStart": 189,
+      "scene": "offre"
+    },
+    {
+      "text": "téléphone.",
+      "start": 11.736,
+      "end": 12.48,
+      "charStart": 193,
+      "scene": "offre"
+    },
+    {
+      "text": "Hébergé,",
+      "start": 12.6,
+      "end": 13.36,
+      "charStart": 204,
+      "scene": "offre"
+    },
+    {
+      "text": "mis",
+      "start": 13.42,
+      "end": 13.6,
+      "charStart": 213,
+      "scene": "offre"
+    },
+    {
+      "text": "à",
+      "start": 13.64,
+      "end": 13.68,
+      "charStart": 217,
+      "scene": "offre"
+    },
+    {
+      "text": "jour,",
+      "start": 13.744,
+      "end": 14.08,
+      "charStart": 219,
+      "scene": "offre"
+    },
+    {
+      "text": "en",
+      "start": 14.16,
+      "end": 14.32,
+      "charStart": 225,
+      "scene": "offre"
+    },
+    {
+      "text": "trois",
+      "start": 14.36,
+      "end": 14.56,
+      "charStart": 228,
+      "scene": "offre"
+    },
+    {
+      "text": "langues.",
+      "start": 14.608,
+      "end": 14.96,
+      "charStart": 234,
+      "scene": "offre"
+    },
+    {
+      "text": "Et",
+      "start": 15.89,
+      "end": 15.97,
+      "charStart": 269,
+      "scene": "humain"
+    },
+    {
+      "text": "surtout,",
+      "start": 16.01,
+      "end": 16.45,
+      "charStart": 272,
+      "scene": "humain"
+    },
+    {
+      "text": "on",
+      "start": 16.503,
+      "end": 16.61,
+      "charStart": 281,
+      "scene": "humain"
+    },
+    {
+      "text": "vous",
+      "start": 16.658,
+      "end": 16.85,
+      "charStart": 284,
+      "scene": "humain"
+    },
+    {
+      "text": "écoute.",
+      "start": 16.903,
+      "end": 17.33,
+      "charStart": 289,
+      "scene": "humain"
+    },
+    {
+      "text": "Pas",
+      "start": 17.45,
+      "end": 17.81,
+      "charStart": 297,
+      "scene": "humain"
+    },
+    {
+      "text": "de",
+      "start": 17.863,
+      "end": 17.97,
+      "charStart": 301,
+      "scene": "humain"
+    },
+    {
+      "text": "ticket,",
+      "start": 18.016,
+      "end": 18.53,
+      "charStart": 304,
+      "scene": "humain"
+    },
+    {
+      "text": "pas",
+      "start": 18.55,
+      "end": 18.61,
+      "charStart": 312,
+      "scene": "humain"
+    },
+    {
+      "text": "de",
+      "start": 18.637,
+      "end": 18.69,
+      "charStart": 316,
+      "scene": "humain"
+    },
+    {
+      "text": "robot",
+      "start": 18.77,
+      "end": 19.17,
+      "charStart": 319,
+      "scene": "humain"
+    },
+    {
+      "text": ":",
+      "start": 19.25,
+      "end": 19.33,
+      "charStart": 325,
+      "scene": "humain"
+    },
+    {
+      "text": "vous",
+      "start": 19.362,
+      "end": 19.49,
+      "charStart": 327,
+      "scene": "humain"
+    },
+    {
+      "text": "parlez",
+      "start": 19.51,
+      "end": 19.81,
+      "charStart": 332,
+      "scene": "humain"
+    },
+    {
+      "text": "directement",
+      "start": 19.856,
+      "end": 20.37,
+      "charStart": 339,
+      "scene": "humain"
+    },
+    {
+      "text": "à",
+      "start": 20.49,
+      "end": 20.61,
+      "charStart": 351,
+      "scene": "humain"
+    },
+    {
+      "text": "Jules",
+      "start": 20.69,
+      "end": 20.93,
+      "charStart": 353,
+      "scene": "humain"
+    },
+    {
+      "text": "et",
+      "start": 20.957,
+      "end": 21.01,
+      "charStart": 359,
+      "scene": "humain"
+    },
+    {
+      "text": "Louis.",
+      "start": 21.05,
+      "end": 21.81,
+      "charStart": 362,
+      "scene": "humain"
+    },
+    {
+      "text": "Réponse",
+      "start": 21.863,
+      "end": 22.29,
+      "charStart": 369,
+      "scene": "humain"
+    },
+    {
+      "text": "en",
+      "start": 22.397,
+      "end": 22.61,
+      "charStart": 377,
+      "scene": "humain"
+    },
+    {
+      "text": "vingt-quatre",
+      "start": 22.65,
+      "end": 23.01,
+      "charStart": 380,
+      "scene": "humain"
+    },
+    {
+      "text": "heures.",
+      "start": 23.044,
+      "end": 23.97,
+      "charStart": 393,
+      "scene": "humain"
+    },
+    {
+      "text": "Cliko.",
+      "start": 24.01,
+      "end": 24.37,
+      "charStart": 401,
+      "scene": "cta"
+    },
+    {
+      "text": "Votre",
+      "start": 24.65,
+      "end": 25.09,
+      "charStart": 408,
+      "scene": "cta"
+    },
+    {
+      "text": "commerce",
+      "start": 25.134,
+      "end": 25.49,
+      "charStart": 414,
+      "scene": "cta"
+    },
+    {
+      "text": "mérite",
+      "start": 25.57,
+      "end": 25.89,
+      "charStart": 423,
+      "scene": "cta"
+    },
+    {
+      "text": "d'être",
+      "start": 25.93,
+      "end": 26.21,
+      "charStart": 430,
+      "scene": "cta"
+    },
+    {
+      "text": "trouvé.",
+      "start": 26.256,
+      "end": 26.61,
+      "charStart": 437,
+      "scene": "cta"
+    },
+    {
+      "text": "Devis",
+      "start": 26.797,
+      "end": 27.25,
+      "charStart": 445,
+      "scene": "cta"
+    },
+    {
+      "text": "gratuit",
+      "start": 27.31,
+      "end": 27.73,
+      "charStart": 451,
+      "scene": "cta"
+    },
+    {
+      "text": "sur",
+      "start": 27.77,
+      "end": 27.89,
+      "charStart": 459,
+      "scene": "cta"
+    },
+    {
+      "text": "cliko",
+      "start": 27.97,
+      "end": 28.29,
+      "charStart": 463,
+      "scene": "cta"
+    },
+    {
+      "text": "point",
+      "start": 28.317,
+      "end": 28.45,
+      "charStart": 469,
+      "scene": "cta"
+    },
+    {
+      "text": "be.",
+      "start": 28.583,
+      "end": 28.93,
+      "charStart": 475,
+      "scene": "cta"
+    }
+  ],
+  "edit": "« On gère même vos réseaux. » retiré de l'audio (coupe 15.25 s → 16.36 s)"
+}
