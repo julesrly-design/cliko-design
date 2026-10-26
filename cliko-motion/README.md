@@ -16,10 +16,10 @@ frame rejoint la première : la vidéo boucle sans couture.
 
 ```bash
 npm i
-npx remotion studio                 # prévisualisation (compositions ClikoMotion et Miniature)
+npx remotion studio                 # prévisualisation
 npm run stills -- 0 60 240 600 1200 1700   # images de contrôle → out/stills/
 npx remotion render src/index.ts ClikoMotion out/cliko-motion.mp4
-npx remotion still src/index.ts Miniature out/miniature.png
+npm run thumbnail                   # miniature (frame THUMBNAIL_FRAME de config.ts)
 npm run sfx:list                    # régénère SFX.md (frames exactes des bruitages)
 ```
 

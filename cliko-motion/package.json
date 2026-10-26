@@ -12,7 +12,7 @@
     "sfx:synth": "python3 scripts/synth_sfx.py",
     "sfx:list": "tsx scripts/sfx-list.ts",
     "render": "remotion render src/index.ts ClikoMotion out/cliko-motion.mp4",
-    "thumbnail": "remotion still src/index.ts Miniature out/miniature.png"
+    "thumbnail": "tsx scripts/thumbnail.ts"
   },
   "dependencies": {
     "@react-three/drei": "10.7.6",
