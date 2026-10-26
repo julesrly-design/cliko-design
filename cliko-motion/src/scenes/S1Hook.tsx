@@ -14,7 +14,7 @@ import { registerBurst } from "../three/sparks";
 import { registerLineBoost } from "../three/Line";
 import { useGlobalFrame, useSceneFrame } from "../lib/seq";
 import { SceneOverlay } from "../overlay/SceneOverlay";
-import { TracedText, passTimes, type PlacedLine } from "../overlay/TracedText";
+import { TracedText, passTimes, wavePoints, type PlacedLine } from "../overlay/TracedText";
 import { clamp } from "../lib/math";
 
 const S = SCENES.hook;
@@ -49,19 +49,8 @@ export const hookLayout = () => {
 
 const L = (px: number, py: number, z = 0) => pxToWorld(ID, px, py, z);
 
-// Points de passage à travers une ligne de texte : la tête ondule dans les lettres.
-const weave = (pl: PlacedLine, until = Infinity) => {
-  const cap = pl.line.capHeight;
-  const pts: V3[] = [];
-  let j = 0;
-  for (const g of pl.line.glyphs) {
-    if (g.empty || g.char === "?" || g.x0 > until) continue;
-    const cx = pl.x + (g.x0 + g.x1) / 2;
-    pts.push(L(cx, pl.baseline - cap * (j % 2 ? 0.72 : 0.3), j % 2 ? 0.25 : -0.15));
-    j++;
-  }
-  return pts;
-};
+// Passage à travers une ligne de texte (vague douce), éventuellement arrêté avant `until` (px).
+const weave = (pl: PlacedLine, until?: number) => wavePoints(pl, L, until !== undefined ? { to: until } : {});
 
 // ── Trajet de la ligne ─────────────────────────────────────────────────────
 const smoothLinear = (t: number) => (linear(t) + sineInOut(t)) / 2;

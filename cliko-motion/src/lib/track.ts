@@ -26,7 +26,7 @@ export class TrackBuilder {
   // Trajet courbe (Catmull-Rom centripète) depuis le point courant à travers `pts`, arrivée à f1.
   go(f1: number, pts: V3[], ease: Ease, tension = 0.5) {
     const all = [this.end, ...pts].map((p) => new THREE.Vector3(...p));
-    const curve = all.length === 2 ? new THREE.LineCurve3(all[0], all[1]) : new THREE.CatmullRomCurve3(all, false, "catmullrom", tension);
+    const curve = all.length === 2 ? new THREE.LineCurve3(all[0], all[1]) : new THREE.CatmullRomCurve3(all, false, "centripetal", tension);
     curve.arcLengthDivisions = 400;
     curve.updateArcLengths();
     const v = new THREE.Vector3();

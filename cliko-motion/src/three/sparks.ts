@@ -58,7 +58,7 @@ export const sparksAt = (frame: number): Spark[] => {
   for (let g = Math.floor(frame - LIFE); g <= frame; g++) {
     const t = turnCached(g);
     if (t.k < LINE.sparkThreshold) continue;
-    const count = Math.min(7, Math.floor((t.k / LINE.sparkThreshold) * 2.2));
+    const count = Math.min(4, Math.floor((t.k / LINE.sparkThreshold) * 1.5));
     const p0 = headAt(g);
     // direction : vers l'extérieur du virage, dans le sens de la course
     const out1: V3 = [t.v1[0] - (t.v2[0] - t.v1[0]) * 2, t.v1[1] - (t.v2[1] - t.v1[1]) * 2, t.v1[2] - (t.v2[2] - t.v1[2]) * 2];

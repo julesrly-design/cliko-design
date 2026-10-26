@@ -76,14 +76,16 @@ src/
   overlay/             calques texte (lettres tracées, zones sûres)
 ```
 
+Pas de grain animé (`POST.grain = 0`) : le fond reste noir et calme. Les trajets de la ligne
+sont des courbes centripètes, ses coins arrondis, sa tête un disque parfaitement rond.
+
 Tout est piloté par la frame (`useCurrentFrame`), sans aucune animation en temps réel. Le
 hasard (étincelles, particules, palettes) est tiré de graines fixes : deux rendus donnent
 exactement la même image.
 
 ## Contenu à vérifier
 
-- **Prix** : le brief demande « Dès 390 € », mais cliko.be affiche aujourd'hui « de 750 à 1 200 € ».
-  Il faut confirmer avant de publier (`TEXT.offer.price`).
+- **Prix** : « Dès 750 € », le prix de départ affiché sur cliko.be (`TEXT.offer.price`).
 - **Sous-titre de l'offre** : « Hébergement, domaine, maintenance compris ». Le « et » a été retiré
   pour tenir la règle des 6 mots à l'écran (`TEXT.offer.subtitle`).
 - L'écran du smartphone montre la démo « Maison Célest » de cliko.be (exemple de style).

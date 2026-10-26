@@ -41,9 +41,9 @@ type Palette = {
 
 export const PALETTES: Record<"brand" | "electric", Palette> = {
   brand: {
-    bg: "#05060A",
-    bgCenter: "#0B1020", // « nuit » de cliko.be
-    bgGlow: "#1C347A", // lueur marine du site
+    bg: "#020306",
+    bgCenter: "#060912", // « nuit » de cliko.be, assombrie
+    bgGlow: "#142659", // lueur marine du site, très discrète
     text: "#F2F3FA",
     mist: "#B9C0E3",
     lineHead: "#FFFFFF",
@@ -126,7 +126,7 @@ export const TEXT = {
   languages: { codes: ["FR", "NL", "EN"], suffix: "inclus" },
   offer: {
     prefix: "Dès",
-    price: 390, // ⚠ cliko.be affiche « de 750 à 1 200 € » : à vérifier avant publication
+    price: 750, // prix de départ affiché sur cliko.be (de 750 à 1 200 €)
     currency: "€",
     // Brief : « Hébergement, domaine et maintenance compris ». Raccourci d'un mot pour tenir les 6 mots à l'écran.
     subtitle: "Hébergement, domaine, maintenance compris",
@@ -139,13 +139,13 @@ export const LINE = {
   headIntensity: 26, // multiplicateur HDR du cœur (> 1 = déclenche le bloom)
   trailIntensity: 5.5, // HDR de la traînée près de la tête
   coreFrames: 16, // longueur de la traînée vive (en frames de trajet)
-  residualFrames: 30, // lueur résiduelle derrière (s'estompe en 0,5 s)
-  sampleStep: 0.25, // pas d'échantillonnage de l'historique (frames)
+  residualFrames: 24, // lueur résiduelle derrière (s'estompe en 0,4 s)
+  sampleStep: 0.125, // pas d'échantillonnage de l'historique (frames) : petit = courbes bien rondes
   width: 0.075, // épaisseur à la tête (unités monde ; 1 unité ≈ 203 px au plan de référence)
   tailWidth: 0.012,
   lightIntensity: 38, // pointLight attachée à la tête
   lightDistance: 9,
-  sparkThreshold: 1.25, // sensibilité des étincelles dans les virages serrés
+  sparkThreshold: 2.4, // sensibilité des étincelles dans les virages serrés (haut = seulement les vrais coups de fouet)
 };
 
 // ── Post-processing ─────────────────────────────────────────────────────────
@@ -155,7 +155,7 @@ export const POST = {
   bloomSmoothing: 0.25,
   bloomRadius: 0.78,
   chromaticAberration: 0.0018,
-  grain: 0.055,
+  grain: 0, // grain animé désactivé (0) : il faisait « grésiller » le fond
   vignette: 0.62,
   motionBlurShutter: 0.55, // fraction d'une frame
 };

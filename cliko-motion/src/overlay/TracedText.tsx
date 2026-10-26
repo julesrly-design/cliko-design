@@ -10,6 +10,22 @@ import type { SceneId } from "../config";
 
 export type PlacedLine = { line: TextLine; x: number; baseline: number; accent?: [number, number] }; // accent : plage de glyphes
 
+// Passage de la tête à travers une ligne de texte : une vague douce et régulière (pas de zigzag
+// lettre par lettre), pour une lumière bien ronde. `toWorld` convertit un pixel (et une profondeur) en point monde.
+export const wavePoints = (pl: PlacedLine, toWorld: (x: number, y: number, z: number) => V3, opts: { from?: number; to?: number } = {}): V3[] => {
+  const ink = pl.line.glyphs.filter((g) => !g.empty);
+  const x0 = opts.from ?? pl.x + ink[0].x0;
+  const x1 = opts.to ?? pl.x + ink[ink.length - 1].x1;
+  const n = Math.max(3, Math.round((x1 - x0) / 110));
+  const mid = pl.baseline - pl.line.capHeight * 0.5;
+  const amp = pl.line.capHeight * 0.16;
+  return Array.from({ length: n + 1 }, (_, i) => {
+    const t = i / n;
+    const a = t * Math.PI * (n * 0.5);
+    return toWorld(x0 + (x1 - x0) * t, mid + amp * Math.sin(a), 0.12 * Math.cos(a));
+  });
+};
+
 // Frame à laquelle la tête passe au plus près de chaque glyphe, ligne par ligne
 // (windows[i] = fenêtre de temps où la tête écrit la ligne i).
 export const passTimes = (id: SceneId, lines: PlacedLine[], windows: [number, number][]) =>

@@ -88,8 +88,11 @@ uniform float uMap;  // 0..1 : mode « plan de ville » (scène 4), grille plus 
 varying vec3 vW;
 float gridLine(vec2 p, float cell, float w) {
   vec2 q = p / cell;
-  vec2 g = abs(fract(q - 0.5) - 0.5) / fwidth(q);
-  return 1.0 - min(min(g.x, g.y) / w, 1.0);
+  vec2 fw = fwidth(q);
+  vec2 g = abs(fract(q - 0.5) - 0.5) / fw;
+  float l = 1.0 - min(min(g.x, g.y) / w, 1.0);
+  // au loin, les cellules deviennent minuscules : on efface la ligne avant qu'elle ne crénelle
+  return l * (1.0 - smoothstep(0.08, 0.3, max(fw.x, fw.y)));
 }
 void main() {
   float d = distance(vW, uCam);
@@ -130,7 +133,7 @@ export const Grid: React.FC = () => {
           uCam: { value: new THREE.Vector3() },
           cGrid: { value: c3(PALETTE.grid) },
           cHot: { value: c3(PALETTE.lineMid) },
-          uBase: { value: 0.3 },
+          uBase: { value: 0.2 },
           uHeadK: { value: 1.4 },
           uShock: { value: new THREE.Vector4() },
           uMap: { value: 0 },
@@ -183,7 +186,7 @@ void main() {
   float blur = clamp(abs(depth - uFocus) / uFocus, 0.0, 2.5);
   vBlur = blur;
   vSeed = aSeed;
-  vA = (0.55 + 0.45 * sin(uTime * 0.05 + aSeed * 40.0)) / (1.0 + blur * blur * 2.0) * smoothstep(2.5, 6.0, depth);
+  vA = (0.8 + 0.2 * sin(uTime * 0.02 + aSeed * 40.0)) / (1.0 + blur * blur * 2.0) * smoothstep(2.5, 6.0, depth) * 0.7;
   gl_PointSize = min(60.0, aSize * (1.0 + blur * 5.0) * uScale / depth);
   gl_Position = projectionMatrix * mv;
 }`;

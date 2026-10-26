@@ -15,7 +15,7 @@ import { pxToLocal, pxToWorld, PX, REF } from "../lib/world";
 import { applyM, objectMatrix, useMatrixProps } from "../lib/scene";
 import { useGlobalFrame, useSceneFrame } from "../lib/seq";
 import { SceneOverlay } from "../overlay/SceneOverlay";
-import { TracedText, passTimes, type PlacedLine } from "../overlay/TracedText";
+import { TracedText, passTimes, wavePoints, type PlacedLine } from "../overlay/TracedText";
 import { GlowPath, pointAlong, roundedRectPath, transformPts } from "../three/GlowPath";
 import { registerLineBoost } from "../three/Line";
 
@@ -109,8 +109,7 @@ export const siteLine = (T: TrackBuilder) => {
   for (const s of STOPS) T.go(f(s.t), [applyM(windowMatrix(s.t), s.at)], shotBrake);
   // écrit les deux lignes de texte
   const [l1, l2] = siteLayout();
-  const through = (pl: PlacedLine): V3[] =>
-    pl.line.glyphs.filter((g) => !g.empty).map((g, j) => W2(pl.x + (g.x0 + g.x1) / 2, pl.baseline - pl.line.capHeight * (j % 2 ? 0.7 : 0.3), j % 2 ? 0.2 : -0.1));
+  const through = (pl: PlacedLine): V3[] => wavePoints(pl, W2);
   const first = (pl: PlacedLine) => pl.x + pl.line.glyphs[0].x0;
   const last = (pl: PlacedLine) => pl.x + pl.line.glyphs[pl.line.glyphs.length - 1].x1;
   T.go(f(TEXT_T.l1[0]), [W2(first(l1) - 50, l1.baseline - l1.line.capHeight / 2, 0.5)], shot);

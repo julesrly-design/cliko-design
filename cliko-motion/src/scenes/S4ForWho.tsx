@@ -43,7 +43,29 @@ const BRANCHES: [number, number][][][] = [
 ];
 
 const L = (x: number, y: number, z = Z): V3 => toWorld(ID, [x, y, z]);
-const densify = (pts: [number, number][], z = Z, step = 0.1): V3[] => {
+// Arrondit chaque angle de la polyligne (congé de rayon r) : la lumière tourne en courbe, jamais en pointe.
+const roundCorners = (pts: [number, number][], r = 0.32): [number, number][] => {
+  if (pts.length < 3) return pts;
+  const out: [number, number][] = [pts[0]];
+  for (let i = 1; i < pts.length - 1; i++) {
+    const [a, b, c] = [pts[i - 1], pts[i], pts[i + 1]];
+    const la = Math.hypot(a[0] - b[0], a[1] - b[1]);
+    const lc = Math.hypot(c[0] - b[0], c[1] - b[1]);
+    const k = Math.min(r, la / 2, lc / 2);
+    const p0: [number, number] = [b[0] + ((a[0] - b[0]) / la) * k, b[1] + ((a[1] - b[1]) / la) * k];
+    const p1: [number, number] = [b[0] + ((c[0] - b[0]) / lc) * k, b[1] + ((c[1] - b[1]) / lc) * k];
+    for (let j = 0; j <= 8; j++) {
+      const t = j / 8;
+      // Bézier quadratique p0 → b → p1
+      out.push([(1 - t) ** 2 * p0[0] + 2 * (1 - t) * t * b[0] + t * t * p1[0], (1 - t) ** 2 * p0[1] + 2 * (1 - t) * t * b[1] + t * t * p1[1]]);
+    }
+  }
+  out.push(pts[pts.length - 1]);
+  return out;
+};
+
+const densify = (raw: [number, number][], z = Z, step = 0.1): V3[] => {
+  const pts = roundCorners(raw);
   const out: V3[] = [];
   for (let i = 0; i < pts.length - 1; i++) {
     const [a, b] = [pts[i], pts[i + 1]];

@@ -11,7 +11,7 @@ import { pxToLocal, pxToWorld, REF, toWorld } from "../lib/world";
 import { objectMatrix, useMatrixProps } from "../lib/scene";
 import { useGlobalFrame, useSceneFrame } from "../lib/seq";
 import { SceneOverlay } from "../overlay/SceneOverlay";
-import { TracedText, passTimes, type PlacedLine } from "../overlay/TracedText";
+import { TracedText, passTimes, wavePoints, type PlacedLine } from "../overlay/TracedText";
 import { Phone } from "../three/Phone";
 import { registerLineBoost } from "../three/Line";
 import { CSS_FONT, fitSize, layoutLine } from "../lib/fonts";
@@ -63,7 +63,7 @@ export const mobileLine = (T: TrackBuilder) => {
   const P = (x: number, y: number, z = 0) => pxToWorld(ID, x, y, z);
   // sort par le haut, contourne le téléphone et file vers le titre
   T.go(f(TITLE_T[0]), [P(860, 420, 1.5), P(900, 1150, 1.2), P(first - 50, pl.baseline - pl.line.capHeight / 2, 0.4)], shot);
-  const through = pl.line.glyphs.filter((g) => !g.empty).map((g, j) => P(pl.x + (g.x0 + g.x1) / 2, pl.baseline - pl.line.capHeight * (j % 2 ? 0.7 : 0.3), j % 2 ? 0.2 : -0.1));
+  const through = wavePoints(pl, P);
   T.go(f(TITLE_T[1]), [...through, P(last + 30, pl.baseline - pl.line.capHeight / 2)], (t) => (linear(t) + sineInOut(t)) / 2);
   // remonte souligner l'arrivée de chaque notification (plan des notifications : z = 1.2)
   T.go(f(NOTIF_T[0]), [P(last + 40, 900, 1.2), P(170, 370, 1.2)], shot);

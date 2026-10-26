@@ -9,7 +9,7 @@ import { clamp, cubicOut, expoInOut, expoOut, hash2, lerp, linear, shot, sineInO
 import { pxToWorld, REF } from "../lib/world";
 import { useGlobalFrame, useSceneFrame } from "../lib/seq";
 import { SceneOverlay } from "../overlay/SceneOverlay";
-import { TracedText, passTimes, type PlacedLine } from "../overlay/TracedText";
+import { TracedText, passTimes, wavePoints, type PlacedLine } from "../overlay/TracedText";
 import { registerLineBoost } from "../three/Line";
 import { registerBurst } from "../three/sparks";
 import { CSS_FONT, fitSize, layoutLine } from "../lib/fonts";
@@ -51,7 +51,7 @@ export const languagesLine = (T: TrackBuilder) => {
   const first = pl.x + pl.line.glyphs[0].x0;
   const last = pl.x + pl.line.glyphs[pl.line.glyphs.length - 1].x1;
   T.go(f(INCLUS_T[0]), [P(mid(2) + 120, BOARD.y + TILE.h + 30, 1.2), P(first - 50, pl.baseline - pl.line.capHeight / 2, 0.4)], shot);
-  const through = pl.line.glyphs.filter((g) => !g.empty).map((g, j) => P(pl.x + (g.x0 + g.x1) / 2, pl.baseline - pl.line.capHeight * (j % 2 ? 0.7 : 0.3), j % 2 ? 0.2 : -0.1));
+  const through = wavePoints(pl, P);
   T.go(f(INCLUS_T[1]), [...through, P(last + 30, pl.baseline - pl.line.capHeight / 2)], (t) => (linear(t) + sineInOut(t)) / 2);
   T.go(f(140), [P(last + 60, pl.baseline - 200, 0.8), P(400, BOARD.y - 140, 1.2)], sineInOut);
 };

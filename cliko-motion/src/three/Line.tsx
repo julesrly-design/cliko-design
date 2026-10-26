@@ -36,12 +36,12 @@ varying vec2 vUv;
 void main() {
   vec2 p = vUv * 2.0 - 1.0;
   float r = length(p);
-  float core = exp(-r * r * 140.0);
-  float inner = exp(-r * r * 22.0);
-  float halo = exp(-r * 4.2) * (1.0 - smoothstep(0.75, 1.0, r));
-  // éclat anamorphique horizontal très fin
-  float streak = exp(-abs(p.y) * 70.0) * exp(-abs(p.x) * 2.2) * 0.55;
-  vec3 c = cCore * (core * 1.0 + inner * 0.35) + cHalo * (halo * 0.11 + streak * 0.18);
+  // disque lumineux parfaitement rond : cœur blanc, puis halo doux qui s'éteint avant le bord du quad
+  float edge = 1.0 - smoothstep(0.7, 1.0, r);
+  float core = smoothstep(0.16, 0.0, r);
+  float inner = exp(-r * r * 26.0);
+  float halo = exp(-r * r * 6.0) * edge;
+  vec3 c = cCore * (core * 1.0 + inner * 0.3) + cHalo * halo * 0.07;
   gl_FragColor = vec4(c * uI, 1.0);
 }`;
 
@@ -106,7 +106,7 @@ export const Line: React.FC = () => {
       head.current.position.copy(h);
       head.current.quaternion.copy(cam.quat);
       // la tête se dilate légèrement quand elle file, et palpite à l'arrêt
-      const s = 0.62 * (1 + Math.min(0.5, speed * 0.6)) * (1 + 0.06 * Math.sin(frame * 0.35));
+      const s = 0.6 * (1 + Math.min(0.25, speed * 0.3)) * (1 + 0.03 * Math.sin(frame * 0.2));
       head.current.scale.setScalar(s);
     }
     headMat.uniforms.uI.value = LINE.headIntensity * boost;
