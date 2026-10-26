@@ -166,9 +166,9 @@ export const THUMBNAIL_FRAME = 1725;
 // ── Audio ───────────────────────────────────────────────────────────────────
 export const AUDIO = {
   // Déposer la musique dans public/music.mp3 puis passer à true.
-  music: false,
+  music: true, // public/music.mp3 : musique originale synthétisée (scripts/synth_music.py), à remplacer si besoin
   musicFile: "music.mp3",
-  musicVolume: 0.9,
+  musicVolume: 0.7,
   // Bruitages de public/sfx (générés par scripts/sfx.mjs) ; la liste des frames est dans SFX.md.
   sfx: true,
   sfxVolume: 0.8,
