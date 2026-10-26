@@ -5,3 +5,4 @@ dist
 out/stills/
 out/bench*
 out/raw-*
+out/*.log
