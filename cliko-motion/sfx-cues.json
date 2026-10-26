@@ -1,0 +1,411 @@
+[
+  {
+    "frame": 12,
+    "type": "whoosh",
+    "note": "le point part comme une balle",
+    "gain": 0.9,
+    "offset": -4
+  },
+  {
+    "frame": 24,
+    "type": "tick",
+    "note": "« Ton commerce » s'écrit",
+    "gain": 0.6
+  },
+  {
+    "frame": 52,
+    "type": "tick",
+    "note": "« est invisible » s'écrit",
+    "gain": 0.6
+  },
+  {
+    "frame": 80,
+    "type": "tick",
+    "note": "« en ligne ? » s'écrit",
+    "gain": 0.6
+  },
+  {
+    "frame": 90,
+    "type": "impact",
+    "note": "impact sur le point du « ? » (tremblement)",
+    "gain": 0.35,
+    "offset": -1
+  },
+  {
+    "frame": 90,
+    "type": "sparkle",
+    "note": "étincelles de l'impact",
+    "gain": 0.5
+  },
+  {
+    "frame": 97,
+    "type": "whoosh",
+    "note": "rebond vers « invisible »",
+    "gain": 0.5,
+    "offset": -3
+  },
+  {
+    "frame": 128,
+    "type": "whooshDeep",
+    "note": "plongée vers le fond",
+    "gain": 1,
+    "offset": -6
+  },
+  {
+    "frame": 170,
+    "type": "whoosh",
+    "note": "la fenêtre surgit en rotation",
+    "gain": 0.6,
+    "offset": -4
+  },
+  {
+    "frame": 190,
+    "type": "whoosh",
+    "note": "la ligne fait le tour du cadre",
+    "gain": 0.45,
+    "offset": -2
+  },
+  {
+    "frame": 240,
+    "type": "pop",
+    "note": "header",
+    "gain": 0.7
+  },
+  {
+    "frame": 255,
+    "type": "pop",
+    "note": "image",
+    "gain": 0.7
+  },
+  {
+    "frame": 270,
+    "type": "pop",
+    "note": "titres",
+    "gain": 0.6
+  },
+  {
+    "frame": 288,
+    "type": "pop",
+    "note": "boutons",
+    "gain": 0.7
+  },
+  {
+    "frame": 302,
+    "type": "tick",
+    "note": "« On crée ton site. »",
+    "gain": 0.6
+  },
+  {
+    "frame": 330,
+    "type": "tick",
+    "note": "« Sur mesure. »",
+    "gain": 0.7
+  },
+  {
+    "frame": 408,
+    "type": "whooshDeep",
+    "note": "whip-pan vers les services",
+    "gain": 0.9,
+    "offset": -6
+  },
+  {
+    "frame": 438,
+    "type": "whoosh",
+    "note": "la ligne file vers la carte 1",
+    "gain": 0.45,
+    "offset": -3
+  },
+  {
+    "frame": 465,
+    "type": "tick",
+    "note": "carte 1 s'allume, titre",
+    "gain": 0.7
+  },
+  {
+    "frame": 498,
+    "type": "whoosh",
+    "note": "la ligne file vers la carte 2",
+    "gain": 0.45,
+    "offset": -3
+  },
+  {
+    "frame": 525,
+    "type": "tick",
+    "note": "carte 2 s'allume, titre",
+    "gain": 0.7
+  },
+  {
+    "frame": 558,
+    "type": "whoosh",
+    "note": "la ligne file vers la carte 3",
+    "gain": 0.45,
+    "offset": -3
+  },
+  {
+    "frame": 585,
+    "type": "tick",
+    "note": "carte 3 s'allume, titre",
+    "gain": 0.7
+  },
+  {
+    "frame": 618,
+    "type": "whoosh",
+    "note": "la ligne file vers la carte 4",
+    "gain": 0.45,
+    "offset": -3
+  },
+  {
+    "frame": 645,
+    "type": "tick",
+    "note": "carte 4 s'allume, titre",
+    "gain": 0.7
+  },
+  {
+    "frame": 750,
+    "type": "whooshDeep",
+    "note": "bascule vers la vue de dessus",
+    "gain": 0.9,
+    "offset": -6
+  },
+  {
+    "frame": 830,
+    "type": "pop",
+    "note": "point 1 allumé + étiquette",
+    "gain": 0.8
+  },
+  {
+    "frame": 830,
+    "type": "tick",
+    "note": "étiquette (punch)",
+    "gain": 0.5
+  },
+  {
+    "frame": 890,
+    "type": "pop",
+    "note": "point 2 allumé + étiquette",
+    "gain": 0.8
+  },
+  {
+    "frame": 890,
+    "type": "tick",
+    "note": "étiquette (punch)",
+    "gain": 0.5
+  },
+  {
+    "frame": 950,
+    "type": "pop",
+    "note": "point 3 allumé + étiquette",
+    "gain": 0.8
+  },
+  {
+    "frame": 950,
+    "type": "tick",
+    "note": "étiquette (punch)",
+    "gain": 0.5
+  },
+  {
+    "frame": 980,
+    "type": "whoosh",
+    "note": "la ligne quitte le sol",
+    "gain": 0.6,
+    "offset": -3
+  },
+  {
+    "frame": 1042,
+    "type": "whoosh",
+    "note": "spirale autour du téléphone",
+    "gain": 0.6,
+    "offset": -3
+  },
+  {
+    "frame": 1080,
+    "type": "whoosh",
+    "note": "spirale (2e passage)",
+    "gain": 0.35,
+    "offset": -3
+  },
+  {
+    "frame": 1120,
+    "type": "tick",
+    "note": "« Parfait sur mobile. »",
+    "gain": 0.6
+  },
+  {
+    "frame": 1140,
+    "type": "pop",
+    "note": "notification « Nouvelle réservation »",
+    "gain": 0.8
+  },
+  {
+    "frame": 1185,
+    "type": "pop",
+    "note": "notification « Nouveau message »",
+    "gain": 0.8
+  },
+  {
+    "frame": 1256,
+    "type": "whooshDeep",
+    "note": "whip-pan vers les langues",
+    "gain": 0.9,
+    "offset": -6
+  },
+  {
+    "frame": 1266,
+    "type": "flap",
+    "note": "les palettes se mettent à tourner",
+    "gain": 0.6
+  },
+  {
+    "frame": 1290,
+    "type": "impact",
+    "note": "« FR » claque sur le temps",
+    "gain": 0.25,
+    "offset": -1
+  },
+  {
+    "frame": 1296,
+    "type": "flap",
+    "note": "palettes suivantes",
+    "gain": 0.45
+  },
+  {
+    "frame": 1320,
+    "type": "impact",
+    "note": "« NL » claque sur le temps",
+    "gain": 0.25,
+    "offset": -1
+  },
+  {
+    "frame": 1326,
+    "type": "flap",
+    "note": "palettes suivantes",
+    "gain": 0.45
+  },
+  {
+    "frame": 1350,
+    "type": "impact",
+    "note": "« EN » claque sur le temps",
+    "gain": 0.25,
+    "offset": -1
+  },
+  {
+    "frame": 1368,
+    "type": "tick",
+    "note": "« inclus »",
+    "gain": 0.6
+  },
+  {
+    "frame": 1400,
+    "type": "whooshDeep",
+    "note": "whip-pan vers l'offre",
+    "gain": 0.9,
+    "offset": -6
+  },
+  {
+    "frame": 1416,
+    "type": "flap",
+    "note": "le compteur défile",
+    "gain": 0.5
+  },
+  {
+    "frame": 1456,
+    "type": "tick",
+    "note": "un rouleau se bloque",
+    "gain": 0.7
+  },
+  {
+    "frame": 1463,
+    "type": "tick",
+    "note": "un rouleau se bloque",
+    "gain": 0.7
+  },
+  {
+    "frame": 1470,
+    "type": "tick",
+    "note": "un rouleau se bloque",
+    "gain": 0.7
+  },
+  {
+    "frame": 1470,
+    "type": "pop",
+    "note": "« € » arrive",
+    "gain": 0.6
+  },
+  {
+    "frame": 1476,
+    "type": "whoosh",
+    "note": "la ligne souligne le prix",
+    "gain": 0.5,
+    "offset": -3
+  },
+  {
+    "frame": 1500,
+    "type": "sparkle",
+    "note": "le trait explose en étincelles",
+    "gain": 0.9
+  },
+  {
+    "frame": 1500,
+    "type": "impact",
+    "note": "explosion du trait",
+    "gain": 0.3,
+    "offset": -1
+  },
+  {
+    "frame": 1504,
+    "type": "tick",
+    "note": "sous-titre",
+    "gain": 0.5
+  },
+  {
+    "frame": 1524,
+    "type": "riser",
+    "note": "riser jusqu'à la convergence (1,6 s)",
+    "gain": 0.9
+  },
+  {
+    "frame": 1560,
+    "type": "whooshDeep",
+    "note": "long vol de retour",
+    "gain": 1,
+    "offset": -6
+  },
+  {
+    "frame": 1620,
+    "type": "impact",
+    "note": "GROS IMPACT : convergence, flash, onde de choc",
+    "gain": 1,
+    "offset": -1
+  },
+  {
+    "frame": 1620,
+    "type": "sparkle",
+    "note": "explosion de particules",
+    "gain": 0.8
+  },
+  {
+    "frame": 1666,
+    "type": "pop",
+    "note": "la tête se loge dans l'interrupteur du logo",
+    "gain": 0.9
+  },
+  {
+    "frame": 1680,
+    "type": "tick",
+    "note": "« cliko.be »",
+    "gain": 0.7
+  },
+  {
+    "frame": 1710,
+    "type": "pop",
+    "note": "« Lien en bio »",
+    "gain": 0.8
+  },
+  {
+    "frame": 1782,
+    "type": "whoosh",
+    "note": "la ligne repart vers le point de départ (boucle)",
+    "gain": 0.7,
+    "offset": -3
+  }
+]
