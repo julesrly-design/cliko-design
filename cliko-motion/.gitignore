@@ -6,3 +6,6 @@ out/stills/
 out/bench*
 out/raw-*
 out/*.log
+out/scan/
+out/check/
+out/test-*
