@@ -57,7 +57,7 @@ export const NeonStroke: React.FC<{ d: string; total: number; from?: number; to:
   const common = { d, fill: "none", strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   const dp = dashProps(from, to, total);
   return (
-    <g style={{ mixBlendMode: "screen" }}>
+    <g>
       {GLOW_LAYERS.map(([w, o], i) => (
         <path key={i} {...common} stroke={color} strokeWidth={width * w} strokeOpacity={o * intensity} {...dp} />
       ))}
@@ -70,7 +70,7 @@ export const NeonStroke: React.FC<{ d: string; total: number; from?: number; to:
 
 // Tête lumineuse (disque rond, halo doux).
 export const Head: React.FC<{ at: P; size?: number; intensity?: number }> = ({ at, size = 1, intensity = 1 }) => (
-  <g style={{ mixBlendMode: "screen" }} opacity={Math.min(1, intensity)}>
+  <g opacity={Math.min(1, intensity)}>
     <circle cx={at[0]} cy={at[1]} r={70 * size} fill="url(#head-halo)" opacity={0.55 * intensity} />
     <circle cx={at[0]} cy={at[1]} r={22 * size} fill="url(#head-halo)" />
     <circle cx={at[0]} cy={at[1]} r={7.5 * size} fill={NEON.core} />
@@ -122,7 +122,7 @@ export const Haze: React.FC<{ at: P; r?: number; k?: number }> = ({ at, r = 520,
 export const Sparks: React.FC<{ at: P; age: number; count?: number; speed?: number; life?: number; seed?: number }> = ({ at, age, count = 36, speed = 14, life = 34, seed = 1 }) => {
   if (age < 0 || age > life) return null;
   return (
-    <g style={{ mixBlendMode: "screen" }}>
+    <g>
       {Array.from({ length: count }, (_, i) => {
         const a = hash2(seed, i) * Math.PI * 2;
         const v = speed * (0.35 + hash2(i, seed + 3) * 0.9);
@@ -148,7 +148,7 @@ export const Shock: React.FC<{ at: P; age: number; life?: number; maxR?: number 
   const t = age / life;
   const r = maxR * (1 - Math.pow(1 - t, 3));
   return (
-    <g style={{ mixBlendMode: "screen" }} opacity={1 - t}>
+    <g opacity={1 - t}>
       {GLOW_LAYERS.map(([w, o], i) => (
         <circle key={i} cx={at[0]} cy={at[1]} r={r} fill="none" stroke={NEON.amber} strokeWidth={(3 + 6 * (1 - t)) * w} strokeOpacity={o} />
       ))}
