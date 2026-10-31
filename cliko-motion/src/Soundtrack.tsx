@@ -3,13 +3,13 @@ import React from "react";
 import { Sequence, staticFile } from "remotion";
 import { Audio } from "@remotion/media";
 import { AUDIO } from "./config";
-import { SFX_CUES, SFX_FILES } from "./sfx";
+import { SFX_CUES, SFX_FILES, type SfxCue } from "./sfx";
 
-export const Soundtrack: React.FC = () => (
+export const Soundtrack: React.FC<{ cues?: SfxCue[] }> = ({ cues = SFX_CUES }) => (
   <>
     {AUDIO.music && <Audio src={staticFile(AUDIO.musicFile)} volume={AUDIO.musicVolume} />}
     {AUDIO.sfx &&
-      SFX_CUES.filter((c) => SFX_FILES[c.type]).map((c, i) => (
+      cues.filter((c) => SFX_FILES[c.type]).map((c, i) => (
         <Sequence key={i} from={Math.max(0, c.frame + (c.offset ?? 0))} name={`sfx ${c.type} @${c.frame}`} layout="none">
           <Audio src={staticFile(SFX_FILES[c.type] as string)} volume={AUDIO.sfxVolume * (c.gain ?? 1)} />
         </Sequence>

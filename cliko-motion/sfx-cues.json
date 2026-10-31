@@ -1,93 +1,98 @@
 [
   {
-    "frame": 12,
+    "frame": 22,
     "type": "whoosh",
-    "note": "le point part comme une balle",
+    "note": "le bouton lumineux quitte le logo",
     "gain": 0.9,
     "offset": -4
   },
   {
-    "frame": 24,
+    "frame": 50,
     "type": "tick",
-    "note": "« Ton commerce » s'écrit",
+    "note": "« Ton commerce »",
     "gain": 0.6
   },
   {
-    "frame": 52,
+    "frame": 62,
     "type": "tick",
-    "note": "« est invisible » s'écrit",
+    "note": "« est invisible » (fantôme)",
     "gain": 0.6
   },
   {
-    "frame": 80,
+    "frame": 76,
     "type": "tick",
-    "note": "« en ligne ? » s'écrit",
+    "note": "« en ligne ? »",
     "gain": 0.6
   },
   {
     "frame": 90,
     "type": "impact",
-    "note": "impact sur le point du « ? » (tremblement)",
+    "note": "le fil frappe le « ? » (tremblement)",
     "gain": 0.35,
     "offset": -1
   },
   {
-    "frame": 90,
-    "type": "sparkle",
-    "note": "étincelles de l'impact",
-    "gain": 0.5
-  },
-  {
-    "frame": 97,
+    "frame": 98,
     "type": "whoosh",
-    "note": "rebond vers « invisible »",
+    "note": "lasso autour de « invisible »",
     "gain": 0.5,
     "offset": -3
   },
   {
-    "frame": 128,
+    "frame": 114,
+    "type": "sparkle",
+    "note": "« invisible » s'allume",
+    "gain": 0.7
+  },
+  {
+    "frame": 126,
     "type": "whooshDeep",
-    "note": "plongée vers le fond",
+    "note": "plongée vers le téléphone",
     "gain": 1,
     "offset": -6
   },
   {
-    "frame": 170,
+    "frame": 180,
     "type": "whoosh",
-    "note": "la fenêtre surgit en rotation",
-    "gain": 0.6,
-    "offset": -4
-  },
-  {
-    "frame": 190,
-    "type": "whoosh",
-    "note": "la ligne fait le tour du cadre",
-    "gain": 0.45,
-    "offset": -2
+    "note": "le fil se pose sur le bord du téléphone",
+    "gain": 0.5,
+    "offset": -3
   },
   {
     "frame": 240,
     "type": "pop",
-    "note": "header",
+    "note": "en-tête du site",
     "gain": 0.7
   },
   {
-    "frame": 255,
+    "frame": 250,
     "type": "pop",
-    "note": "image",
+    "note": "photo",
     "gain": 0.7
+  },
+  {
+    "frame": 260,
+    "type": "pop",
+    "note": "texte",
+    "gain": 0.5
   },
   {
     "frame": 270,
     "type": "pop",
-    "note": "titres",
-    "gain": 0.6
+    "note": "bouton « Réserver »",
+    "gain": 0.7
+  },
+  {
+    "frame": 280,
+    "type": "pop",
+    "note": "cartes du menu",
+    "gain": 0.5
   },
   {
     "frame": 288,
-    "type": "pop",
-    "note": "boutons",
-    "gain": 0.7
+    "type": "tick",
+    "note": "tap sur « Réserver »",
+    "gain": 0.9
   },
   {
     "frame": 302,
@@ -102,126 +107,140 @@
     "gain": 0.7
   },
   {
-    "frame": 408,
+    "frame": 388,
     "type": "whooshDeep",
-    "note": "whip-pan vers les services",
+    "note": "le fil file vers les services",
     "gain": 0.9,
     "offset": -6
   },
   {
-    "frame": 438,
+    "frame": 454,
     "type": "whoosh",
-    "note": "la ligne file vers la carte 1",
-    "gain": 0.45,
-    "offset": -3
+    "note": "le fil entoure la ligne 1",
+    "gain": 0.4,
+    "offset": -2
   },
   {
     "frame": 465,
     "type": "tick",
-    "note": "carte 1 s'allume, titre",
-    "gain": 0.7
+    "note": "ligne 1 allumée, coche",
+    "gain": 0.75
   },
   {
-    "frame": 498,
+    "frame": 514,
     "type": "whoosh",
-    "note": "la ligne file vers la carte 2",
-    "gain": 0.45,
-    "offset": -3
+    "note": "le fil entoure la ligne 2",
+    "gain": 0.4,
+    "offset": -2
   },
   {
     "frame": 525,
     "type": "tick",
-    "note": "carte 2 s'allume, titre",
-    "gain": 0.7
+    "note": "ligne 2 allumée, coche",
+    "gain": 0.75
   },
   {
-    "frame": 558,
+    "frame": 574,
     "type": "whoosh",
-    "note": "la ligne file vers la carte 3",
-    "gain": 0.45,
-    "offset": -3
+    "note": "le fil entoure la ligne 3",
+    "gain": 0.4,
+    "offset": -2
   },
   {
     "frame": 585,
     "type": "tick",
-    "note": "carte 3 s'allume, titre",
-    "gain": 0.7
+    "note": "ligne 3 allumée, coche",
+    "gain": 0.75
   },
   {
-    "frame": 618,
+    "frame": 634,
     "type": "whoosh",
-    "note": "la ligne file vers la carte 4",
-    "gain": 0.45,
-    "offset": -3
+    "note": "le fil entoure la ligne 4",
+    "gain": 0.4,
+    "offset": -2
   },
   {
     "frame": 645,
     "type": "tick",
-    "note": "carte 4 s'allume, titre",
-    "gain": 0.7
+    "note": "ligne 4 allumée, coche",
+    "gain": 0.75
   },
   {
-    "frame": 750,
+    "frame": 738,
     "type": "whooshDeep",
-    "note": "bascule vers la vue de dessus",
+    "note": "le fil plonge (les branches montent)",
     "gain": 0.9,
     "offset": -6
   },
   {
-    "frame": 830,
-    "type": "pop",
-    "note": "point 1 allumé + étiquette",
-    "gain": 0.8
-  },
-  {
-    "frame": 830,
-    "type": "tick",
-    "note": "étiquette (punch)",
-    "gain": 0.5
-  },
-  {
-    "frame": 890,
-    "type": "pop",
-    "note": "point 2 allumé + étiquette",
-    "gain": 0.8
-  },
-  {
-    "frame": 890,
-    "type": "tick",
-    "note": "étiquette (punch)",
-    "gain": 0.5
-  },
-  {
-    "frame": 950,
-    "type": "pop",
-    "note": "point 3 allumé + étiquette",
-    "gain": 0.8
-  },
-  {
-    "frame": 950,
-    "type": "tick",
-    "note": "étiquette (punch)",
-    "gain": 0.5
-  },
-  {
-    "frame": 980,
+    "frame": 790,
     "type": "whoosh",
-    "note": "la ligne quitte le sol",
-    "gain": 0.6,
-    "offset": -3
+    "note": "branche 1 qui monte",
+    "gain": 0.45,
+    "offset": -2
+  },
+  {
+    "frame": 830,
+    "type": "pop",
+    "note": "bulle 1 + étiquette",
+    "gain": 0.85
+  },
+  {
+    "frame": 830,
+    "type": "sparkle",
+    "note": "étincelles",
+    "gain": 0.35
+  },
+  {
+    "frame": 850,
+    "type": "whoosh",
+    "note": "branche 2 qui monte",
+    "gain": 0.45,
+    "offset": -2
+  },
+  {
+    "frame": 890,
+    "type": "pop",
+    "note": "bulle 2 + étiquette",
+    "gain": 0.85
+  },
+  {
+    "frame": 890,
+    "type": "sparkle",
+    "note": "étincelles",
+    "gain": 0.35
+  },
+  {
+    "frame": 910,
+    "type": "whoosh",
+    "note": "branche 3 qui monte",
+    "gain": 0.45,
+    "offset": -2
+  },
+  {
+    "frame": 950,
+    "type": "pop",
+    "note": "bulle 3 + étiquette",
+    "gain": 0.85
+  },
+  {
+    "frame": 950,
+    "type": "sparkle",
+    "note": "étincelles",
+    "gain": 0.35
   },
   {
     "frame": 1042,
     "type": "whoosh",
-    "note": "spirale autour du téléphone",
-    "gain": 0.6,
+    "note": "1er anneau autour du téléphone",
+    "gain": 0.55,
     "offset": -3
   },
   {
-    "frame": 1080,
+    "frame": 1078,
     "type": "whoosh",
-    "note": "spirale (2e passage)",
-    "gain": 0.35,
+    "note": "2e anneau",
+    "gain": 0.4,
     "offset": -3
   },
   {
@@ -234,77 +253,84 @@
     "frame": 1140,
     "type": "pop",
     "note": "notification « Nouvelle réservation »",
-    "gain": 0.8
+    "gain": 0.85
   },
   {
     "frame": 1185,
     "type": "pop",
     "note": "notification « Nouveau message »",
-    "gain": 0.8
+    "gain": 0.85
   },
   {
     "frame": 1256,
     "type": "whooshDeep",
-    "note": "whip-pan vers les langues",
+    "note": "le fil file vers les langues",
     "gain": 0.9,
     "offset": -6
   },
   {
-    "frame": 1266,
-    "type": "flap",
-    "note": "les palettes se mettent à tourner",
-    "gain": 0.6
+    "frame": 1274,
+    "type": "whoosh",
+    "note": "le fil entoure la bulle « Aa »",
+    "gain": 0.5,
+    "offset": -2
   },
   {
     "frame": 1290,
     "type": "impact",
-    "note": "« FR » claque sur le temps",
-    "gain": 0.25,
+    "note": "drapeau FR : claque sur le temps",
+    "gain": 0.28,
     "offset": -1
   },
   {
-    "frame": 1296,
-    "type": "flap",
-    "note": "palettes suivantes",
-    "gain": 0.45
+    "frame": 1290,
+    "type": "pop",
+    "note": "drapeau",
+    "gain": 0.6
   },
   {
     "frame": 1320,
     "type": "impact",
-    "note": "« NL » claque sur le temps",
-    "gain": 0.25,
+    "note": "drapeau NL : claque sur le temps",
+    "gain": 0.28,
     "offset": -1
   },
   {
-    "frame": 1326,
-    "type": "flap",
-    "note": "palettes suivantes",
-    "gain": 0.45
+    "frame": 1320,
+    "type": "pop",
+    "note": "drapeau",
+    "gain": 0.6
   },
   {
     "frame": 1350,
     "type": "impact",
-    "note": "« EN » claque sur le temps",
-    "gain": 0.25,
+    "note": "drapeau EN : claque sur le temps",
+    "gain": 0.28,
     "offset": -1
   },
   {
-    "frame": 1368,
+    "frame": 1350,
+    "type": "pop",
+    "note": "drapeau",
+    "gain": 0.6
+  },
+  {
+    "frame": 1365,
     "type": "tick",
     "note": "« inclus »",
     "gain": 0.6
   },
   {
-    "frame": 1400,
+    "frame": 1388,
     "type": "whooshDeep",
-    "note": "whip-pan vers l'offre",
+    "note": "le fil file vers l'offre",
     "gain": 0.9,
     "offset": -6
   },
   {
     "frame": 1416,
     "type": "flap",
-    "note": "le compteur défile",
+    "note": "les rouleaux du prix défilent",
     "gain": 0.5
   },
   {
@@ -328,13 +354,13 @@
   {
     "frame": 1470,
     "type": "pop",
-    "note": "« € » arrive",
+    "note": "« € »",
     "gain": 0.6
   },
   {
-    "frame": 1476,
+    "frame": 1472,
     "type": "whoosh",
-    "note": "la ligne souligne le prix",
+    "note": "le fil souligne le prix",
     "gain": 0.5,
     "offset": -3
   },
@@ -347,15 +373,27 @@
   {
     "frame": 1500,
     "type": "impact",
-    "note": "explosion du trait",
+    "note": "explosion",
     "gain": 0.3,
     "offset": -1
   },
   {
-    "frame": 1504,
+    "frame": 1506,
     "type": "tick",
-    "note": "sous-titre",
-    "gain": 0.5
+    "note": "pastille 1 allumée",
+    "gain": 0.6
+  },
+  {
+    "frame": 1514,
+    "type": "tick",
+    "note": "pastille 2 allumée",
+    "gain": 0.6
+  },
+  {
+    "frame": 1522,
+    "type": "tick",
+    "note": "pastille 3 allumée",
+    "gain": 0.6
   },
   {
     "frame": 1524,
@@ -364,10 +402,10 @@
     "gain": 0.9
   },
   {
-    "frame": 1560,
+    "frame": 1570,
     "type": "whooshDeep",
-    "note": "long vol de retour",
-    "gain": 1,
+    "note": "les fils convergent",
+    "gain": 0.8,
     "offset": -6
   },
   {
@@ -380,13 +418,20 @@
   {
     "frame": 1620,
     "type": "sparkle",
-    "note": "explosion de particules",
+    "note": "étincelles",
     "gain": 0.8
+  },
+  {
+    "frame": 1626,
+    "type": "whoosh",
+    "note": "le fil écrit le logo",
+    "gain": 0.5,
+    "offset": -2
   },
   {
     "frame": 1666,
     "type": "pop",
-    "note": "la tête se loge dans l'interrupteur du logo",
+    "note": "le bouton se loge dans l'interrupteur",
     "gain": 0.9
   },
   {
@@ -400,12 +445,5 @@
     "type": "pop",
     "note": "« Lien en bio »",
     "gain": 0.8
-  },
-  {
-    "frame": 1782,
-    "type": "whoosh",
-    "note": "la ligne repart vers le point de départ (boucle)",
-    "gain": 0.7,
-    "offset": -3
   }
 ]

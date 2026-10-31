@@ -118,6 +118,8 @@ export const TEXT = {
   },
   site: { line1: "On crée ton site.", line2: "Sur mesure." },
   services: ["Création sur mesure", "Hébergement", "Maintenance", "Réseaux sociaux"],
+  // version courte affichée dans la liste (version néon) : 6 mots à l'écran au maximum
+  servicesShort: ["Sur mesure", "Hébergement", "Maintenance", "Réseaux sociaux"],
   forWho: ["Restaurants", "Hôtels", "Boutiques"],
   mobile: {
     title: "Parfait sur mobile.",
@@ -130,6 +132,9 @@ export const TEXT = {
     currency: "€",
     // Brief : « Hébergement, domaine et maintenance compris ». Raccourci d'un mot pour tenir les 6 mots à l'écran.
     subtitle: "Hébergement, domaine, maintenance compris",
+    // version néon : pastilles qui s'allument une à une, puis le mot de fin
+    included: ["Hébergement", "Domaine", "Maintenance"],
+    includedSuffix: "compris",
   },
   logo: { url: "cliko.be", cta: "Lien en bio" },
 };
