@@ -16,15 +16,15 @@ export const loadAllFonts = () => {
   for (const [weight, file] of Object.entries(FONTS.display.files)) {
     faces.push(loadFont({ family: FONTS.display.family, url: staticFile(`fonts/${file}`), weight }));
   }
-  for (const [weight, file] of Object.entries(FONTS.body.files)) {
-    faces.push(loadFont({ family: FONTS.body.family, url: staticFile(`fonts/${file}`), weight }));
+  for (const [weight, file] of Object.entries(FONTS.mono.files)) {
+    faces.push(loadFont({ family: FONTS.mono.family, url: staticFile(`fonts/${file}`), weight }));
   }
   const parse = async (file: string) => opentype.parse(await (await fetch(staticFile(`fonts/${file}`))).arrayBuffer());
   loading = Promise.all([
     Promise.all(faces),
-    parse(FONTS.display.files[600]),
     parse(FONTS.display.files[700]),
-    parse(FONTS.body.files[500]),
+    parse(FONTS.display.files[800]),
+    parse(FONTS.display.files[500]),
   ]).then(([, display, displayBold, body]) => {
     parsed = { display, displayBold, body };
   });
@@ -39,6 +39,7 @@ export const getFonts = () => {
 export const CSS_FONT = {
   display: `"${FONTS.display.family}", "Inter", sans-serif`,
   body: `"${FONTS.body.family}", sans-serif`,
+  mono: `"${FONTS.mono.family}", monospace`,
 };
 
 // ── Mise en page d'une ligne de texte en glyphes vectoriels ─────────────────

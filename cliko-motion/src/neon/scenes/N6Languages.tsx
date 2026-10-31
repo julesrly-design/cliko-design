@@ -90,7 +90,7 @@ export const N6Languages: React.FC = () => {
         );
       })}
       {/* « FR · NL · EN » : chaque code apparaît avec son drapeau */}
-      <div style={{ position: "absolute", left: 0, width: 1000, top: 1170, display: "flex", justifyContent: "center", opacity: 1 - out, filter: out ? `blur(${out * 12}px)` : undefined }}>
+      <div style={{ position: "absolute", left: 66, width: 900, top: 1170, display: "flex", justifyContent: "flex-start", opacity: 1 - out, filter: out ? `blur(${out * 12}px)` : undefined }}>
         {line.split(" ").map((w, k) => {
           const idx = Math.floor((k + 1) / 2); // les « · » arrivent avec le code suivant
           const a = lf - LAND[Math.min(2, idx)];
@@ -102,7 +102,7 @@ export const N6Languages: React.FC = () => {
                 display: "inline-block",
                 margin: "0 14px",
                 fontFamily: FONT.display,
-                fontWeight: 600,
+                fontWeight: 800,
                 fontSize: 104,
                 letterSpacing: "-0.03em",
                 color: w === "·" ? NEON.amber : NEON.text,
@@ -116,7 +116,7 @@ export const N6Languages: React.FC = () => {
           );
         })}
       </div>
-      <Words text={TEXT.languages.suffix} at={105} size={96} x={0} y={1300} width={1000} frame={lf} accent={[TEXT.languages.suffix]} out={out} />
+      <Words text={TEXT.languages.suffix} at={105} size={96} x={80} y={1300} width={900} frame={lf} accent={[TEXT.languages.suffix]} out={out} />
     </Camera>
   );
 };

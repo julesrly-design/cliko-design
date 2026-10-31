@@ -4,10 +4,10 @@ import { Easing } from "remotion";
 import { TEXT } from "../config";
 
 export const NEON = {
-  // fond : nuit bleutée de cliko.be, très sombre
-  bgCenter: "#0C1430",
-  bgMid: "#060A18",
-  bgEdge: "#010208",
+  // fond : la nuit de cliko.be, presque noire, teintée de violet
+  bgCenter: "#17142B",
+  bgMid: "#0A0912",
+  bgEdge: "#040407",
   // la couleur néon (ambre du logo) et ses variantes
   amber: "#FFC46B",
   amberHot: "#FFE2AE",
@@ -18,9 +18,10 @@ export const NEON = {
   cardTop: "#121A31",
   cardLine: "rgba(185,196,240,.16)",
   text: "#F2F3FA",
-  mist: "#8E97C6",
+  mist: "#B9C0E3", // texte secondaire du site
+  faint: "#8B94C8",
   // couleurs secondaires des bulles (scène « Pour qui »), tirées des lueurs du site
-  orbs: ["#FFC46B", "#38C6F4", "#7B6CFF"] as const,
+  orbs: ["#FFC46B", "#8E7CF0", "#3FA7C9"] as const, // ambre, lavande (nébuleuse), pétrole (site)
 };
 
 // Textes : on reprend ceux de config.ts (un seul endroit à modifier)
@@ -33,9 +34,11 @@ export const EASE = {
   snap: Easing.bezier(0.2, 1.4, 0.4, 1), // micro-dépassement
 };
 
+// Typo de cliko.be
 export const FONT = {
-  display: '"Clash Display", "Inter", sans-serif',
-  body: '"Inter", sans-serif',
+  display: '"Schibsted Grotesk", sans-serif',
+  body: '"Schibsted Grotesk", sans-serif',
+  mono: '"Geist Mono", monospace',
 };
 
 // Logo cliko.be (SVG d'origine, viewBox 480×148, traits de 22)

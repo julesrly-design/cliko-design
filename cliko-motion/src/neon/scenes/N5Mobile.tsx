@@ -125,7 +125,7 @@ export const N5Mobile: React.FC = () => {
           <Wire track={t} frame={lf} />
         </g>
       </Svg>
-      <Words text={TEXT.mobile.title} at={100} size={86} x={0} y={286} width={1060} frame={lf} accent={["mobile"]} out={out} />
+      <Words text={TEXT.mobile.title} at={100} size={84} x={80} y={286} width={900} frame={lf} accent={["mobile"]} out={out} />
     </Camera>
   );
 };

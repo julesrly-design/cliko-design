@@ -8,7 +8,7 @@ import { clamp, lerp, springAt } from "../../lib/math";
 import { EASE, FONT, NEON, TEXT } from "../theme";
 import { drawnAt, makeTrack, pointOn, through, type P } from "../paths";
 import { Haze, Sparks, Svg, Wire } from "../Neon";
-import { Camera, Icon, Orb, type IconName } from "../UI";
+import { Camera, Icon, Orb, Tag, type IconName } from "../UI";
 
 export const N4_PRE = 14;
 export const ARRIVE = [50, 110, 170];
@@ -39,6 +39,9 @@ export const N4ForWho: React.FC = () => {
       ]}
     >
       <Haze at={heads[Math.min(2, active)]} />
+      <Tag x={80} y={300} size={36} show={EASE.out(clamp((lf - 8) / 14)) * (1 - out)}>
+        Bruxelles
+      </Tag>
       <Svg>
         {tracks.map((t, i) => (
           <Wire key={i} track={t} frame={lf} />
@@ -63,7 +66,7 @@ export const N4ForWho: React.FC = () => {
                   right: n.side === "left" ? 1080 - (n.p[0] - R - 40) : undefined,
                   top: n.p[1] - 40,
                   fontFamily: FONT.display,
-                  fontWeight: 600,
+                  fontWeight: 800,
                   fontSize: 72,
                   lineHeight: 1,
                   letterSpacing: "-0.035em",

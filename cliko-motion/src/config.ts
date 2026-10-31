@@ -81,10 +81,15 @@ export const PALETTES: Record<"brand" | "electric", Palette> = {
 export const PALETTE = PALETTES.brand;
 
 // ── Typo ────────────────────────────────────────────────────────────────────
-// Fichiers dans public/fonts. Clash Display (Fontshare, licence ITF FFL) et Inter (OFL).
+// Fichiers dans public/fonts. La typo de cliko.be : Schibsted Grotesk (titres et textes, OFL),
+// Geist Mono pour les petites étiquettes (OFL).
 export const FONTS = {
-  display: { family: "Clash Display", files: { 600: "ClashDisplay-Semibold.ttf", 700: "ClashDisplay-Bold.ttf" } },
-  body: { family: "Inter", files: { 400: "Inter-Regular.ttf", 500: "Inter-Medium.ttf", 600: "Inter-SemiBold.ttf" } },
+  display: {
+    family: "Schibsted Grotesk",
+    files: { 500: "SchibstedGrotesk-Medium.ttf", 600: "SchibstedGrotesk-SemiBold.ttf", 700: "SchibstedGrotesk-Bold.ttf", 800: "SchibstedGrotesk-ExtraBold.ttf" },
+  },
+  body: { family: "Schibsted Grotesk", files: {} as Record<number, string> },
+  mono: { family: "Geist Mono", files: { 500: "GeistMono-Medium.ttf" } },
   // Interlettrage serré des titres (en em)
   displayTracking: -0.035,
 };

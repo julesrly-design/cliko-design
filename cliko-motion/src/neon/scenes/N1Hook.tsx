@@ -9,11 +9,12 @@ import { EASE, FONT, LOGO, logoPx, NEON, TEXT } from "../theme";
 import { ellipseLoop, makeTrack, pointOn, drawnAt, through, type P } from "../paths";
 import { Haze, Head, Svg, Wire } from "../Neon";
 import { Logo, Words } from "../UI";
-import { measureLine } from "../measure";
+import { measureLineAt } from "../measure";
+import { Galaxy } from "../Backdrop";
 
 export const N1_DUR = 150;
-const SIZE = 96;
-const CX = 500; // centre de la zone sûre
+const SIZE = 104;
+const X0 = 80; // marge gauche (mise en page éditoriale du site)
 const LINE_Y = [640, 640 + SIZE * 1.12, 640 + SIZE * 2.24];
 const AT = [50, 62, 76]; // apparition de chaque ligne (frames locales)
 
@@ -21,19 +22,19 @@ export const n1Track = (() => {
   let cache: ReturnType<typeof build> | null = null;
   const build = () => {
     const lines = TEXT.hook.lines;
-    const l2 = measureLine(lines[1], SIZE, CX);
+    const l2 = measureLineAt(lines[1], SIZE, X0);
     const word = l2.words.find((w) => w.word === TEXT.hook.accent) ?? l2.words[l2.words.length - 1];
     const wy = LINE_Y[1] + SIZE * 0.55;
     const knob = logoPx(LOGO.hole.cx, LOGO.hole.cy);
-    const l3 = measureLine(lines[2], SIZE, CX);
+    const l3 = measureLineAt(lines[2], SIZE, X0);
     const q = l3.words[l3.words.length - 1];
     const lasso = { cx: word.cx, cy: wy, rx: (word.x1 - word.x0) / 2 + 46, ry: SIZE * 0.6 };
     const start: P = knob;
     const t = makeTrack(start, [
       // le bouton s'envole et balaie le haut de l'écran
-      { d: through([start, [920, 700], [900, 470], [640, 420], [300, 450], [70, 600]]), f0: 22, f1: 50, ease: EASE.out },
+      { d: through([start, [960, 720], [930, 500], [640, 470], [260, 500], [36, 620]]), f0: 22, f1: 50, ease: EASE.out },
       // descend le long du texte et file sous la dernière ligne jusqu'au « ? »
-      { d: through([[70, 600], [52, 800], [100, 1010], [380, 1070], [q.x1 + 30, 1040], [q.cx + 4, LINE_Y[2] + SIZE * 0.95]]), f0: 50, f1: 90, ease: EASE.inOut },
+      { d: through([[36, 620], [30, 820], [60, 1050], [300, 1110], [q.x1 + 40, 1080], [q.cx + 4, LINE_Y[2] + SIZE * 0.95]]), f0: 50, f1: 90, ease: EASE.inOut },
       // lasso autour de « invisible »
       { d: through([[q.cx + 4, LINE_Y[2] + SIZE * 0.95], [lasso.cx + lasso.rx + 30, lasso.cy + 30], [lasso.cx + lasso.rx, lasso.cy]]), f0: 90, f1: 98, ease: EASE.out },
       { d: ellipseLoop(lasso.cx, lasso.cy, lasso.rx, lasso.ry, 0, 1.05), f0: 98, f1: 118, ease: EASE.inOut },
@@ -65,6 +66,7 @@ export const N1Hook: React.FC = () => {
       {/* logo */}
       {logoOut < 1 && (
         <div style={{ position: "absolute", inset: 0, opacity: 1 - logoOut, filter: logoOut > 0 ? `blur(${logoOut * 16}px)` : undefined, scale: `${1 + logoOut * 0.12}`, transformOrigin: "540px 860px" }}>
+          <Galaxy cx={540} cy={860} r={560} />
           <Logo glow={1 + 0.2 * Math.sin(lf * 0.12)} />
         </div>
       )}
@@ -75,8 +77,8 @@ export const N1Hook: React.FC = () => {
         </Svg>
       )}
       {/* accroche */}
-      <Words text={lines[0]} at={AT[0]} size={SIZE} x={0} y={LINE_Y[0]} width={CX * 2} frame={lf} out={out} />
-      <div style={{ position: "absolute", left: 0, top: LINE_Y[1], width: CX * 2, opacity: 1 - out, filter: out > 0 ? `blur(${out * 14}px)` : undefined }}>
+      <Words text={lines[0]} at={AT[0]} size={SIZE} x={X0} y={LINE_Y[0]} width={1000} frame={lf} out={out} />
+      <div style={{ position: "absolute", left: 0, top: LINE_Y[1], width: 1080, opacity: 1 - out, filter: out > 0 ? `blur(${out * 14}px)` : undefined }}>
         {/* « est » normal + « invisible » fantôme puis allumé */}
         <Words text={lines[1].replace(TEXT.hook.accent, "").trim()} at={AT[1]} size={SIZE} x={firstX} y={0} width={word.x0 - firstX} align="left" frame={lf} />
         <div
@@ -85,7 +87,7 @@ export const N1Hook: React.FC = () => {
             left: word.x0,
             top: 0,
             fontFamily: FONT.display,
-            fontWeight: 600,
+            fontWeight: 800,
             fontSize: SIZE,
             lineHeight: 1.05,
             letterSpacing: "-0.035em",
@@ -103,7 +105,7 @@ export const N1Hook: React.FC = () => {
           {TEXT.hook.accent}
         </div>
       </div>
-      <Words text={lines[2]} at={AT[2]} stagger={6} size={SIZE} x={0} y={LINE_Y[2]} width={CX * 2} frame={lf} out={out} />
+      <Words text={lines[2]} at={AT[2]} stagger={6} size={SIZE} x={X0} y={LINE_Y[2]} width={1000} frame={lf} out={out} />
       <Svg>
         <Wire track={t} frame={lf} />
       </Svg>

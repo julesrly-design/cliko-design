@@ -8,7 +8,7 @@ export const measureLine = (text: string, size: number, cx: number): { words: Wo
   const words = text.split(" ");
   const gap = size * 0.26;
   // <Words> applique letter-spacing −0,035 em à chaque lettre, y compris la dernière
-  const widths = words.map((w) => layoutLine(w, size).width + -0.035 * size);
+  const widths = words.map((w) => layoutLine(w, size, { bold: true }).width + -0.035 * size);
   const width = widths.reduce((a, b) => a + b, 0) + gap * (words.length - 1);
   let x = cx - width / 2;
   return {
@@ -19,4 +19,11 @@ export const measureLine = (text: string, size: number, cx: number): { words: Wo
       return box;
     }),
   };
+};
+
+// Variante alignée à gauche (mise en page éditoriale de cliko.be).
+export const measureLineAt = (text: string, size: number, x0: number) => {
+  const m = measureLine(text, size, 0);
+  const shift = x0 - m.words[0].x0;
+  return { width: m.width, words: m.words.map((w) => ({ ...w, x0: w.x0 + shift, x1: w.x1 + shift, cx: w.cx + shift })) };
 };

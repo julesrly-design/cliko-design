@@ -14,20 +14,21 @@ import { layoutLine } from "../../lib/fonts";
 export const N7_PRE = 14;
 const SIZE = 300;
 const BASE = 1050; // ligne de base du prix
+const X0 = 80; // marge gauche
 const CX = 500;
 const DIGITS = String(TEXT.offer.price).split("");
 const LANDS = DIGITS.map((_, i) => 60 - (DIGITS.length - 1 - i) * 7);
 const UNDER = [62, 88] as const;
 const BOOM = 90;
 const CHIPS = [96, 104, 112];
-const ICON = { cx: 520, cy: 560 };
+const ICON = { cx: 270, cy: 560 };
 
 const priceLayout = () => {
   const num = layoutLine(String(TEXT.offer.price), SIZE, { tracking: -0.04 });
   const euro = layoutLine(TEXT.offer.currency, SIZE * 0.55, { tracking: 0 });
   const gap = SIZE * 0.06;
   const width = num.width + gap + euro.width;
-  return { num, euro, x0: CX - width / 2, euroX: CX - width / 2 + num.width + gap, width };
+  return { num, euro, x0: X0, euroX: X0 + num.width + gap, width };
 };
 
 const Reel: React.FC<{ digit: number; lf: number; land: number; spins: number; w: number }> = ({ digit, lf, land, spins, w }) => {
@@ -60,11 +61,11 @@ export const N7Offer: React.FC = () => {
   const t = useMemo(
     () =>
       makeTrack([-160, 1500], [
-        { d: through([[-160, 1500], [60, 1380], [200, 1180], [ICON.cx - 230, ICON.cy + 40]]), f0: 0, f1: 24, ease: EASE.out },
+        { d: through([[-160, 1500], [60, 1380], [200, 1180], [ICON.cx - 205, ICON.cy + 30]]), f0: 0, f1: 24, ease: EASE.out },
         // tour de l'interrupteur
-        { d: ellipseLoop(ICON.cx, ICON.cy, 220, 150, Math.PI * 0.95, 1.02, 48), f0: 24, f1: 46, ease: EASE.inOut },
+        { d: ellipseLoop(ICON.cx, ICON.cy, 200, 130, Math.PI * 0.95, 1.02, 48), f0: 24, f1: 46, ease: EASE.inOut },
         // descend souligner le prix
-        { d: through([[ICON.cx - 225, ICON.cy + 20], [L.x0 - 80, 900], [L.x0 - 30, uy + 6]]), f0: 46, f1: UNDER[0], ease: EASE.inOut },
+        { d: through([[ICON.cx - 205, ICON.cy + 20], [L.x0 - 80, 900], [L.x0 - 30, uy + 6]]), f0: 46, f1: UNDER[0], ease: EASE.inOut },
         { d: through([[L.x0 - 30, uy + 6], [CX, uy + 2], [L.x0 + L.width + 20, uy]]), f0: UNDER[0], f1: UNDER[1], ease: EASE.inOut },
         // l'explosion la relance : elle passe sous les pastilles de gauche à droite, puis sort
         { d: through([[L.x0 + L.width + 20, uy], [L.x0 + L.width + 40, uy + 110], [500, 1300], [110, 1262]]), f0: BOOM, f1: CHIPS[0] - 4, ease: EASE.out },
@@ -109,7 +110,7 @@ export const N7Offer: React.FC = () => {
             top: BASE - SIZE * 0.82,
             display: "flex",
             fontFamily: FONT.display,
-            fontWeight: 600,
+            fontWeight: 800,
             fontSize: SIZE,
             letterSpacing: "-0.04em",
             color: NEON.amberHot,
@@ -140,7 +141,7 @@ export const N7Offer: React.FC = () => {
           {TEXT.offer.currency}
         </div>
         {/* pastilles « compris » */}
-        <div style={{ position: "absolute", left: 0, width: CX * 2, top: 1150, display: "flex", justifyContent: "center", gap: 16 }}>
+        <div style={{ position: "absolute", left: X0, width: 920 - X0, top: 1150, display: "flex", justifyContent: "flex-start", gap: 16 }}>
           {TEXT.offer.included.map((c, i) => {
             const a = lf - CHIPS[i];
             const on = EASE.out(clamp((a + 2) / 8));
@@ -168,7 +169,7 @@ export const N7Offer: React.FC = () => {
             );
           })}
         </div>
-        <Words text={TEXT.offer.includedSuffix} at={118} size={76} x={0} y={1262} width={CX * 2} frame={lf} />
+        <Words text={TEXT.offer.includedSuffix} at={118} size={76} x={X0} y={1262} width={900} frame={lf} />
       </div>
       <Svg>
         <Wire track={t} frame={lf} />

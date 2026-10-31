@@ -57,6 +57,35 @@ export const Card: React.FC<{ x: number; y: number; w: number; h: number; r?: nu
   </div>
 );
 
+// ── Étiquette du site : pastille en verre, point ambre ─────────────────────
+export const Tag: React.FC<{ x: number; y: number; children: React.ReactNode; show?: number; size?: number }> = ({ x, y, children, show = 1, size = 28 }) =>
+  show <= 0 ? null : (
+    <div
+      style={{
+        position: "absolute",
+        left: x,
+        top: y,
+        display: "inline-flex",
+        alignItems: "center",
+        gap: size * 0.5,
+        padding: `${size * 0.42}px ${size * 0.8}px`,
+        borderRadius: 999,
+        background: "rgba(242,243,250,.06)",
+        border: "1.5px solid rgba(185,196,240,.18)",
+        backdropFilter: "blur(14px)",
+        fontFamily: FONT.body,
+        fontWeight: 500,
+        fontSize: size,
+        color: NEON.text,
+        opacity: show,
+        translate: `0 ${(1 - show) * 20}px`,
+      }}
+    >
+      <span style={{ width: size * 0.32, height: size * 0.32, borderRadius: "50%", background: NEON.amber, boxShadow: "0 0 12px rgba(255,196,107,.9)" }} />
+      {children}
+    </div>
+  );
+
 // ── Téléphone ───────────────────────────────────────────────────────────────
 export const Phone: React.FC<{ x: number; y: number; w: number; h: number; children?: React.ReactNode; glow?: number }> = ({ x, y, w, h, children, glow = 0 }) => (
   <div
@@ -154,7 +183,7 @@ export const Words: React.FC<{
   accent?: string[]; // mots en ambre
   out?: number; // 0..1 sortie
   frame: number;
-}> = ({ text, at, stagger = 5, size, color = NEON.text, weight = 600, font = FONT.display, align = "center", x, y, width = 1080, accent = [], out = 0, frame }) => {
+}> = ({ text, at, stagger = 5, size, color = NEON.text, weight = 800, font = FONT.display, align = "left", x, y, width = 1080, accent = [], out = 0, frame }) => {
   const words = text.split(" ");
   return (
     <div

@@ -9,6 +9,7 @@ import { EASE, FONT, LOGO, LOGO_POS, logoPx, NEON, TEXT } from "../theme";
 import { drawnAt, makeTrack, pointOn, through, type P, type Seg } from "../paths";
 import { Haze, Head, Shock, Sparks, Svg, Wire } from "../Neon";
 import { Logo } from "../UI";
+import { Galaxy } from "../Backdrop";
 
 export const N8_PRE = 14;
 export const N8_DUR = 240;
@@ -95,6 +96,8 @@ export const N8Logo: React.FC = () => {
   const writeFade = 1 - clamp((lf - DRAW[1] - 2) / 16);
   return (
     <div style={{ position: "absolute", inset: 0 }}>
+      {/* la galaxie du site renaît de l'explosion, derrière le logo (comme au tout début) */}
+      {lf >= CONVERGE && <Galaxy cx={540} cy={860} r={560} opacity={EASE.out(clamp((lf - CONVERGE) / 40))} spin={-0.6 * (1 - EASE.out(clamp((lf - CONVERGE) / 60)))} />}
       <Haze at={hazeAt} k={knobOn ? 1.3 : 1.1} />
       <Svg>
         {conv.map((t, i) => (
@@ -117,7 +120,7 @@ export const N8Logo: React.FC = () => {
       </Svg>
       {/* URL */}
       <div style={{ position: "absolute", left: 0, width: 1080, top: 1012, textAlign: "center", overflow: "hidden", height: 104, opacity: 1 - textOut }}>
-        <div style={{ fontFamily: FONT.display, fontWeight: 600, fontSize: 78, letterSpacing: "-0.03em", color: NEON.text, lineHeight: "100px", translate: `0 ${(1 - urlP) * 100}%`, filter: `blur(${(1 - urlP) * 8 + textOut * 12}px)` }}>
+        <div style={{ fontFamily: FONT.display, fontWeight: 800, fontSize: 78, letterSpacing: "-0.03em", color: NEON.text, lineHeight: "100px", translate: `0 ${(1 - urlP) * 100}%`, filter: `blur(${(1 - urlP) * 8 + textOut * 12}px)` }}>
           {TEXT.logo.url}
         </div>
       </div>

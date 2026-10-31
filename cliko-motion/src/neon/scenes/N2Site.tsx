@@ -134,8 +134,8 @@ export const N2Site: React.FC = () => {
       <Svg>
         <Wire track={t} frame={lf} />
       </Svg>
-      <Words text={TEXT.site.line1} at={152} size={80} x={0} y={262} width={1000} frame={lf} out={out} />
-      <Words text={TEXT.site.line2} at={180} size={104} x={0} y={358} width={1000} frame={lf} accent={TEXT.site.line2.replace(".", "").split(" ")} out={out} />
+      <Words text={TEXT.site.line1} at={152} size={78} x={80} y={262} width={900} frame={lf} out={out} />
+      <Words text={TEXT.site.line2} at={180} size={104} x={80} y={350} width={900} frame={lf} accent={TEXT.site.line2.replace(".", "").split(" ")} out={out} />
     </Camera>
   );
 };
