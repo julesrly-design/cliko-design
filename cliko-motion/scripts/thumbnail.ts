@@ -4,4 +4,4 @@
 import { execFileSync } from "node:child_process";
 import { THUMBNAIL_FRAME } from "../src/config";
 
-execFileSync("npx", ["remotion", "still", "src/index.ts", process.env.COMP ?? "ClikoNeon", "out/miniature.png", `--frame=${THUMBNAIL_FRAME}`, "--image-format=png"], { stdio: "inherit" });
+execFileSync("npx", ["remotion", "still", "src/index.ts", process.env.COMP ?? "ClikoNeon", "out/miniature.png", `--frame=${THUMBNAIL_FRAME}`, "--image-format=png", `--gl=${(process.env.COMP ?? "ClikoNeon") === "ClikoMotion" ? "swangle" : "swiftshader"}`], { stdio: "inherit" });

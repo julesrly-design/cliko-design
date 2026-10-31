@@ -13,14 +13,16 @@ const outDir = path.resolve("out/stills");
 fs.mkdirSync(outDir, { recursive: true });
 
 const browserExecutable = process.env.REMOTION_BROWSER ?? null;
+// WebGL (version 3D) : swangle ; version néon : swiftshader (pas de tuiles périmées)
+const GL = process.env.GL ?? (compId === "ClikoMotion" ? "swangle" : "swiftshader");
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts"), webpackOverride: (c) => c });
-const browser = await openBrowser("chrome", { browserExecutable, chromiumOptions: { gl: "swangle" } });
+const browser = await openBrowser("chrome", { browserExecutable, chromiumOptions: { gl: GL } });
 const inputProps = process.env.PROPS ? JSON.parse(process.env.PROPS) : {};
-const composition = await selectComposition({ serveUrl, id: compId, inputProps, puppeteerInstance: browser, chromiumOptions: { gl: "swangle" } });
+const composition = await selectComposition({ serveUrl, id: compId, inputProps, puppeteerInstance: browser, chromiumOptions: { gl: GL } });
 for (const frame of list) {
   const t0 = Date.now();
   const output = path.join(outDir, `${compId === "ClikoMotion" ? "frame" : compId}-${String(frame).padStart(4, "0")}${process.env.SUFFIX ?? ""}.png`);
-  await renderStill({ serveUrl, composition, frame, output, inputProps, puppeteerInstance: browser, chromiumOptions: { gl: "swangle" }, overwrite: true, timeoutInMilliseconds: 120000, onBrowserLog: process.env.LOG ? (l) => console.log(`[browser ${l.type}]`, l.text.slice(0, 400)) : undefined });
+  await renderStill({ serveUrl, composition, frame, output, inputProps, puppeteerInstance: browser, chromiumOptions: { gl: GL }, overwrite: true, timeoutInMilliseconds: 120000, onBrowserLog: process.env.LOG ? (l) => console.log(`[browser ${l.type}]`, l.text.slice(0, 400)) : undefined });
   console.log(`frame ${frame} → ${path.relative(process.cwd(), output)} (${((Date.now() - t0) / 1000).toFixed(1)} s)`);
 }
 await browser.close({ silent: true });

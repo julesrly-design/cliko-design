@@ -5,7 +5,10 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 COMP=${COMP:-ClikoNeon}
-npx remotion render src/index.ts "$COMP" out/raw-render.mp4 --concurrency=${CONCURRENCY:-4} --timeout=120000 > out/render.log 2>&1
+# Moteur de rendu : la version 3D a besoin de WebGL (« swangle ») ; la version néon n'en a pas
+# besoin et « swiftshader » évite des tuiles périmées que « swangle » laisse parfois à l'écran.
+if [ "$COMP" = "ClikoMotion" ]; then GL=${GL:-swangle}; else GL=${GL:-swiftshader}; fi
+npx remotion render src/index.ts "$COMP" out/raw-render.mp4 --gl="$GL" --concurrency=${CONCURRENCY:-4} --timeout=120000 > out/render.log 2>&1
 PASSLOG=$(mktemp -d)/x264
 ffmpeg -nostdin -y -v error -i out/raw-render.mp4 -c:v libx264 -preset slow -b:v 24M -maxrate 30M -bufsize 48M -pass 1 -passlogfile "$PASSLOG" -pix_fmt yuv420p -an -f mp4 /dev/null
 ffmpeg -nostdin -y -v error -i out/raw-render.mp4 -c:v libx264 -preset slow -b:v 24M -maxrate 30M -bufsize 48M -pass 2 -passlogfile "$PASSLOG" \
