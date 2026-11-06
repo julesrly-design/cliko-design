@@ -5,6 +5,7 @@ import { ClikoReel, ReelProps, reelSchema, timelineFor } from "./ClikoReel";
 import { harnessMetadata, SceneHarness } from "./SceneHarness";
 import { Cover } from "./Cover";
 import { SCENES } from "./timeline";
+import { ClikoMotion, MOTION_FRAMES } from "./motion/ClikoMotion";
 
 const FPS = 30;
 
@@ -15,6 +16,7 @@ const calculateMetadata: CalculateMetadataFunction<ReelProps> = async ({ props }
 
 export const RemotionRoot: React.FC = () => (
   <>
+    <Composition id="ClikoMotion" component={ClikoMotion} fps={FPS} width={1080} height={1920} durationInFrames={MOTION_FRAMES} defaultProps={{ sound: true }} />
     <Composition id="ClikoReel" component={ClikoReel} schema={reelSchema} fps={FPS} width={1080} height={1920} durationInFrames={1}
       defaultProps={{ hook: "A" as const, showSafeZones: false, music: true }} calculateMetadata={calculateMetadata} />
     <Composition id="ClikoReelB" component={ClikoReel} schema={reelSchema} fps={FPS} width={1080} height={1920} durationInFrames={1}
