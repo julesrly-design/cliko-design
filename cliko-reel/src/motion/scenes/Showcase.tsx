@@ -4,6 +4,7 @@ import { B, EASE, FONT } from "../../brand";
 import { CL, EXPO, Tag, ramp } from "../kit";
 import { ComposerBar, Typed } from "./Brief";
 import { M } from "../timeline";
+import { SoberSite } from "./SoberSite";
 
 // ------------------------------------------------------------------------------------------------
 // Tunnel de code : des lignes filent vers la caméra en profondeur (flou de profondeur de champ).
@@ -89,7 +90,7 @@ const BLOCKS = [
 ];
 const SCREENS = [
   { src: "motion/forno-nero.png", name: "Forno Nero", scroll: 0 },
-  { src: "motion/atelier-verso.png", name: "Atelier Verso", scroll: 60 },
+  { src: "", name: "Forno Nero, version sobre", scroll: 0 },
   { src: "motion/maison-celest.png", name: "Maison Célest", scroll: 220 },
 ];
 
@@ -148,7 +149,8 @@ export const Showcase: React.FC = () => {
           }}>
             {/* capture réelle (révélée par le balayage) */}
             <div style={{ position: "absolute", inset: 0, clipPath: `inset(0 0 ${(1 - scanP) * 100}% 0)` }}>
-              {SCREENS.map((s, i) => (
+              {screen === 1 && <SoberSite w={CARD.w} h={CARD.h} at={S.flip1 + 6} />}
+              {SCREENS.map((s, i) => s.src && (
                 <Img key={s.src} src={staticFile(s.src)} style={{
                   position: "absolute", left: 0, top: 0, width: "100%", display: i === screen ? "block" : "none",
                   transform: `translateY(${-s.scroll * ramp(f, i === 0 ? scan : i === 1 ? S.flip1 + 7 : S.flip2 + 7, S.out + 10, (t) => t)}px)`,

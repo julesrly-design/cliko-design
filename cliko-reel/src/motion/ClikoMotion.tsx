@@ -20,7 +20,7 @@ const Background: React.FC = () => {
   const pal = mixPal(
     f,
     [0, S.from - 4, S.from + 6, S.flip1 + 5, S.flip1 + 10, S.flip2 + 5, S.flip2 + 10],
-    [PAL.cliko, PAL.cliko, PAL.forno, PAL.forno, PAL.verso, PAL.verso, PAL.celest],
+    [PAL.cliko, PAL.cliko, PAL.forno, PAL.forno, PAL.sobre, PAL.sobre, PAL.celest],
   );
   const intensity = interpolate(
     f,

@@ -27,7 +27,7 @@ export type Palette = { core: string; mid: string; edge: string };
 export const PAL = {
   cliko: { core: "#ffe6b0", mid: "#ffa832", edge: "#d4500a" },
   forno: { core: "#ffe6cf", mid: "#ff8a4c", edge: "#c3261a" },
-  verso: { core: "#f3e0b6", mid: "#c9974d", edge: "#12676a" },
+  sobre: { core: "#f4f1ea", mid: "#aeb3c0", edge: "#5c1f16" },
   celest: { core: "#fff1c6", mid: "#dca843", edge: "#6d3c10" },
   night: { core: "#c9d6ff", mid: "#3b57d6", edge: "#1a2a86" },
 } satisfies Record<string, Palette>;
