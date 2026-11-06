@@ -1,11 +1,12 @@
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
-import { B, FONT, LOGO } from "../../brand";
+import { B, EASE, FONT, LOGO } from "../../brand";
 import { Stars } from "../../components/Night";
-import { EXPO, Flame, Orb, PAL, Ripple, ramp } from "../kit";
+import { Cursor, EXPO, Flame, Orb, PAL, Ripple, ramp } from "../kit";
 import { IgniteLogo } from "./Ignite";
 import { PILL_FONT } from "./Light";
 import { M } from "../timeline";
+import { HEAD, HEAD_STEP } from "../copy";
 
 // 7 · La pilule « Devis gratuit » s'ouvre en aplat ambre ; une pilule nuit « Cliko. » surgit puis avale l'écran.
 export const Brand: React.FC = () => {
@@ -50,7 +51,6 @@ export const Brand: React.FC = () => {
 };
 
 // 8 · Plan final : nuit étoilée, « Cliko. » s'embrase, le titre du site arrive lettre par lettre en arc, puis cliko.be.
-const HEAD = [["Votre", "commerce"], ["mérite", "d'être"], ["trouvé."]];
 
 export const End: React.FC = () => {
   const f = useCurrentFrame();
@@ -58,6 +58,12 @@ export const End: React.FC = () => {
   const zoom = 1 + ramp(f, E.from, M.total, (t) => t) * 0.04;
   const cta = EXPO.out(ramp(f, E.cta, E.cta + 14, (t) => t));
   const pill = EXPO.out(ramp(f, E.cta + 5, E.cta + 19, (t) => t));
+  // un curseur vient cliquer « Demander un devis gratuit »
+  const CLICK = 736;
+  const move = EASE.io(ramp(f, CLICK - 18, CLICK - 2, (t) => t));
+  const curX = 1020 + (700 - 1020) * move;
+  const curY = 1700 + (1338 - 1700) * move;
+  const press = Math.max(0, 1 - Math.abs(f - CLICK) / 3);
   const reveal = 1 - EXPO.out(ramp(f, E.from, E.from + 12, (t) => t));
   let j = 0;
   return (
@@ -81,7 +87,7 @@ export const End: React.FC = () => {
               {row.map((word, wi) => (
                 <span key={wi} style={{ display: "inline-block", margin: "0 0.12em" }}>
                   {word.split("").map((ch, ci) => {
-                    const at = E.line + j++ * 0.95;
+                    const at = E.line + j++ * HEAD_STEP;
                     const p = EXPO.out(ramp(f, at, at + 18, (t) => t));
                     const th = (1 - p) * 1.25;
                     const R = 520;
@@ -112,13 +118,17 @@ export const End: React.FC = () => {
             background: `linear-gradient(180deg, ${B.accentBright} 0%, ${B.accent} 55%, ${B.accentDeep} 100%)`, color: B.night,
             fontFamily: FONT.display, fontWeight: 700, fontSize: 46, letterSpacing: "-0.01em",
             boxShadow: `0 0 ${50 + 30 * Math.sin(f / 8)}px rgba(255,196,107,.4), 0 18px 40px -16px rgba(240,169,72,.7), inset 0 1px 0 rgba(255,255,255,.5)`,
-            transform: `scale(${0.6 + 0.4 * pill})`, opacity: pill,
+            transform: `scale(${(0.6 + 0.4 * pill) * (1 - press * 0.06)})`, opacity: pill,
           }}>
             Demander un devis gratuit
             <svg width={40} height={40} viewBox="0 0 24 24" fill="none" stroke={B.night} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </div>
         </div>
       </AbsoluteFill>
+      <div style={{ position: "absolute", left: 700, top: 1338 }}>
+        <Ripple p={ramp(f, CLICK, CLICK + 14, (t) => t)} size={420} />
+      </div>
+      <Cursor x={curX} y={curY} press={press} opacity={ramp(f, CLICK - 18, CLICK - 12)} blur={move > 0 && move < 1 ? 3 : 0} />
     </AbsoluteFill>
   );
 };

@@ -6,7 +6,7 @@ Reel vertical 1080×1920 / 30 fps, ≈ 29 s, sur la charte de cliko.be. Le story
 
 | Fichier | Contenu |
 |---|---|
-| `cliko-motion.mp4` | **Film motion design** 25 s (flamme, brief à Jules & Louis, 3 styles, typographie cinétique). Storyboard : [`MOTION.md`](MOTION.md) |
+| `cliko-motion.mp4` | **Film motion design** 25 s, sans musique, tout en sound design (flamme, brief à Jules & Louis, 3 styles, typographie cinétique). Storyboard : [`MOTION.md`](MOTION.md) |
 | `cliko-reel.mp4` | Accroche A, musique et bruitages temporaires, sous-titres incrustés, son à −14 LUFS |
 | `cliko-reel-accroche-B.mp4` | Variante B (« Les agences web vous traitent comme un numéro ? Pas nous. ») |
 | `couverture.png`, `couverture-accroche-B.png` | Miniatures 1080×1920 ; l'accroche reste lisible dans le recadrage 4:5 de la grille |

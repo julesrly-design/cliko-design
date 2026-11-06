@@ -4,6 +4,7 @@ import { B, EASE, FONT } from "../../brand";
 import { CL, EXPO, Tag, ramp } from "../kit";
 import { ComposerBar, Typed } from "./Brief";
 import { M } from "../timeline";
+import { ASK1, ASK2 } from "../copy";
 import { SoberSite } from "./SoberSite";
 
 // ------------------------------------------------------------------------------------------------
@@ -213,9 +214,9 @@ export const Showcase: React.FC = () => {
         <div style={{ position: "absolute", inset: 0, borderRadius: 59, background: "rgba(13,14,24,.74)", border: "2px solid rgba(255,236,210,.18)", backdropFilter: "blur(20px)", boxShadow: "0 30px 80px -20px rgba(0,0,0,.8), 0 0 40px rgba(255,170,80,.18)" }} />
         <div style={{ position: "absolute", left: 104, top: 30 }}>
           {f < S.flip1 + 2 ? (
-            <Typed text="Plus sobre ?" accents={["sobre"]} from={S.ask1} to={S.ask1 + 14} size={46} clearAt={send1 + 3} />
+            <Typed text={ASK1.text} accents={["sobre"]} from={ASK1.from} to={ASK1.to} size={46} clearAt={send1 + 3} />
           ) : (
-            <Typed text="Plus chic ?" accents={["chic"]} from={S.ask2} to={S.ask2 + 12} size={46} clearAt={send2 + 3} />
+            <Typed text={ASK2.text} accents={["chic"]} from={ASK2.from} to={ASK2.to} size={46} clearAt={send2 + 3} />
           )}
         </div>
         <div style={{ position: "absolute", inset: 0, transform: "translateY(-4px)" }}>

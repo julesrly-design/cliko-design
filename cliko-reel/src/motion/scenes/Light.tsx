@@ -4,6 +4,7 @@ import { getLength } from "@remotion/paths";
 import { B, FONT } from "../../brand";
 import { EXPO, Ribbon, ramp } from "../kit";
 import { M } from "../timeline";
+import { LINES, Line, wordAt } from "../copy";
 
 const L = M.light;
 const PAPER = "radial-gradient(85% 60% at 50% 46%, #fdfcf9 0%, #f3f0ea 42%, #d9d4cb 78%, #bdb7ad 100%)";
@@ -15,13 +16,6 @@ const RIBBONS = [
   { d: "M 1320 1460 C 820 1080, 300 1760, -260 1240", at: L.l3 - 8, dur: 30 },
   { d: "M -240 1180 C 300 760, 760 1420, 1340 640", at: L.l4 - 6, dur: 32 },
 ].map((r) => ({ ...r, len: getLength(r.d) }));
-
-type Line = { at: number; next: number; dir: number; size: number; rows: string[][]; accent: string };
-const LINES: Line[] = [
-  { at: L.from + 2, next: L.l2, dir: 1, size: 112, rows: [["Un", "site", "qui", "vous"], ["ressemble."]], accent: "ressemble." },
-  { at: L.l2 + 2, next: L.l3, dir: -1, size: 90, rows: [["Hébergé,", "mis", "à", "jour,"], ["en", "3 langues."]], accent: "3 langues." },
-  { at: L.l3 + 2, next: L.l4, dir: 1, size: 108, rows: [["Vous", "parlez", "à"], ["Jules & Louis."]], accent: "Jules & Louis." },
-];
 
 const Word: React.FC<{ text: string; at: number; accent: boolean }> = ({ text, at, accent }) => {
   const f = useCurrentFrame();
@@ -63,7 +57,7 @@ const LineBlock: React.FC<{ line: Line }> = ({ line }) => {
         {line.rows.map((row, ri) => (
           <div key={ri} style={{ whiteSpace: "nowrap" }}>
             {row.map((w) => {
-              const at = line.at + 2 + j++ * 3.5;
+              const at = wordAt(line, j++);
               return <Word key={w} text={w} at={at} accent={w === line.accent} />;
             })}
           </div>

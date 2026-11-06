@@ -4,6 +4,7 @@ import { B, EASE, FONT } from "../../brand";
 import { CL, Cursor, EXPO, Ripple, ramp, speedBlur } from "../kit";
 import { Icon } from "../icons";
 import { M } from "../timeline";
+import { BRIEF_TEXT } from "../copy";
 
 // ------------------------------------------------------------------------------------------------
 // Puces de métiers (verre + lueur), en trois rangées qui dérivent en sens opposés, inclinées en 3D.
@@ -211,7 +212,7 @@ export const Brief: React.FC = () => {
                 }} />
               <div style={{ position: "absolute", inset: 0, opacity: ramp(morph, 0.55, 1, (t) => t) }}>
                 <div style={{ position: "absolute", left: 50, top: 44, right: 50 }}>
-                  <Typed text="Je veux un site pour ma pizzeria." accents={["site", "pizzeria"]} from={type} to={typeEnd} size={54} />
+                  <Typed text={BRIEF_TEXT} accents={["site", "pizzeria"]} from={type} to={typeEnd} size={54} />
                 </div>
                 <ComposerBar press={Math.max(0, 1 - Math.abs(f - send) / 3)} sendGlow={sendGlow} />
               </div>

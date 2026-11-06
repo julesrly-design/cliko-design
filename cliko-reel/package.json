@@ -54,6 +54,7 @@
     "capture-demos": "node scripts/capture-demos.mjs",
     "fx": "python3 scripts/make_fx.py",
     "sfx:motion": "NODE_USE_ENV_PROXY=1 node --env-file-if-exists=.env scripts/sfx-motion.mjs",
-    "music:motion": "python3 scripts/synth_motion.py"
+    "music:motion": "python3 scripts/synth_motion.py",
+    "sfx:mix": "tsx scripts/export-cues.ts && python3 scripts/mix_sfx.py"
   }
 }
