@@ -1,0 +1,19 @@
+{
+  "voiceId": "Jrq4GqCKqYpigdQsZRkP",
+  "parts": [
+    { "scene": "hook",    "say": "[excited] Treize ans. Treize ans d'attente… et aujourd'hui, GTA 6 est ENFIN sorti." },
+    { "scene": "ampleur", "say": "Et l'ampleur que ça prend, c'est complètement fou." },
+    { "scene": "twitch",  "say": "Sur Twitch, plus de trois millions de personnes regardaient le jeu en même temps. Du jamais vu." },
+    { "scene": "total",   "say": "Twitch, YouTube, Kick : plus de six millions de spectateurs en direct au lancement." },
+    { "scene": "vues",    "say": "Et côté vues ? Le premier trailer : quatre-vingt-dix millions de vues en vingt-quatre heures. Record du monde." },
+    { "scene": "cumul",   "say": "Au total, les trailers dépassent le demi-milliard de vues, rien que sur YouTube." },
+    { "scene": "conges",  "say": "Mais le plus dingue, c'est dans la vraie vie. Des milliers de gens ont posé leur journée." },
+    { "scene": "logi",    "say": "Logitech a offert un jour de congé à ses sept mille salariés. Conor McGregor, pareil pour ses quatre cents employés." },
+    { "scene": "flu",     "say": "Aux États-Unis, près d'un salarié sur cinq comptait ne pas bosser aujourd'hui. On appelle déjà ça… la GTA flu." },
+    { "scene": "outro",   "say": "Et toi, t'as pris ta journée ? Dis-le en commentaire." }
+  ],
+  "display": [
+    ["treize", "13"], ["six", "6"], ["trois", "3"], ["quatre-vingt-dix", "90"], ["vingt-quatre", "24"],
+    ["sept", "7"], ["mille", "000"], ["quatre", "4"], ["cents", "00"]
+  ]
+}

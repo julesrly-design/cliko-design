@@ -50,3 +50,16 @@ Les compositions détectent la voix toute seule (`src/voice.ts`). Les timestamps
 ## Règles de contenu respectées
 
 Pas de prix, pas de chiffre ni d'avis inventé, pas de client. Les démos Atelier Verso, Forno Nero et Maison Célest sont présentées comme des *exemples de styles*, et leurs chiffres fictifs sont floutés. Les icônes sont génériques, sans logo Facebook, Google ou Instagram.
+
+## Short YouTube « GTA 6 : l'ampleur du lancement » (`src/gta6/`)
+
+Short 1080×1920 de 57 s : voix off ElevenLabs, musique synthwave synthétisée, ≈ 180 bruitages calés sur les animations, sous-titres karaoké. Livrables : `out/gta6-short.mp4` et `out/gta6-legende.txt` (titre, description, sources).
+
+```bash
+VOICE_ID=TX3LPaxmHKxFdv7VOQHJ npm run gta6:voice   # texte dans src/gta6/script.json → voix + alignement mot à mot
+npm run gta6:audio                                  # feuille de bruitages + musique + mixage → public/gta6/mix.wav
+npx remotion render src/index.ts Gta6Short out/raw-gta6.mp4 --crf=18 --audio-bitrate=256k
+scripts/master.sh out/raw-gta6.mp4 out/gta6-short.mp4
+```
+
+Les coupes, les compteurs et les bruitages suivent tous l'alignement de la voix (`src/gta6/timing.ts`) : il suffit de changer le texte et de relancer les trois commandes.

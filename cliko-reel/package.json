@@ -55,6 +55,8 @@
     "fx": "python3 scripts/make_fx.py",
     "sfx:motion": "NODE_USE_ENV_PROXY=1 node --env-file-if-exists=.env scripts/sfx-motion.mjs",
     "music:motion": "python3 scripts/synth_motion.py",
-    "sfx:mix": "tsx scripts/export-cues.ts && python3 scripts/mix_sfx.py"
+    "sfx:mix": "tsx scripts/export-cues.ts && python3 scripts/mix_sfx.py",
+    "gta6:voice": "NODE_USE_ENV_PROXY=1 node --env-file-if-exists=.env scripts/gta6-voice.mjs",
+    "gta6:audio": "tsx scripts/gta6-cues.ts && python3 scripts/gta6_audio.py"
   }
 }

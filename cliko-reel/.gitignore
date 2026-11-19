@@ -32,3 +32,6 @@ public/captures/demos/*-2.png
 public/captures/demos/*-3.png
 public/motion/music.wav
 public/motion/sfx-mix.wav
+
+# short GTA 6 : piste mixée régénérable (npm run gta6:audio)
+public/gta6/mix.wav

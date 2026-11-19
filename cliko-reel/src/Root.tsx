@@ -6,6 +6,8 @@ import { harnessMetadata, SceneHarness } from "./SceneHarness";
 import { Cover } from "./Cover";
 import { SCENES } from "./timeline";
 import { ClikoMotion, MOTION_FRAMES } from "./motion/ClikoMotion";
+import { Gta6Short } from "./gta6/Gta6Short";
+import { TOTAL as GTA6_FRAMES } from "./gta6/timing";
 
 const FPS = 30;
 
@@ -16,6 +18,7 @@ const calculateMetadata: CalculateMetadataFunction<ReelProps> = async ({ props }
 
 export const RemotionRoot: React.FC = () => (
   <>
+    <Composition id="Gta6Short" component={Gta6Short} fps={FPS} width={1080} height={1920} durationInFrames={GTA6_FRAMES} defaultProps={{ sound: true }} />
     <Composition id="ClikoMotion" component={ClikoMotion} fps={FPS} width={1080} height={1920} durationInFrames={MOTION_FRAMES} defaultProps={{ sound: true }} />
     <Composition id="ClikoReel" component={ClikoReel} schema={reelSchema} fps={FPS} width={1080} height={1920} durationInFrames={1}
       defaultProps={{ hook: "A" as const, showSafeZones: false, music: true }} calculateMetadata={calculateMetadata} />
