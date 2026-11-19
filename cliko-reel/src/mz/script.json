@@ -1,0 +1,11 @@
+{
+  "voiceId": "TX3LPaxmHKxFdv7VOQHJ",
+  "parts": [
+    { "scene": "hook",   "say": "How long is GTA 6?" },
+    { "scene": "main",   "say": "Reviewers finished the main story in about 50 hours." },
+    { "scene": "gta5",   "say": "That's way longer than GTA 5, at around 32." },
+    { "scene": "nelson", "say": "Rockstar's Rob Nelson says his run took about 80 hours, with the side goals that change the story." },
+    { "scene": "full",   "say": "Going for 100 percent? Estimates go up to 200 hours." },
+    { "scene": "outro",  "say": "So yeah… clear your weekends. Follow for more GTA 6." }
+  ]
+}

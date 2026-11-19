@@ -1,0 +1,404 @@
+{
+  "voiceId": "TX3LPaxmHKxFdv7VOQHJ",
+  "model": "eleven_v3",
+  "scenes": [
+    {
+      "scene": "hook",
+      "start": 0,
+      "end": 2.08
+    },
+    {
+      "scene": "main",
+      "start": 2.183,
+      "end": 5.8
+    },
+    {
+      "scene": "gta5",
+      "start": 5.856,
+      "end": 9.36
+    },
+    {
+      "scene": "nelson",
+      "start": 9.536,
+      "end": 15.52
+    },
+    {
+      "scene": "full",
+      "start": 15.667,
+      "end": 20.48
+    },
+    {
+      "scene": "outro",
+      "start": 20.907,
+      "end": 26.08
+    }
+  ],
+  "words": [
+    {
+      "text": "How",
+      "start": 0,
+      "end": 0.08,
+      "scene": "hook"
+    },
+    {
+      "text": "long",
+      "start": 0.192,
+      "end": 0.64,
+      "scene": "hook"
+    },
+    {
+      "text": "is",
+      "start": 0.72,
+      "end": 0.88,
+      "scene": "hook"
+    },
+    {
+      "text": "GTA",
+      "start": 1.02,
+      "end": 1.44,
+      "scene": "hook"
+    },
+    {
+      "text": "6?",
+      "start": 1.6,
+      "end": 2.08,
+      "scene": "hook"
+    },
+    {
+      "text": "Reviewers",
+      "start": 2.183,
+      "end": 2.96,
+      "scene": "main"
+    },
+    {
+      "text": "finished",
+      "start": 2.996,
+      "end": 3.28,
+      "scene": "main"
+    },
+    {
+      "text": "the",
+      "start": 3.3,
+      "end": 3.36,
+      "scene": "main"
+    },
+    {
+      "text": "main",
+      "start": 3.408,
+      "end": 3.6,
+      "scene": "main"
+    },
+    {
+      "text": "story",
+      "start": 3.667,
+      "end": 4,
+      "scene": "main"
+    },
+    {
+      "text": "in",
+      "start": 4.027,
+      "end": 4.08,
+      "scene": "main"
+    },
+    {
+      "text": "about",
+      "start": 4.133,
+      "end": 4.4,
+      "scene": "main"
+    },
+    {
+      "text": "50",
+      "start": 4.56,
+      "end": 4.88,
+      "scene": "main"
+    },
+    {
+      "text": "hours.",
+      "start": 4.987,
+      "end": 5.8,
+      "scene": "main"
+    },
+    {
+      "text": "That's",
+      "start": 5.856,
+      "end": 6.16,
+      "scene": "gta5"
+    },
+    {
+      "text": "way",
+      "start": 6.26,
+      "end": 6.56,
+      "scene": "gta5"
+    },
+    {
+      "text": "longer",
+      "start": 6.617,
+      "end": 6.96,
+      "scene": "gta5"
+    },
+    {
+      "text": "than",
+      "start": 6.992,
+      "end": 7.12,
+      "scene": "gta5"
+    },
+    {
+      "text": "GTA",
+      "start": 7.22,
+      "end": 7.52,
+      "scene": "gta5"
+    },
+    {
+      "text": "5,",
+      "start": 7.68,
+      "end": 8.16,
+      "scene": "gta5"
+    },
+    {
+      "text": "at",
+      "start": 8.187,
+      "end": 8.24,
+      "scene": "gta5"
+    },
+    {
+      "text": "around",
+      "start": 8.274,
+      "end": 8.48,
+      "scene": "gta5"
+    },
+    {
+      "text": "32.",
+      "start": 8.64,
+      "end": 9.36,
+      "scene": "gta5"
+    },
+    {
+      "text": "Rockstar's",
+      "start": 9.536,
+      "end": 10.56,
+      "scene": "nelson"
+    },
+    {
+      "text": "Rob",
+      "start": 10.62,
+      "end": 10.8,
+      "scene": "nelson"
+    },
+    {
+      "text": "Nelson",
+      "start": 10.869,
+      "end": 11.28,
+      "scene": "nelson"
+    },
+    {
+      "text": "says",
+      "start": 11.344,
+      "end": 11.6,
+      "scene": "nelson"
+    },
+    {
+      "text": "his",
+      "start": 11.66,
+      "end": 11.84,
+      "scene": "nelson"
+    },
+    {
+      "text": "run",
+      "start": 11.9,
+      "end": 12.08,
+      "scene": "nelson"
+    },
+    {
+      "text": "took",
+      "start": 12.128,
+      "end": 12.32,
+      "scene": "nelson"
+    },
+    {
+      "text": "about",
+      "start": 12.373,
+      "end": 12.64,
+      "scene": "nelson"
+    },
+    {
+      "text": "80",
+      "start": 12.72,
+      "end": 12.96,
+      "scene": "nelson"
+    },
+    {
+      "text": "hours,",
+      "start": 13.04,
+      "end": 13.52,
+      "scene": "nelson"
+    },
+    {
+      "text": "with",
+      "start": 13.552,
+      "end": 13.68,
+      "scene": "nelson"
+    },
+    {
+      "text": "the",
+      "start": 13.7,
+      "end": 13.76,
+      "scene": "nelson"
+    },
+    {
+      "text": "side",
+      "start": 13.824,
+      "end": 14.08,
+      "scene": "nelson"
+    },
+    {
+      "text": "goals",
+      "start": 14.133,
+      "end": 14.4,
+      "scene": "nelson"
+    },
+    {
+      "text": "that",
+      "start": 14.432,
+      "end": 14.56,
+      "scene": "nelson"
+    },
+    {
+      "text": "change",
+      "start": 14.606,
+      "end": 14.88,
+      "scene": "nelson"
+    },
+    {
+      "text": "the",
+      "start": 14.9,
+      "end": 14.96,
+      "scene": "nelson"
+    },
+    {
+      "text": "story.",
+      "start": 15.04,
+      "end": 15.52,
+      "scene": "nelson"
+    },
+    {
+      "text": "Going",
+      "start": 15.667,
+      "end": 16.4,
+      "scene": "full"
+    },
+    {
+      "text": "for",
+      "start": 16.44,
+      "end": 16.56,
+      "scene": "full"
+    },
+    {
+      "text": "100",
+      "start": 16.72,
+      "end": 16.88,
+      "scene": "full"
+    },
+    {
+      "text": "percent?",
+      "start": 16.93,
+      "end": 17.76,
+      "scene": "full"
+    },
+    {
+      "text": "Estimates",
+      "start": 17.808,
+      "end": 18.24,
+      "scene": "full"
+    },
+    {
+      "text": "go",
+      "start": 18.293,
+      "end": 18.4,
+      "scene": "full"
+    },
+    {
+      "text": "up",
+      "start": 18.48,
+      "end": 18.64,
+      "scene": "full"
+    },
+    {
+      "text": "to",
+      "start": 18.693,
+      "end": 18.8,
+      "scene": "full"
+    },
+    {
+      "text": "200",
+      "start": 19.04,
+      "end": 19.76,
+      "scene": "full"
+    },
+    {
+      "text": "hours.",
+      "start": 19.853,
+      "end": 20.48,
+      "scene": "full"
+    },
+    {
+      "text": "So",
+      "start": 20.907,
+      "end": 21.76,
+      "scene": "outro"
+    },
+    {
+      "text": "yeah…",
+      "start": 21.856,
+      "end": 22.72,
+      "scene": "outro"
+    },
+    {
+      "text": "clear",
+      "start": 22.76,
+      "end": 22.96,
+      "scene": "outro"
+    },
+    {
+      "text": "your",
+      "start": 22.992,
+      "end": 23.12,
+      "scene": "outro"
+    },
+    {
+      "text": "weekends.",
+      "start": 23.182,
+      "end": 23.76,
+      "scene": "outro"
+    },
+    {
+      "text": "Follow",
+      "start": 23.886,
+      "end": 24.64,
+      "scene": "outro"
+    },
+    {
+      "text": "for",
+      "start": 24.7,
+      "end": 24.88,
+      "scene": "outro"
+    },
+    {
+      "text": "more",
+      "start": 24.912,
+      "end": 25.04,
+      "scene": "outro"
+    },
+    {
+      "text": "GTA",
+      "start": 25.16,
+      "end": 25.52,
+      "scene": "outro"
+    },
+    {
+      "text": "6.",
+      "start": 25.68,
+      "end": 26.08,
+      "scene": "outro"
+    }
+  ]
+}

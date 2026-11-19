@@ -1,6 +1,7 @@
-// Voix off du short GTA 6 : 1 requête ElevenLabs « with timestamps » → public/gta6/voix.mp3 + alignment.json
+// Voix off d'un short (SHORT=gta6|mz) : 1 requête ElevenLabs « with timestamps » → public/<SHORT>/voix.mp3 + alignment.json
 import { api, save, MODEL } from "./eleven.mjs";
-import script from "../src/gta6/script.json" with { type: "json" };
+const DIR = process.env.SHORT ?? "gta6";
+const script = (await import(`../src/${DIR}/script.json`, { with: { type: "json" } })).default;
 
 const voiceId = process.env.VOICE_ID ?? script.voiceId;
 const clean = (s) => s.replace(/\[[^\]]+\]\s*/g, "");
@@ -10,7 +11,7 @@ const res = await api(`/v1/text-to-speech/${voiceId}/with-timestamps`, {
   query: { output_format: "mp3_44100_128" },
   body: { text, model_id: MODEL, language_code: "en", voice_settings: { stability: 0.5, similarity_boost: 0.8, style: 0.5, use_speaker_boost: true } },
 });
-await save("public/gta6/voix.mp3", Buffer.from(res.audio_base64, "base64"));
+await save(`public/${DIR}/voix.mp3`, Buffer.from(res.audio_base64, "base64"));
 const a = res.normalized_alignment ?? res.alignment;
 const chars = a.characters.join("");
 // mots (hors balises [..])
@@ -30,5 +31,5 @@ const scenes = bounds.map((b) => { const ws = words.filter((w) => w.scene === b.
 console.log(chars.length === text.length ? "aligné" : `écart ${chars.length} vs ${text.length}`);
 console.table(scenes);
 const json = JSON.stringify({ voiceId, model: MODEL, scenes, words: words.map(({ i, ...w }) => w) }, null, 2);
-await save("public/gta6/alignment.json", json);
-await save("src/gta6/alignment.json", json);
+await save(`public/${DIR}/alignment.json`, json);
+await save(`src/${DIR}/alignment.json`, json);
