@@ -37,7 +37,7 @@ export const usePop = (at: number, damping = 11, stiffness = 170) => {
 };
 
 // Nombre au format français : 3 000 000
-export const fr = (n: number) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+export const fr = (n: number) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 // ---------------------------------------------------------------------------------------------
 // Ciel synthwave : dégradé de nuit, soleil rayé, grille au sol qui défile, palmiers, étoiles.
@@ -166,11 +166,11 @@ export const Counter: React.FC<{ at: number; dur?: number; to: number; suffix?: 
   );
 };
 
-// Pilule « ● EN DIRECT »
+// Pilule « ● LIVE »
 export const LivePill: React.FC<{ f: number }> = ({ f }) => (
   <div style={{ display: "inline-flex", alignItems: "center", gap: 14, background: "#e3122d", color: "#fff", borderRadius: 14, padding: "10px 22px", fontFamily: DISPLAY, fontWeight: 900, fontSize: 40, letterSpacing: 1 }}>
     <div style={{ width: 18, height: 18, borderRadius: 9, background: "#fff", opacity: 0.4 + 0.6 * Math.abs(Math.sin(f / 8)) }} />
-    EN DIRECT
+    LIVE
   </div>
 );
 

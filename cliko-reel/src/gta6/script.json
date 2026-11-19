@@ -1,19 +1,15 @@
 {
-  "voiceId": "Jrq4GqCKqYpigdQsZRkP",
+  "voiceId": "TX3LPaxmHKxFdv7VOQHJ",
   "parts": [
-    { "scene": "hook",    "say": "[excited] Treize ans. Treize ans d'attente… et aujourd'hui, GTA 6 est ENFIN sorti." },
-    { "scene": "ampleur", "say": "Et l'ampleur que ça prend, c'est complètement fou." },
-    { "scene": "twitch",  "say": "Sur Twitch, plus de trois millions de personnes regardaient le jeu en même temps. Du jamais vu." },
-    { "scene": "total",   "say": "Twitch, YouTube, Kick : plus de six millions de spectateurs en direct au lancement." },
-    { "scene": "vues",    "say": "Et côté vues ? Le premier trailer : quatre-vingt-dix millions de vues en vingt-quatre heures. Record du monde." },
-    { "scene": "cumul",   "say": "Au total, les trailers dépassent le demi-milliard de vues, rien que sur YouTube." },
-    { "scene": "conges",  "say": "Mais le plus dingue, c'est dans la vraie vie. Des milliers de gens ont posé leur journée." },
-    { "scene": "logi",    "say": "Logitech a offert un jour de congé à ses sept mille salariés. Conor McGregor, pareil pour ses quatre cents employés." },
-    { "scene": "flu",     "say": "Aux États-Unis, près d'un salarié sur cinq comptait ne pas bosser aujourd'hui. On appelle déjà ça… la GTA flu." },
-    { "scene": "outro",   "say": "Et toi, t'as pris ta journée ? Dis-le en commentaire." }
-  ],
-  "display": [
-    ["treize", "13"], ["six", "6"], ["trois", "3"], ["quatre-vingt-dix", "90"], ["vingt-quatre", "24"],
-    ["sept", "7"], ["mille", "000"], ["quatre", "4"], ["cents", "00"]
+    { "scene": "hook",    "say": "[excited] 13 years. 13 years of waiting… and today, GTA 6 is FINALLY out." },
+    { "scene": "ampleur", "say": "And the hype right now? Absolutely insane." },
+    { "scene": "twitch",  "say": "On Twitch, over 3 million people were watching at the same time. Never seen before." },
+    { "scene": "total",   "say": "Twitch, YouTube, Kick: over 6 million live viewers at launch." },
+    { "scene": "vues",    "say": "And the views? The first trailer: 90 million views in 24 hours. A world record." },
+    { "scene": "cumul",   "say": "In total, the trailers have passed half a billion views, on YouTube alone." },
+    { "scene": "conges",  "say": "But the craziest part is in real life. Thousands of people took the day off." },
+    { "scene": "logi",    "say": "Logitech gave its 7,000 employees a day off. Conor McGregor did the same for his 400 staff." },
+    { "scene": "flu",     "say": "In the US, almost one worker in five planned to skip work today. People are already calling it… the GTA flu." },
+    { "scene": "outro",   "say": "So… did YOU take the day off? Tell me in the comments, and follow for more GTA 6." }
   ]
 }

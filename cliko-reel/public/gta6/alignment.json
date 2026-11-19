@@ -4,942 +4,918 @@
   "scenes": [
     {
       "scene": "hook",
-      "start": 0.204,
-      "end": 6.8
+      "start": 0.467,
+      "end": 7.68
     },
     {
       "scene": "ampleur",
-      "start": 6.827,
-      "end": 9.6
+      "start": 7.86,
+      "end": 11.68
     },
     {
       "scene": "twitch",
-      "start": 9.78,
-      "end": 14.88
+      "start": 11.787,
+      "end": 17.6
     },
     {
       "scene": "total",
-      "start": 14.994,
-      "end": 20.16
+      "start": 17.737,
+      "end": 22.88
     },
     {
       "scene": "vues",
-      "start": 20.32,
-      "end": 27.68
+      "start": 22.98,
+      "end": 29.84
     },
     {
       "scene": "cumul",
-      "start": 27.867,
-      "end": 32.88
+      "start": 30.107,
+      "end": 35.04
     },
     {
       "scene": "conges",
-      "start": 32.992,
-      "end": 38
+      "start": 35.18,
+      "end": 40.24
     },
     {
       "scene": "logi",
-      "start": 38.16,
-      "end": 45.28
+      "start": 40.34,
+      "end": 46.16
     },
     {
       "scene": "flu",
-      "start": 45.42,
-      "end": 52.72
+      "start": 46.32,
+      "end": 53.6
     },
     {
       "scene": "outro",
-      "start": 52.96,
-      "end": 55.84
+      "start": 53.973,
+      "end": 60.16
     }
   ],
   "words": [
     {
-      "text": "Treize",
-      "start": 0.204,
-      "end": 0.4,
+      "text": "13",
+      "start": 0.467,
+      "end": 0.56,
       "scene": "hook"
     },
     {
-      "text": "ans.",
-      "start": 0.44,
-      "end": 0.64,
+      "text": "years.",
+      "start": 0.64,
+      "end": 1.12,
       "scene": "hook"
     },
     {
-      "text": "Treize",
-      "start": 0.86,
-      "end": 1.6,
-      "scene": "hook"
-    },
-    {
-      "text": "ans",
-      "start": 1.64,
-      "end": 1.76,
-      "scene": "hook"
-    },
-    {
-      "text": "d'attente…",
-      "start": 1.8,
+      "text": "13",
+      "start": 1.92,
       "end": 2.56,
       "scene": "hook"
     },
     {
-      "text": "et",
-      "start": 2.587,
-      "end": 2.64,
+      "text": "years",
+      "start": 2.64,
+      "end": 3.04,
       "scene": "hook"
     },
     {
-      "text": "aujourd'hui,",
-      "start": 2.68,
-      "end": 3.68,
+      "text": "of",
+      "start": 3.093,
+      "end": 3.2,
+      "scene": "hook"
+    },
+    {
+      "text": "waiting…",
+      "start": 3.25,
+      "end": 4.24,
+      "scene": "hook"
+    },
+    {
+      "text": "and",
+      "start": 4.28,
+      "end": 4.4,
+      "scene": "hook"
+    },
+    {
+      "text": "today,",
+      "start": 4.467,
+      "end": 5.12,
       "scene": "hook"
     },
     {
       "text": "GTA",
-      "start": 3.78,
-      "end": 4.08,
+      "start": 5.24,
+      "end": 5.6,
       "scene": "hook"
     },
     {
       "text": "6",
-      "start": 4.16,
-      "end": 4.56,
+      "start": 5.76,
+      "end": 6.16,
       "scene": "hook"
     },
     {
-      "text": "est",
-      "start": 4.66,
-      "end": 4.96,
+      "text": "is",
+      "start": 6.24,
+      "end": 6.4,
       "scene": "hook"
     },
     {
-      "text": "ENFIN",
-      "start": 5.067,
-      "end": 5.44,
+      "text": "FINALLY",
+      "start": 6.54,
+      "end": 7.2,
       "scene": "hook"
     },
     {
-      "text": "sorti.",
-      "start": 5.552,
-      "end": 6.8,
-      "scene": "hook"
-    },
-    {
-      "text": "Et",
-      "start": 6.827,
-      "end": 6.88,
-      "scene": "ampleur"
-    },
-    {
-      "text": "l'ampleur",
-      "start": 6.92,
-      "end": 7.36,
-      "scene": "ampleur"
-    },
-    {
-      "text": "que",
-      "start": 7.4,
-      "end": 7.52,
-      "scene": "ampleur"
-    },
-    {
-      "text": "ça",
-      "start": 7.573,
+      "text": "out.",
+      "start": 7.3,
       "end": 7.68,
-      "scene": "ampleur"
+      "scene": "hook"
     },
     {
-      "text": "prend,",
-      "start": 7.733,
-      "end": 8.16,
-      "scene": "ampleur"
-    },
-    {
-      "text": "c'est",
-      "start": 8.2,
+      "text": "And",
+      "start": 7.86,
       "end": 8.4,
       "scene": "ampleur"
     },
     {
-      "text": "complètement",
-      "start": 8.453,
-      "end": 9.04,
+      "text": "the",
+      "start": 8.42,
+      "end": 8.48,
       "scene": "ampleur"
     },
     {
-      "text": "fou.",
-      "start": 9.16,
-      "end": 9.6,
+      "text": "hype",
+      "start": 8.528,
+      "end": 8.72,
       "scene": "ampleur"
     },
     {
-      "text": "Sur",
-      "start": 9.78,
-      "end": 10.32,
+      "text": "right",
+      "start": 8.747,
+      "end": 8.88,
+      "scene": "ampleur"
+    },
+    {
+      "text": "now?",
+      "start": 8.94,
+      "end": 9.2,
+      "scene": "ampleur"
+    },
+    {
+      "text": "Absolutely",
+      "start": 9.324,
+      "end": 10.56,
+      "scene": "ampleur"
+    },
+    {
+      "text": "insane.",
+      "start": 10.651,
+      "end": 11.68,
+      "scene": "ampleur"
+    },
+    {
+      "text": "On",
+      "start": 11.787,
+      "end": 12,
       "scene": "twitch"
     },
     {
       "text": "Twitch,",
-      "start": 10.377,
-      "end": 10.88,
+      "start": 12.057,
+      "end": 12.48,
       "scene": "twitch"
     },
     {
-      "text": "plus",
-      "start": 10.912,
-      "end": 11.04,
-      "scene": "twitch"
-    },
-    {
-      "text": "de",
-      "start": 11.093,
-      "end": 11.2,
-      "scene": "twitch"
-    },
-    {
-      "text": "trois",
-      "start": 11.24,
-      "end": 11.44,
-      "scene": "twitch"
-    },
-    {
-      "text": "millions",
-      "start": 11.476,
-      "end": 11.76,
-      "scene": "twitch"
-    },
-    {
-      "text": "de",
-      "start": 11.787,
-      "end": 11.84,
-      "scene": "twitch"
-    },
-    {
-      "text": "personnes",
-      "start": 11.888,
-      "end": 12.32,
-      "scene": "twitch"
-    },
-    {
-      "text": "regardaient",
-      "start": 12.354,
+      "text": "over",
+      "start": 12.528,
       "end": 12.72,
       "scene": "twitch"
     },
     {
-      "text": "le",
-      "start": 12.747,
-      "end": 12.8,
+      "text": "3",
+      "start": 12.96,
+      "end": 13.2,
       "scene": "twitch"
     },
     {
-      "text": "jeu",
-      "start": 12.84,
-      "end": 12.96,
+      "text": "million",
+      "start": 13.27,
+      "end": 13.76,
       "scene": "twitch"
     },
     {
-      "text": "en",
-      "start": 12.987,
-      "end": 13.04,
+      "text": "people",
+      "start": 13.817,
+      "end": 14.16,
       "scene": "twitch"
     },
     {
-      "text": "même",
-      "start": 13.056,
-      "end": 13.12,
+      "text": "were",
+      "start": 14.208,
+      "end": 14.4,
       "scene": "twitch"
     },
     {
-      "text": "temps.",
-      "start": 13.16,
-      "end": 13.44,
+      "text": "watching",
+      "start": 14.444,
+      "end": 14.8,
       "scene": "twitch"
     },
     {
-      "text": "Du",
-      "start": 13.6,
-      "end": 13.92,
+      "text": "at",
+      "start": 14.853,
+      "end": 14.96,
       "scene": "twitch"
     },
     {
-      "text": "jamais",
-      "start": 14.011,
-      "end": 14.56,
+      "text": "the",
+      "start": 14.98,
+      "end": 15.04,
       "scene": "twitch"
     },
     {
-      "text": "vu.",
-      "start": 14.613,
-      "end": 14.88,
+      "text": "same",
+      "start": 15.12,
+      "end": 15.44,
+      "scene": "twitch"
+    },
+    {
+      "text": "time.",
+      "start": 15.536,
+      "end": 16.24,
+      "scene": "twitch"
+    },
+    {
+      "text": "Never",
+      "start": 16.333,
+      "end": 16.8,
+      "scene": "twitch"
+    },
+    {
+      "text": "seen",
+      "start": 16.864,
+      "end": 17.12,
+      "scene": "twitch"
+    },
+    {
+      "text": "before.",
+      "start": 17.177,
+      "end": 17.6,
       "scene": "twitch"
     },
     {
       "text": "Twitch,",
-      "start": 14.994,
-      "end": 15.92,
+      "start": 17.737,
+      "end": 18.72,
       "scene": "total"
     },
     {
       "text": "YouTube,",
-      "start": 15.98,
-      "end": 16.48,
+      "start": 18.78,
+      "end": 19.36,
       "scene": "total"
     },
     {
-      "text": "Kick",
-      "start": 16.576,
-      "end": 16.96,
+      "text": "Kick:",
+      "start": 19.424,
+      "end": 19.76,
       "scene": "total"
     },
     {
-      "text": ":",
-      "start": 17.12,
-      "end": 17.28,
+      "text": "over",
+      "start": 19.888,
+      "end": 20.4,
       "scene": "total"
     },
     {
-      "text": "plus",
-      "start": 17.312,
-      "end": 17.44,
+      "text": "6",
+      "start": 20.48,
+      "end": 20.8,
       "scene": "total"
     },
     {
-      "text": "de",
-      "start": 17.52,
-      "end": 17.68,
+      "text": "million",
+      "start": 20.86,
+      "end": 21.28,
       "scene": "total"
     },
     {
-      "text": "six",
-      "start": 17.74,
-      "end": 17.92,
-      "scene": "total"
-    },
-    {
-      "text": "millions",
-      "start": 17.973,
-      "end": 18.4,
-      "scene": "total"
-    },
-    {
-      "text": "de",
-      "start": 18.427,
-      "end": 18.48,
-      "scene": "total"
-    },
-    {
-      "text": "spectateurs",
-      "start": 18.533,
-      "end": 19.12,
-      "scene": "total"
-    },
-    {
-      "text": "en",
-      "start": 19.173,
-      "end": 19.28,
-      "scene": "total"
-    },
-    {
-      "text": "direct",
-      "start": 19.326,
-      "end": 19.6,
-      "scene": "total"
-    },
-    {
-      "text": "au",
-      "start": 19.627,
-      "end": 19.68,
-      "scene": "total"
-    },
-    {
-      "text": "lancement.",
-      "start": 19.72,
-      "end": 20.16,
-      "scene": "total"
-    },
-    {
-      "text": "Et",
-      "start": 20.32,
-      "end": 20.64,
-      "scene": "vues"
-    },
-    {
-      "text": "côté",
-      "start": 20.688,
-      "end": 20.88,
-      "scene": "vues"
-    },
-    {
-      "text": "vues",
-      "start": 20.92,
-      "end": 21.04,
-      "scene": "vues"
-    },
-    {
-      "text": "?",
+      "text": "live",
       "start": 21.36,
       "end": 21.68,
+      "scene": "total"
+    },
+    {
+      "text": "viewers",
+      "start": 21.74,
+      "end": 22.16,
+      "scene": "total"
+    },
+    {
+      "text": "at",
+      "start": 22.187,
+      "end": 22.24,
+      "scene": "total"
+    },
+    {
+      "text": "launch.",
+      "start": 22.309,
+      "end": 22.88,
+      "scene": "total"
+    },
+    {
+      "text": "And",
+      "start": 22.98,
+      "end": 23.28,
       "scene": "vues"
     },
     {
-      "text": "Le",
-      "start": 21.707,
-      "end": 21.76,
+      "text": "the",
+      "start": 23.3,
+      "end": 23.36,
       "scene": "vues"
     },
     {
-      "text": "premier",
-      "start": 21.8,
-      "end": 22.08,
+      "text": "views?",
+      "start": 23.44,
+      "end": 23.92,
       "scene": "vues"
     },
     {
-      "text": "trailer",
-      "start": 22.17,
-      "end": 22.8,
+      "text": "The",
+      "start": 24.06,
+      "end": 24.48,
       "scene": "vues"
     },
     {
-      "text": ":",
-      "start": 22.96,
-      "end": 23.12,
+      "text": "first",
+      "start": 24.52,
+      "end": 24.72,
       "scene": "vues"
     },
     {
-      "text": "quatre-vingt-dix",
-      "start": 23.177,
-      "end": 24.08,
+      "text": "trailer:",
+      "start": 24.77,
+      "end": 25.68,
       "scene": "vues"
     },
     {
-      "text": "millions",
-      "start": 24.16,
-      "end": 24.8,
+      "text": "90",
+      "start": 25.76,
+      "end": 26.16,
       "scene": "vues"
     },
     {
-      "text": "de",
-      "start": 24.88,
-      "end": 25.04,
+      "text": "million",
+      "start": 26.22,
+      "end": 26.64,
       "scene": "vues"
     },
     {
-      "text": "vues",
-      "start": 25.12,
-      "end": 25.36,
+      "text": "views",
+      "start": 26.707,
+      "end": 27.04,
       "scene": "vues"
     },
     {
-      "text": "en",
-      "start": 25.413,
-      "end": 25.52,
+      "text": "in",
+      "start": 27.093,
+      "end": 27.2,
       "scene": "vues"
     },
     {
-      "text": "vingt-quatre",
-      "start": 25.6,
-      "end": 26,
+      "text": "24",
+      "start": 27.28,
+      "end": 27.76,
       "scene": "vues"
     },
     {
-      "text": "heures.",
-      "start": 26.046,
-      "end": 26.4,
+      "text": "hours.",
+      "start": 27.853,
+      "end": 28.4,
       "scene": "vues"
     },
     {
-      "text": "Record",
-      "start": 26.503,
-      "end": 27.12,
+      "text": "A",
+      "start": 28.6,
+      "end": 28.8,
       "scene": "vues"
     },
     {
-      "text": "du",
-      "start": 27.173,
-      "end": 27.28,
+      "text": "world",
+      "start": 28.88,
+      "end": 29.28,
       "scene": "vues"
     },
     {
-      "text": "monde.",
-      "start": 27.333,
-      "end": 27.68,
+      "text": "record.",
+      "start": 29.349,
+      "end": 29.84,
       "scene": "vues"
     },
     {
-      "text": "Au",
-      "start": 27.867,
-      "end": 28.24,
+      "text": "In",
+      "start": 30.107,
+      "end": 30.64,
       "scene": "cumul"
     },
     {
       "text": "total,",
-      "start": 28.307,
-      "end": 28.72,
+      "start": 30.707,
+      "end": 31.2,
       "scene": "cumul"
     },
     {
-      "text": "les",
-      "start": 28.82,
-      "end": 29.12,
+      "text": "the",
+      "start": 31.24,
+      "end": 31.36,
       "scene": "cumul"
     },
     {
       "text": "trailers",
-      "start": 29.164,
-      "end": 29.52,
-      "scene": "cumul"
-    },
-    {
-      "text": "dépassent",
-      "start": 29.6,
-      "end": 30,
-      "scene": "cumul"
-    },
-    {
-      "text": "le",
-      "start": 30.053,
-      "end": 30.16,
-      "scene": "cumul"
-    },
-    {
-      "text": "demi-milliard",
-      "start": 30.24,
-      "end": 31.12,
-      "scene": "cumul"
-    },
-    {
-      "text": "de",
-      "start": 31.173,
-      "end": 31.28,
-      "scene": "cumul"
-    },
-    {
-      "text": "vues,",
-      "start": 31.36,
+      "start": 31.396,
       "end": 31.68,
       "scene": "cumul"
     },
     {
-      "text": "rien",
-      "start": 31.744,
-      "end": 32,
+      "text": "have",
+      "start": 31.712,
+      "end": 31.84,
       "scene": "cumul"
     },
     {
-      "text": "que",
-      "start": 32.04,
+      "text": "passed",
+      "start": 31.886,
       "end": 32.16,
       "scene": "cumul"
     },
     {
-      "text": "sur",
-      "start": 32.2,
-      "end": 32.32,
+      "text": "half",
+      "start": 32.24,
+      "end": 32.56,
       "scene": "cumul"
     },
     {
-      "text": "YouTube.",
-      "start": 32.38,
-      "end": 32.88,
+      "text": "a",
+      "start": 32.64,
+      "end": 32.72,
       "scene": "cumul"
     },
     {
-      "text": "Mais",
-      "start": 32.992,
-      "end": 33.44,
-      "scene": "conges"
+      "text": "billion",
+      "start": 32.78,
+      "end": 33.2,
+      "scene": "cumul"
     },
     {
-      "text": "le",
-      "start": 33.467,
-      "end": 33.52,
-      "scene": "conges"
+      "text": "views,",
+      "start": 33.293,
+      "end": 33.84,
+      "scene": "cumul"
     },
     {
-      "text": "plus",
-      "start": 33.552,
-      "end": 33.68,
-      "scene": "conges"
+      "text": "on",
+      "start": 33.893,
+      "end": 34,
+      "scene": "cumul"
     },
     {
-      "text": "dingue,",
-      "start": 33.728,
-      "end": 34.32,
-      "scene": "conges"
-    },
-    {
-      "text": "c'est",
-      "start": 34.36,
+      "text": "YouTube",
+      "start": 34.06,
       "end": 34.48,
+      "scene": "cumul"
+    },
+    {
+      "text": "alone.",
+      "start": 34.56,
+      "end": 35.04,
+      "scene": "cumul"
+    },
+    {
+      "text": "But",
+      "start": 35.18,
+      "end": 35.6,
       "scene": "conges"
     },
     {
-      "text": "dans",
-      "start": 34.496,
-      "end": 34.56,
+      "text": "the",
+      "start": 35.64,
+      "end": 35.76,
       "scene": "conges"
     },
     {
-      "text": "la",
-      "start": 34.587,
-      "end": 34.64,
+      "text": "craziest",
+      "start": 35.8,
+      "end": 36.16,
       "scene": "conges"
     },
     {
-      "text": "vraie",
-      "start": 34.7,
-      "end": 34.96,
+      "text": "part",
+      "start": 36.224,
+      "end": 36.48,
       "scene": "conges"
     },
     {
-      "text": "vie.",
-      "start": 35.02,
-      "end": 35.28,
-      "scene": "conges"
-    },
-    {
-      "text": "Des",
-      "start": 35.46,
-      "end": 36,
-      "scene": "conges"
-    },
-    {
-      "text": "milliers",
-      "start": 36.064,
-      "end": 36.56,
-      "scene": "conges"
-    },
-    {
-      "text": "de",
-      "start": 36.587,
+      "text": "is",
+      "start": 36.533,
       "end": 36.64,
       "scene": "conges"
     },
     {
-      "text": "gens",
-      "start": 36.704,
+      "text": "in",
+      "start": 36.693,
+      "end": 36.8,
+      "scene": "conges"
+    },
+    {
+      "text": "real",
+      "start": 36.832,
       "end": 36.96,
       "scene": "conges"
     },
     {
-      "text": "ont",
-      "start": 37.02,
-      "end": 37.2,
-      "scene": "conges"
-    },
-    {
-      "text": "posé",
-      "start": 37.24,
+      "text": "life.",
+      "start": 37.04,
       "end": 37.44,
       "scene": "conges"
     },
     {
-      "text": "leur",
-      "start": 37.472,
-      "end": 37.6,
+      "text": "Thousands",
+      "start": 37.552,
+      "end": 38.56,
       "scene": "conges"
     },
     {
-      "text": "journée.",
-      "start": 37.64,
-      "end": 38,
+      "text": "of",
+      "start": 38.587,
+      "end": 38.64,
+      "scene": "conges"
+    },
+    {
+      "text": "people",
+      "start": 38.686,
+      "end": 38.96,
+      "scene": "conges"
+    },
+    {
+      "text": "took",
+      "start": 39.008,
+      "end": 39.2,
+      "scene": "conges"
+    },
+    {
+      "text": "the",
+      "start": 39.22,
+      "end": 39.28,
+      "scene": "conges"
+    },
+    {
+      "text": "day",
+      "start": 39.34,
+      "end": 39.52,
+      "scene": "conges"
+    },
+    {
+      "text": "off.",
+      "start": 39.6,
+      "end": 40.24,
       "scene": "conges"
     },
     {
       "text": "Logitech",
-      "start": 38.16,
-      "end": 39.04,
-      "scene": "logi"
-    },
-    {
-      "text": "a",
-      "start": 39.12,
-      "end": 39.2,
-      "scene": "logi"
-    },
-    {
-      "text": "offert",
-      "start": 39.24,
-      "end": 39.52,
-      "scene": "logi"
-    },
-    {
-      "text": "un",
-      "start": 39.547,
-      "end": 39.6,
-      "scene": "logi"
-    },
-    {
-      "text": "jour",
-      "start": 39.664,
-      "end": 39.92,
-      "scene": "logi"
-    },
-    {
-      "text": "de",
-      "start": 39.973,
-      "end": 40.08,
-      "scene": "logi"
-    },
-    {
-      "text": "congé",
-      "start": 40.144,
-      "end": 40.48,
-      "scene": "logi"
-    },
-    {
-      "text": "à",
-      "start": 40.56,
-      "end": 40.64,
-      "scene": "logi"
-    },
-    {
-      "text": "ses",
-      "start": 40.72,
+      "start": 40.34,
       "end": 40.96,
       "scene": "logi"
     },
     {
-      "text": "sept",
-      "start": 41.024,
-      "end": 41.28,
+      "text": "gave",
+      "start": 40.992,
+      "end": 41.12,
       "scene": "logi"
     },
     {
-      "text": "mille",
-      "start": 41.36,
-      "end": 41.6,
+      "text": "its",
+      "start": 41.18,
+      "end": 41.36,
       "scene": "logi"
     },
     {
-      "text": "salariés.",
-      "start": 41.66,
-      "end": 42.24,
+      "text": "7,000",
+      "start": 41.56,
+      "end": 42,
+      "scene": "logi"
+    },
+    {
+      "text": "employees",
+      "start": 42.056,
+      "end": 42.56,
+      "scene": "logi"
+    },
+    {
+      "text": "a",
+      "start": 42.6,
+      "end": 42.64,
+      "scene": "logi"
+    },
+    {
+      "text": "day",
+      "start": 42.7,
+      "end": 42.88,
+      "scene": "logi"
+    },
+    {
+      "text": "off.",
+      "start": 42.96,
+      "end": 43.36,
       "scene": "logi"
     },
     {
       "text": "Conor",
-      "start": 42.36,
-      "end": 42.96,
+      "start": 43.453,
+      "end": 43.92,
       "scene": "logi"
     },
     {
-      "text": "McGregor,",
-      "start": 43.022,
-      "end": 43.68,
+      "text": "McGregor",
+      "start": 43.964,
+      "end": 44.32,
       "scene": "logi"
     },
     {
-      "text": "pareil",
-      "start": 43.728,
-      "end": 44,
+      "text": "did",
+      "start": 44.36,
+      "end": 44.48,
       "scene": "logi"
     },
     {
-      "text": "pour",
-      "start": 44.032,
-      "end": 44.16,
-      "scene": "logi"
-    },
-    {
-      "text": "ses",
-      "start": 44.22,
-      "end": 44.4,
-      "scene": "logi"
-    },
-    {
-      "text": "quatre",
-      "start": 44.423,
+      "text": "the",
+      "start": 44.5,
       "end": 44.56,
       "scene": "logi"
     },
     {
-      "text": "cents",
-      "start": 44.587,
-      "end": 44.72,
+      "text": "same",
+      "start": 44.624,
+      "end": 44.88,
       "scene": "logi"
     },
     {
-      "text": "employés.",
-      "start": 44.777,
-      "end": 45.28,
+      "text": "for",
+      "start": 44.9,
+      "end": 44.96,
       "scene": "logi"
     },
     {
-      "text": "Aux",
-      "start": 45.42,
-      "end": 45.84,
-      "scene": "flu"
+      "text": "his",
+      "start": 45,
+      "end": 45.12,
+      "scene": "logi"
     },
     {
-      "text": "États-Unis,",
-      "start": 45.88,
+      "text": "400",
+      "start": 45.2,
+      "end": 45.6,
+      "scene": "logi"
+    },
+    {
+      "text": "staff.",
+      "start": 45.68,
+      "end": 46.16,
+      "scene": "logi"
+    },
+    {
+      "text": "In",
+      "start": 46.32,
       "end": 46.64,
       "scene": "flu"
     },
     {
-      "text": "près",
-      "start": 46.704,
-      "end": 46.96,
+      "text": "the",
+      "start": 46.66,
+      "end": 46.72,
       "scene": "flu"
     },
     {
-      "text": "d'un",
-      "start": 47,
-      "end": 47.2,
+      "text": "US,",
+      "start": 46.88,
+      "end": 47.28,
       "scene": "flu"
     },
     {
-      "text": "salarié",
-      "start": 47.26,
-      "end": 47.68,
+      "text": "almost",
+      "start": 47.326,
+      "end": 47.6,
       "scene": "flu"
     },
     {
-      "text": "sur",
-      "start": 47.74,
+      "text": "one",
+      "start": 47.68,
       "end": 47.92,
       "scene": "flu"
     },
     {
-      "text": "cinq",
-      "start": 48.04,
-      "end": 48.4,
+      "text": "worker",
+      "start": 47.977,
+      "end": 48.32,
       "scene": "flu"
     },
     {
-      "text": "comptait",
-      "start": 48.453,
-      "end": 48.8,
+      "text": "in",
+      "start": 48.373,
+      "end": 48.48,
       "scene": "flu"
     },
     {
-      "text": "ne",
-      "start": 48.827,
-      "end": 48.88,
+      "text": "five",
+      "start": 48.576,
+      "end": 48.96,
       "scene": "flu"
     },
     {
-      "text": "pas",
-      "start": 48.92,
-      "end": 49.04,
+      "text": "planned",
+      "start": 49,
+      "end": 49.28,
       "scene": "flu"
     },
     {
-      "text": "bosser",
-      "start": 49.08,
-      "end": 49.44,
+      "text": "to",
+      "start": 49.307,
+      "end": 49.36,
       "scene": "flu"
     },
     {
-      "text": "aujourd'hui.",
-      "start": 49.47,
-      "end": 49.92,
+      "text": "skip",
+      "start": 49.424,
+      "end": 49.68,
       "scene": "flu"
     },
     {
-      "text": "On",
-      "start": 50.053,
+      "text": "work",
+      "start": 49.712,
+      "end": 49.84,
+      "scene": "flu"
+    },
+    {
+      "text": "today.",
+      "start": 49.893,
       "end": 50.32,
       "scene": "flu"
     },
     {
-      "text": "appelle",
-      "start": 50.36,
-      "end": 50.56,
+      "text": "People",
+      "start": 50.423,
+      "end": 51.04,
       "scene": "flu"
     },
     {
-      "text": "déjà",
-      "start": 50.624,
-      "end": 50.88,
-      "scene": "flu"
-    },
-    {
-      "text": "ça…",
-      "start": 50.96,
+      "text": "are",
+      "start": 51.08,
       "end": 51.2,
       "scene": "flu"
     },
     {
-      "text": "la",
-      "start": 51.387,
-      "end": 51.76,
+      "text": "already",
+      "start": 51.24,
+      "end": 51.52,
+      "scene": "flu"
+    },
+    {
+      "text": "calling",
+      "start": 51.56,
+      "end": 51.84,
+      "scene": "flu"
+    },
+    {
+      "text": "it…",
+      "start": 51.893,
+      "end": 52.4,
+      "scene": "flu"
+    },
+    {
+      "text": "the",
+      "start": 52.42,
+      "end": 52.48,
       "scene": "flu"
     },
     {
       "text": "GTA",
-      "start": 51.9,
-      "end": 52.32,
+      "start": 52.62,
+      "end": 53.04,
       "scene": "flu"
     },
     {
       "text": "flu.",
-      "start": 52.4,
-      "end": 52.72,
+      "start": 53.16,
+      "end": 53.6,
       "scene": "flu"
     },
     {
-      "text": "Et",
-      "start": 52.96,
-      "end": 53.44,
-      "scene": "outro"
-    },
-    {
-      "text": "toi,",
-      "start": 53.5,
-      "end": 53.76,
-      "scene": "outro"
-    },
-    {
-      "text": "t'as",
-      "start": 53.84,
-      "end": 54,
-      "scene": "outro"
-    },
-    {
-      "text": "pris",
-      "start": 54.032,
-      "end": 54.16,
-      "scene": "outro"
-    },
-    {
-      "text": "ta",
-      "start": 54.187,
-      "end": 54.24,
-      "scene": "outro"
-    },
-    {
-      "text": "journée",
-      "start": 54.28,
-      "end": 54.56,
-      "scene": "outro"
-    },
-    {
-      "text": "?",
-      "start": 54.6,
-      "end": 54.64,
-      "scene": "outro"
-    },
-    {
-      "text": "Dis-le",
-      "start": 54.76,
+      "text": "So…",
+      "start": 53.973,
       "end": 55.2,
       "scene": "outro"
     },
     {
-      "text": "en",
-      "start": 55.253,
+      "text": "did",
+      "start": 55.24,
       "end": 55.36,
       "scene": "outro"
     },
     {
-      "text": "commentaire.",
-      "start": 55.393,
+      "text": "YOU",
+      "start": 55.42,
+      "end": 55.6,
+      "scene": "outro"
+    },
+    {
+      "text": "take",
+      "start": 55.648,
       "end": 55.84,
+      "scene": "outro"
+    },
+    {
+      "text": "the",
+      "start": 55.86,
+      "end": 55.92,
+      "scene": "outro"
+    },
+    {
+      "text": "day",
+      "start": 55.98,
+      "end": 56.16,
+      "scene": "outro"
+    },
+    {
+      "text": "off?",
+      "start": 56.24,
+      "end": 56.56,
+      "scene": "outro"
+    },
+    {
+      "text": "Tell",
+      "start": 56.704,
+      "end": 57.28,
+      "scene": "outro"
+    },
+    {
+      "text": "me",
+      "start": 57.307,
+      "end": 57.36,
+      "scene": "outro"
+    },
+    {
+      "text": "in",
+      "start": 57.387,
+      "end": 57.44,
+      "scene": "outro"
+    },
+    {
+      "text": "the",
+      "start": 57.46,
+      "end": 57.52,
+      "scene": "outro"
+    },
+    {
+      "text": "comments,",
+      "start": 57.573,
+      "end": 58.08,
+      "scene": "outro"
+    },
+    {
+      "text": "and",
+      "start": 58.1,
+      "end": 58.16,
+      "scene": "outro"
+    },
+    {
+      "text": "follow",
+      "start": 58.217,
+      "end": 58.56,
+      "scene": "outro"
+    },
+    {
+      "text": "for",
+      "start": 58.6,
+      "end": 58.72,
+      "scene": "outro"
+    },
+    {
+      "text": "more",
+      "start": 58.768,
+      "end": 58.96,
+      "scene": "outro"
+    },
+    {
+      "text": "GTA",
+      "start": 59.12,
+      "end": 59.6,
+      "scene": "outro"
+    },
+    {
+      "text": "6.",
+      "start": 59.76,
+      "end": 60.16,
       "scene": "outro"
     }
   ]

@@ -11,10 +11,10 @@ const Center: React.FC<{ children: React.ReactNode; top?: number; style?: React.
 // 1 — « Treize ans. Treize ans d'attente… et aujourd'hui, GTA 6 est enfin sorti. »
 export const Hook: React.FC = () => {
   const f = useCurrentFrame();
-  const t2 = wordAt("hook", /^Treize/i, 1);
-  const today = wordAt("hook", /aujourd/i);
+  const t2 = wordAt("hook", /^13$/, 1);
+  const today = wordAt("hook", /^today/i);
   const gta = wordAt("hook", /^GTA/);
-  const enfin = wordAt("hook", /ENFIN/);
+  const enfin = wordAt("hook", /FINALLY/);
   const out13 = ramp(f, gta - 6, gta, ease.io);
   const bar = ramp(f, t2, today, ease.io);
   const year = Math.round(interpolate(bar, [0, 1], [2013, 2026]));
@@ -24,11 +24,11 @@ export const Hook: React.FC = () => {
       <div style={{ opacity: 1 - out13, transform: `translateY(${-out13 * 300}px) scale(${1 - out13 * 0.3})` }}>
         <Center top={250}>
           <Counter at={3} dur={12} to={13} size={460} />
-          <Slam at={8}><Big size={150}>ans</Big></Slam>
+          <Slam at={8}><Big size={150}>years</Big></Slam>
         </Center>
         {f >= t2 && (
           <Center top={980}>
-            <Label style={{ fontSize: 64 }}>d'attente…</Label>
+            <Label style={{ fontSize: 64 }}>of waiting…</Label>
             <div style={{ marginTop: 26, width: 760, height: 34, borderRadius: 17, background: "rgba(255,255,255,.12)", border: "3px solid rgba(255,255,255,.35)", overflow: "hidden" }}>
               <div style={{ width: `${bar * 100}%`, height: "100%", background: SUNSET.replace("180deg", "90deg"), boxShadow: `0 0 30px ${C.pink}` }} />
             </div>
@@ -40,13 +40,13 @@ export const Hook: React.FC = () => {
       </div>
       {f >= today && (
         <Center top={f >= gta ? 330 : 700} style={{ transform: `scale(${datePop})` }}>
-          <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 46, color: C.night, background: C.yellow, padding: "10px 26px", borderRadius: 12, transform: "rotate(-2deg)" }}>JEUDI 19 NOVEMBRE 2026</div>
+          <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 46, color: C.night, background: C.yellow, padding: "10px 26px", borderRadius: 12, transform: "rotate(-2deg)" }}>THURSDAY · NOV 19, 2026</div>
         </Center>
       )}
       {f >= gta && (
         <Center top={470}>
           <Slam at={gta} from={3.2}><Big size={330} grad={SUNSET}>GTA 6</Big></Slam>
-          <div style={{ marginTop: 40 }}><Stamp at={enfin} text="Enfin sorti" size={110} /></div>
+          <div style={{ marginTop: 40 }}><Stamp at={enfin} text="Finally out" size={110} /></div>
         </Center>
       )}
     </AbsoluteFill>
@@ -56,7 +56,7 @@ export const Hook: React.FC = () => {
 // 2 — « Et l'ampleur que ça prend, c'est complètement fou. »
 export const Ampleur: React.FC = () => {
   const f = useCurrentFrame();
-  const fou = wordAt("ampleur", /fou/);
+  const fou = wordAt("ampleur", /insane/);
   const rings = [0, 5, 10].map((d) => ramp(f, fou + d, fou + d + 22, ease.out));
   return (
     <AbsoluteFill>
@@ -64,22 +64,22 @@ export const Ampleur: React.FC = () => {
         <div key={i} style={{ position: "absolute", left: 540 - 450 * r, top: 760 - 450 * r, width: 900 * r, height: 900 * r, borderRadius: "50%", border: `${10 * (1 - r) + 2}px solid ${i % 2 ? C.teal : C.pink}`, opacity: (1 - r) * (f >= fou ? 1 : 0) }} />
       ))}
       <Center top={380}>
-        <Slam at={0}><Big size={150}>l'ampleur</Big></Slam>
-        <Slam at={wordAt("ampleur", /prend/)}><Big size={110} style={{ marginTop: 10 }}>que ça prend</Big></Slam>
-        <Slam at={fou - 4} from={4}><Big size={250} grad={SUNSET} style={{ marginTop: 30 }}>c'est fou</Big></Slam>
+        <Slam at={0}><Big size={150}>the hype</Big></Slam>
+        <Slam at={wordAt("ampleur", /^right/)}><Big size={110} style={{ marginTop: 10 }}>right now</Big></Slam>
+        <Slam at={fou - 4} from={4}><Big size={250} grad={SUNSET} style={{ marginTop: 30 }}>is insane</Big></Slam>
       </Center>
     </AbsoluteFill>
   );
 };
 
-const CHAT = ["LETS GOOOO", "13 ANS D'ATTENTE", "ENFIN !!!", "VICE CITY ON ARRIVE", "j'ai posé ma journée", "GG ROCKSTAR", "W W W W", "je pleure là", "LE RECORD MDR", "bonne nuit le boulot"];
+const CHAT = ["LETS GOOOO", "13 YEARS WAITING", "FINALLY !!!", "VICE CITY HERE WE GO", "took the day off lol", "GG ROCKSTAR", "W W W W", "im crying rn", "RECORD LMAO", "bye bye work"];
 const CHATCOL = [C.teal, C.yellow, C.hot, C.orange, "#9cf", C.kick];
 
 // 3 — « Sur Twitch, plus de trois millions de personnes regardaient le jeu en même temps. Du jamais vu. »
 export const Twitch: React.FC = () => {
   const f = useCurrentFrame();
-  const n = wordAt("twitch", /^trois/);
-  const jam = wordAt("twitch", /jamais/);
+  const n = wordAt("twitch", /^3$/);
+  const jam = wordAt("twitch", /Never/);
   const card = usePop(0);
   return (
     <AbsoluteFill>
@@ -99,12 +99,12 @@ export const Twitch: React.FC = () => {
             <div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 52, color: C.twitch, background: "#fff", padding: "6px 22px", borderRadius: 12 }}>TWITCH</div>
           </div>
           <div style={{ height: 250, display: "flex", alignItems: "center" }}>
-            <Counter at={n} dur={28} to={3_000_000} suffix="+" size={170} grad={NEON} />
+            <Counter at={n} dur={28} to={3_000_000} suffix="+" size={140} grad={NEON} />
           </div>
-          <Label style={{ fontSize: 50 }}>spectateurs en même temps</Label>
+          <Label style={{ fontSize: 50 }}>watching at the same time</Label>
         </div>
       </Center>
-      <Center top={1000}><Stamp at={jam} text="Du jamais vu" color={C.yellow} rot={-5} size={100} /></Center>
+      <Center top={1000}><Stamp at={jam} text="Never seen before" color={C.yellow} rot={-5} size={100} /></Center>
     </AbsoluteFill>
   );
 };
@@ -112,7 +112,7 @@ export const Twitch: React.FC = () => {
 // 4 — « Twitch, YouTube, Kick : plus de six millions de spectateurs en direct au lancement. »
 export const Total: React.FC = () => {
   const f = useCurrentFrame();
-  const six = wordAt("total", /^six/);
+  const six = wordAt("total", /^6$/);
   const merge = ramp(f, six - 8, six, ease.io);
   const plats = [
     { n: "TWITCH", c: C.twitch, at: 0 },
@@ -132,11 +132,11 @@ export const Total: React.FC = () => {
       })}
       {f >= six && (
         <Center top={420}>
-          <Label style={{ fontSize: 56, color: C.teal }}>toutes plateformes</Label>
-          <div style={{ height: 300, display: "flex", alignItems: "center" }}><Counter at={six} dur={30} to={6_000_000} suffix="+" size={200} /></div>
-          <Label>spectateurs en direct</Label>
-          <Slam at={wordAt("total", /lancement/)}><Label style={{ color: C.yellow, fontSize: 64, marginTop: 10 }}>au lancement</Label></Slam>
-          <Note style={{ marginTop: 40 }}>pic simultané · Streams Charts · chiffres provisoires</Note>
+          <Label style={{ fontSize: 56, color: C.teal }}>all platforms</Label>
+          <div style={{ height: 300, display: "flex", alignItems: "center" }}><Counter at={six} dur={30} to={6_000_000} suffix="+" size={160} /></div>
+          <Label>live viewers</Label>
+          <Slam at={wordAt("total", /launch/)}><Label style={{ color: C.yellow, fontSize: 64, marginTop: 10 }}>at launch</Label></Slam>
+          <Note style={{ marginTop: 40 }}>peak concurrent viewers · Streams Charts · preliminary</Note>
         </Center>
       )}
     </AbsoluteFill>
@@ -146,9 +146,9 @@ export const Total: React.FC = () => {
 // 5 — « Et côté vues ? Le premier trailer : quatre-vingt-dix millions de vues en vingt-quatre heures. Record du monde. »
 export const Vues: React.FC = () => {
   const f = useCurrentFrame();
-  const n = wordAt("vues", /^quatre-vingt/);
-  const h = wordAt("vues", /^vingt-quatre/);
-  const rec = wordAt("vues", /^Record/);
+  const n = wordAt("vues", /^90$/);
+  const h = wordAt("vues", /^24$/);
+  const rec = wordAt("vues", /^world/);
   const tr = wordAt("vues", /trailer/);
   const play = usePop(0);
   const clock = ramp(f, h, h + 30, ease.io);
@@ -158,22 +158,22 @@ export const Vues: React.FC = () => {
         <div style={{ width: 300, height: 210, borderRadius: 60, background: C.youtube, display: "flex", alignItems: "center", justifyContent: "center", transform: `scale(${play})`, boxShadow: `0 0 90px ${C.youtube}aa` }}>
           <div style={{ width: 0, height: 0, borderLeft: "95px solid #fff", borderTop: "58px solid transparent", borderBottom: "58px solid transparent", marginLeft: 20 }} />
         </div>
-        <Slam at={tr}><Label style={{ marginTop: 34, fontSize: 58 }}>trailer 1 · décembre 2023</Label></Slam>
-        <div style={{ height: 250, display: "flex", alignItems: "center" }}><Counter at={n} dur={28} to={90_000_000} size={175} /></div>
-        {f >= n && <Label style={{ fontSize: 64 }}>vues</Label>}
+        <Slam at={tr}><Label style={{ marginTop: 34, fontSize: 58 }}>trailer 1 · december 2023</Label></Slam>
+        <div style={{ height: 250, display: "flex", alignItems: "center" }}><Counter at={n} dur={28} to={90_000_000} size={140} /></div>
+        {f >= n && <Label style={{ fontSize: 64 }}>views</Label>}
         {f >= h && (
           <div style={{ display: "flex", alignItems: "center", gap: 24, marginTop: 24 }}>
             <svg width={110} height={110} viewBox="0 0 110 110">
               <circle cx={55} cy={55} r={46} stroke="rgba(255,255,255,.2)" strokeWidth={12} fill="none" />
               <circle cx={55} cy={55} r={46} stroke={C.yellow} strokeWidth={12} fill="none" strokeDasharray={289} strokeDashoffset={289 * (1 - clock)} transform="rotate(-90 55 55)" strokeLinecap="round" />
             </svg>
-            <Big size={110} grad={NEON}>en 24 h</Big>
+            <Big size={110} grad={NEON}>in 24 h</Big>
           </div>
         )}
       </Center>
       <Center top={1040}>
-        <Stamp at={rec} text="Record du monde" color={C.yellow} rot={-6} size={92} />
-        {f >= rec + 6 && <Note style={{ marginTop: 26 }}>Guinness World Records · trailer le + vu en 24 h</Note>}
+        <Stamp at={rec} text="World record" color={C.yellow} rot={-6} size={92} />
+        {f >= rec + 6 && <Note style={{ marginTop: 26 }}>Guinness World Records · most-viewed reveal in 24 h</Note>}
       </Center>
     </AbsoluteFill>
   );
@@ -182,9 +182,9 @@ export const Vues: React.FC = () => {
 // 6 — « Au total, les trailers dépassent le demi-milliard de vues, rien que sur YouTube. »
 export const Cumul: React.FC = () => {
   const f = useCurrentFrame();
-  const n = wordAt("cumul", /demi/);
+  const n = wordAt("cumul", /^half/);
   const yt = wordAt("cumul", /YouTube/);
-  const tiles = ["TRAILER 1", "TRAILER 2", "TRAILER 3", "LANCEMENT"];
+  const tiles = ["TRAILER 1", "TRAILER 2", "TRAILER 3", "LAUNCH"];
   return (
     <AbsoluteFill>
       <div style={{ position: "absolute", left: 90, top: 230, width: 900, display: "flex", flexWrap: "wrap", gap: 24 }}>
@@ -201,9 +201,9 @@ export const Cumul: React.FC = () => {
         })}
       </div>
       <Center top={830}>
-        <div style={{ height: 230, display: "flex", alignItems: "center" }}><Counter at={n} dur={26} to={500_000_000} suffix="+" size={150} /></div>
-        {f >= n && <Label style={{ fontSize: 60 }}>vues cumulées</Label>}
-        <Slam at={yt}><Label style={{ color: C.teal, fontSize: 60, marginTop: 8 }}>rien que sur YouTube</Label></Slam>
+        <div style={{ height: 230, display: "flex", alignItems: "center" }}><Counter at={n} dur={26} to={500_000_000} suffix="+" size={118} /></div>
+        {f >= n && <Label style={{ fontSize: 60 }}>total views</Label>}
+        <Slam at={yt}><Label style={{ color: C.teal, fontSize: 60, marginTop: 8 }}>on YouTube alone</Label></Slam>
       </Center>
     </AbsoluteFill>
   );
@@ -212,16 +212,16 @@ export const Cumul: React.FC = () => {
 // 7 — « Mais le plus dingue, c'est dans la vraie vie. Des milliers de gens ont posé leur journée. »
 export const Conges: React.FC = () => {
   const f = useCurrentFrame();
-  const mil = wordAt("conges", /milliers/);
-  const pose = wordAt("conges", /posé/);
+  const mil = wordAt("conges", /Thousands/);
+  const pose = wordAt("conges", /^took/);
   const cal = usePop(mil - 4);
   const dots = Array.from({ length: 120 }, (_, i) => i);
   return (
     <AbsoluteFill>
       {f < mil - 4 && (
         <Center top={480}>
-          <Slam at={0}><Big size={130}>le plus dingue</Big></Slam>
-          <Slam at={wordAt("conges", /vraie/)}><Big size={150} grad={SUNSET} style={{ marginTop: 20 }}>dans la vraie vie</Big></Slam>
+          <Slam at={0}><Big size={130}>the craziest part</Big></Slam>
+          <Slam at={wordAt("conges", /^real/)}><Big size={150} grad={SUNSET} style={{ marginTop: 20 }}>in real life</Big></Slam>
         </Center>
       )}
       {f >= mil - 4 && (
@@ -233,13 +233,13 @@ export const Conges: React.FC = () => {
           })}
           <Center top={300} style={{ transform: `scale(${cal}) rotate(-3deg)` }}>
             <div style={{ width: 560, borderRadius: 36, overflow: "hidden", background: "#fff", boxShadow: "0 30px 80px rgba(0,0,0,.6)" }}>
-              <div style={{ background: C.pink, color: "#fff", fontFamily: DISPLAY, fontWeight: 900, fontSize: 64, padding: "18px 0" }}>NOVEMBRE</div>
+              <div style={{ background: C.pink, color: "#fff", fontFamily: DISPLAY, fontWeight: 900, fontSize: 64, padding: "18px 0" }}>NOVEMBER</div>
               <div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 300, color: C.night, lineHeight: 1.05 }}>19</div>
-              <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 44, color: C.violet, paddingBottom: 30 }}>JEUDI</div>
+              <div style={{ fontFamily: MONO, fontWeight: 700, fontSize: 44, color: C.violet, paddingBottom: 30 }}>THURSDAY</div>
             </div>
           </Center>
-          <Center top={760}><Stamp at={pose} text="En congé" color={C.yellow} rot={-12} size={120} /></Center>
-          <Center top={1030}><Slam at={mil}><Big size={96}>des milliers de gens</Big></Slam></Center>
+          <Center top={760}><Stamp at={pose} text="Day off" color={C.yellow} rot={-12} size={120} /></Center>
+          <Center top={950}><Slam at={mil}><Big size={84}>thousands of people</Big></Slam></Center>
         </>
       )}
     </AbsoluteFill>
@@ -249,9 +249,9 @@ export const Conges: React.FC = () => {
 // 8 — « Logitech a offert un jour de congé à ses sept mille salariés. Conor McGregor, pareil pour ses quatre cents employés. »
 export const Logi: React.FC = () => {
   const f = useCurrentFrame();
-  const n1 = wordAt("logi", /^sept/);
+  const n1 = wordAt("logi", /^7,000/);
   const c = wordAt("logi", /Conor/);
-  const n2 = wordAt("logi", /^quatre/);
+  const n2 = wordAt("logi", /^400/);
   const a = usePop(0);
   const b = usePop(c);
   const card = (accent: string): React.CSSProperties => ({ border: `5px solid ${accent}`, boxShadow: `0 0 60px ${accent}66` });
@@ -263,10 +263,10 @@ export const Logi: React.FC = () => {
           <Big size={120} grad={NEON}>Logitech</Big>
           <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginTop: 6 }}>
             <Counter at={n1} dur={20} to={7000} size={140} />
-            {f >= n1 && <Label>salariés</Label>}
+            {f >= n1 && <Label>employees</Label>}
           </div>
-          <Slam at={wordAt("logi", /offert/)}><div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 50, color: C.night, background: C.teal, padding: "8px 24px", borderRadius: 14 }}>+1 JOUR DE CONGÉ OFFERT</div></Slam>
-          <Note style={{ marginTop: 8 }}>le « Logi Game Day »</Note>
+          <Slam at={wordAt("logi", /^gave/)}><div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 50, color: C.night, background: C.teal, padding: "8px 24px", borderRadius: 14 }}>+1 FREE DAY OFF</div></Slam>
+          <Note style={{ marginTop: 8 }}>the “Logi Game Day”</Note>
         </div>
       </Center>
       {f >= c && (
@@ -275,9 +275,9 @@ export const Logi: React.FC = () => {
             <Big size={104} grad={SUNSET}>Conor McGregor</Big>
             <div style={{ display: "flex", alignItems: "baseline", gap: 18, marginTop: 6 }}>
               <Counter at={n2} dur={16} to={400} size={140} />
-              {f >= n2 && <Label>employés</Label>}
+              {f >= n2 && <Label>staff</Label>}
             </div>
-            <Slam at={wordAt("logi", /pareil/)}><div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 50, color: C.night, background: C.orange, padding: "8px 24px", borderRadius: 14 }}>JOURNÉE OFF POUR TOUS</div></Slam>
+            <Slam at={wordAt("logi", /^same/)}><div style={{ fontFamily: DISPLAY, fontWeight: 900, fontSize: 50, color: C.night, background: C.orange, padding: "8px 24px", borderRadius: 14 }}>DAY OFF FOR EVERYONE</div></Slam>
           </div>
         </Center>
       )}
@@ -288,8 +288,8 @@ export const Logi: React.FC = () => {
 // 9 — « Aux États-Unis, près d'un salarié sur cinq comptait ne pas bosser aujourd'hui. On appelle déjà ça… la GTA flu. »
 export const Flu: React.FC = () => {
   const f = useCurrentFrame();
-  const un = wordAt("flu", /^salarié/);
-  const cinq = wordAt("flu", /^cinq/);
+  const un = wordAt("flu", /^worker/);
+  const cinq = wordAt("flu", /^five/);
   const gta = wordAt("flu", /^GTA/);
   const out = ramp(f, gta - 8, gta - 1, ease.io);
   const glitch = f >= gta && f < gta + 14 ? (f % 3) * 10 - 10 : 0;
@@ -297,7 +297,7 @@ export const Flu: React.FC = () => {
     <AbsoluteFill>
       <div style={{ opacity: 1 - out, transform: `scale(${1 - out * 0.2})` }}>
         <Center top={260}>
-          <Slam at={0}><Label style={{ fontSize: 60, color: C.teal }}>aux États-Unis</Label></Slam>
+          <Slam at={0}><Label style={{ fontSize: 60, color: C.teal }}>in the US</Label></Slam>
           <div style={{ display: "flex", gap: 14, marginTop: 50 }}>
             {[0, 1, 2, 3, 4].map((i) => {
               const p = ramp(f, un + i * 3, un + i * 3 + 8, ease.expo);
@@ -311,9 +311,9 @@ export const Flu: React.FC = () => {
           </div>
           {f >= cinq && (
             <>
-              <Slam at={cinq}><Big size={170} grad={SUNSET} style={{ marginTop: 70 }}>1 sur 5</Big></Slam>
-              <Label style={{ marginTop: 10, fontSize: 48 }}>comptait ne pas bosser</Label>
-              <Note style={{ marginTop: 22 }}>sondage BambooHR · 18 % des salariés US · intentions</Note>
+              <Slam at={cinq}><Big size={170} grad={SUNSET} style={{ marginTop: 95 }}>1 in 5</Big></Slam>
+              <Label style={{ marginTop: 10, fontSize: 48 }}>planned to skip work</Label>
+              <Note style={{ marginTop: 22 }}>BambooHR survey · 18% of US salaried workers · stated plans</Note>
             </>
           )}
         </Center>
@@ -342,24 +342,25 @@ export const Flu: React.FC = () => {
 // 10 — « Et toi, t'as pris ta journée ? Dis-le en commentaire. »
 export const Outro: React.FC = () => {
   const f = useCurrentFrame();
-  const dis = wordAt("outro", /Dis-le/);
+  const dis = wordAt("outro", /^Tell/);
   const bubble = usePop(dis);
   return (
     <AbsoluteFill>
       <Center top={270}>
-        <Slam at={0} from={3.5}><Big size={250} grad={SUNSET}>et toi ?</Big></Slam>
-        <Slam at={wordAt("outro", /pris/)}><Big size={104} style={{ marginTop: 30 }}>t'as pris ta journée ?</Big></Slam>
+        <Slam at={0} from={3.5}><Big size={190} grad={SUNSET}>did you?</Big></Slam>
+        <Slam at={wordAt("outro", /^take/)}><Big size={104} style={{ marginTop: 30 }}>take the day off?</Big></Slam>
       </Center>
       {f >= dis && (
         <Center top={820} style={{ transform: `scale(${bubble})` }}>
           <div style={{ position: "relative", background: "#fff", borderRadius: 40, padding: "28px 46px", fontFamily: DISPLAY, fontWeight: 900, fontSize: 64, color: C.night, boxShadow: `0 0 60px ${C.pink}88` }}>
-            DIS-LE EN COMMENTAIRE
+            TELL ME IN THE COMMENTS
             <div style={{ position: "absolute", left: 80, bottom: -34, width: 0, height: 0, borderLeft: "26px solid transparent", borderRight: "26px solid transparent", borderTop: "40px solid #fff" }} />
           </div>
-          <div style={{ marginTop: 40, fontSize: 110, color: C.yellow, fontFamily: DISPLAY, fontWeight: 900, transform: `translateY(${Math.abs(Math.sin((f - dis) / 5)) * 26}px)` }}>↓</div>
+          <Slam at={wordAt("outro", /^follow/)}><div style={{ marginTop: 50, fontFamily: DISPLAY, fontWeight: 900, fontSize: 56, color: C.night, background: C.yellow, padding: "12px 34px", borderRadius: 40 }}>FOLLOW MILE ZERO</div></Slam>
+          <div style={{ marginTop: 20, fontSize: 110, color: C.yellow, fontFamily: DISPLAY, fontWeight: 900, transform: `translateY(${Math.abs(Math.sin((f - dis) / 5)) * 26}px)` }}>↓</div>
         </Center>
       )}
-      <Center top={1440}><Note style={{ fontSize: 22, opacity: interpolate(f, [dis, dis + 10], [0, 0.8], CL) }}>Sources : Streams Charts, SullyGnome, Guinness, BambooHR, presse · chiffres provisoires</Note></Center>
+      <Center top={1440}><Note style={{ fontSize: 22, opacity: interpolate(f, [dis, dis + 10], [0, 0.8], CL) }}>Sources: Streams Charts, SullyGnome, Guinness, BambooHR, press reports · preliminary figures</Note></Center>
     </AbsoluteFill>
   );
 };

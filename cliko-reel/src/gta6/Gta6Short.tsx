@@ -27,7 +27,7 @@ const MERGE: [RegExp, RegExp, string][] = [
   [/^vingt-quatre$/i, /^heures/i, "24 h"],
 ];
 const NUM: [RegExp, string][] = [[/^treize/i, "13"], [/^trois$/i, "3"], [/^six$/i, "6"], [/^quatre-vingt-dix$/i, "90"], [/^cinq/i, "5"]];
-const HOT = /^(13|6|3|90|24|7|400|5|GTA|ENFIN|record|fou|jamais|demi-milliard|Logitech|McGregor|congé|flu|Twitch|YouTube|Kick|milliers|millions|dingue|toi)/i;
+const HOT = /^(13|6|3|90|24|7,000|400|five|GTA|FINALLY|record|insane|Never|half|billion|Logitech|McGregor|flu|Twitch|YouTube|Kick|Thousands|million|craziest|YOU|follow)/i;
 
 const tokens: Tok[] = [];
 for (let i = 0; i < WORDS.length; i++) {

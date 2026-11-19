@@ -8,7 +8,7 @@ const text = script.parts.map((p) => p.say).join(" ");
 const res = await api(`/v1/text-to-speech/${voiceId}/with-timestamps`, {
   method: "POST",
   query: { output_format: "mp3_44100_128" },
-  body: { text, model_id: MODEL, language_code: "fr", voice_settings: { stability: 0.5, similarity_boost: 0.8, style: 0.5, use_speaker_boost: true } },
+  body: { text, model_id: MODEL, language_code: "en", voice_settings: { stability: 0.5, similarity_boost: 0.8, style: 0.5, use_speaker_boost: true } },
 });
 await save("public/gta6/voix.mp3", Buffer.from(res.audio_base64, "base64"));
 const a = res.normalized_alignment ?? res.alignment;
