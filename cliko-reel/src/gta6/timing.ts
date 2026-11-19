@@ -3,6 +3,7 @@ import align from "./alignment.json";
 
 export const FPS = 30;
 export const TAIL = 1.3; // secondes après le dernier mot
+export const INTRO = 36; // frames d'intro logo avant la voix
 export const TOTAL = Math.ceil((align.scenes[align.scenes.length - 1].end + TAIL) * FPS);
 
 export type SceneId = "hook" | "ampleur" | "twitch" | "total" | "vues" | "cumul" | "conges" | "logi" | "flu" | "outro";

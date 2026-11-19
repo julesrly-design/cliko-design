@@ -1,10 +1,10 @@
 // Short YouTube « GTA 6 : l'ampleur du lancement » — 1080×1920, 30 fps, voix off ElevenLabs + musique et bruitages synthétisés.
 import React from "react";
-import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame } from "remotion";
 import "../brand"; // charge les polices embarquées
-import { C, CL, DISPLAY, shake, Sky } from "./kit";
+import { C, CL, DISPLAY, MONO, shake, Sky } from "./kit";
 import { Ampleur, Conges, Cumul, Flu, Hook, Logi, Outro, Total, Twitch, Vues } from "./scenes";
-import { FPS, SceneId, SCENES, WORDS } from "./timing";
+import { FPS, INTRO, SceneId, SCENES, WORDS } from "./timing";
 
 const VIEWS: Record<SceneId, { C: React.FC; hue: number; zoom?: number }> = {
   hook: { C: Hook, hue: 0 },
@@ -92,7 +92,7 @@ const Captions: React.FC = () => {
 };
 
 // --- Composition ------------------------------------------------------------------------------
-export const Gta6Short: React.FC<{ sound: boolean }> = ({ sound }) => {
+const Main: React.FC<{ sound: boolean }> = ({ sound }) => {
   const f = useCurrentFrame();
   const sc = SCENES.find((x) => f >= x.from && f < x.to) ?? SCENES[0];
   const v = VIEWS[sc.id];
@@ -121,6 +121,41 @@ export const Gta6Short: React.FC<{ sound: boolean }> = ({ sound }) => {
       {/* grain + scanlines légers */}
       <AbsoluteFill style={{ backgroundImage: "repeating-linear-gradient(0deg, rgba(0,0,0,.12) 0 2px, transparent 2px 4px)", opacity: 0.35, pointerEvents: "none" }} />
       {sound && <Audio src={staticFile("gta6/mix.wav")} />}
+    </AbsoluteFill>
+  );
+};
+
+// --- Intro façon Mile Zero : fond sombre, libellé de chaîne, logo GTA VI qui claque -----------------
+const Intro: React.FC = () => {
+  const f = useCurrentFrame();
+  const hit = 0;
+  const t = interpolate(f, [hit, hit + 7], [0, 1], { ...CL, easing: (x) => 1 - Math.pow(2, -10 * x) });
+  const scale = interpolate(t, [0, 1], [1.9, 1]) * interpolate(f, [hit + 7, INTRO], [1, 1.08], CL);
+  const out = interpolate(f, [INTRO - 6, INTRO], [1, 0], CL);
+  const sh = shake(f, hit + 5, 22, 10);
+  return (
+    <AbsoluteFill style={{ background: "#0b0b0d", overflow: "hidden" }}>
+      <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 45%, rgba(255,79,163,.28) 0%, rgba(90,26,140,.18) 35%, transparent 70%)", opacity: t }} />
+      <div style={{ position: "absolute", left: 70, top: 120, fontFamily: MONO, color: "rgba(255,255,255,.85)", lineHeight: 1.6 }}>
+        <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: 6 }}>MILE ZERO</div>
+        <div style={{ fontSize: 22, opacity: 0.6, border: "1px solid rgba(255,255,255,.35)", padding: "2px 10px", display: "inline-block" }}>Image: Rockstar Games</div>
+      </div>
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", transform: `translate(${sh.x}px, ${sh.y - 80}px)` }}>
+        <Img src={staticFile("gta6/logo-gta6.svg")} style={{ width: 820, transform: `scale(${scale})`, opacity: Math.min(1, t * 2) * out, filter: `blur(${(1 - t) * 18}px) drop-shadow(0 0 60px rgba(255,79,163,.55))` }} />
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+
+export const Gta6Short: React.FC<{ sound: boolean }> = ({ sound }) => {
+  const f = useCurrentFrame();
+  const flash = interpolate(f, [INTRO, INTRO + 5], [0.9, 0], CL) * (f >= INTRO ? 1 : 0);
+  return (
+    <AbsoluteFill style={{ background: C.night }}>
+      <Sequence durationInFrames={INTRO} layout="none"><Intro /></Sequence>
+      <Sequence from={INTRO} layout="none"><Main sound={sound} /></Sequence>
+      <AbsoluteFill style={{ background: "#fff", opacity: flash, pointerEvents: "none" }} />
+      {sound && <Audio src={staticFile("gta6/intro.wav")} />}
     </AbsoluteFill>
   );
 };
