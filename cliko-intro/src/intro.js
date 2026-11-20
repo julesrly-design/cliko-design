@@ -153,7 +153,7 @@ export function createIntro(opts = {}) {
     W = ck.clientWidth || innerWidth;
     H = ck.clientHeight || innerHeight;
     portrait = W / H < 0.82;
-    u = portrait ? Math.min(W * 0.0128, H * 0.0105) : Math.min(W * 0.01, H * 0.0178);
+    u = portrait ? Math.min(W * 0.0116, H * 0.0098) : Math.min(W * 0.01, H * 0.0178);
     bh0 = !portrait && W / H > 1.25 ? Math.max(0, Math.round((H - W / 2.39) / 2)) : 0;
     ck.classList.toggle("pt", portrait);
     css(ck, "--u", u.toFixed(2) + "px");

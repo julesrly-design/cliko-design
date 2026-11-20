@@ -127,8 +127,8 @@ export function createSilhouettes(canvas) {
         const P = (x, y, h, lean, tt, seed, n, fsc = 1) => palm(ctx, toPx, H * z, x, y, h * k, lean, tt, seed, n, fsc);
         if (asp < 0.8) {
           // portrait : deux palmiers qui encadrent le haut de l'écran, troncs hors champ
-          P(-ex - 0.02, -0.62, 1.02, 0.05, t, 3, 13, 0.5);
-          P(ex + 0.02, -0.66, 0.92, -0.05, t + 0.6, 17, 13, 0.5);
+          P(-ex - 0.05, -0.62, 1.02, 0.05, t, 3, 13, 0.42);
+          P(ex + 0.05, -0.66, 0.92, -0.05, t + 0.6, 17, 13, 0.42);
         } else if (cam.layout === "sunset") {
           P(-ex + 0.03, -0.66, 0.92, 0.14, t, 3, 13);
           P(-ex + 0.24, -0.62, 0.62, 0.08, t + 1.3, 9, 12);

@@ -478,8 +478,8 @@ void main(){
           const k = cam.small || 1;
           const P = (x, y, h, lean, tt, seed, n, fsc = 1) => palm(ctx, toPx, H * z, x, y, h * k, lean, tt, seed, n, fsc);
           if (asp < 0.8) {
-            P(-ex - 0.02, -0.62, 1.02, 0.05, t, 3, 13, 0.5);
-            P(ex + 0.02, -0.66, 0.92, -0.05, t + 0.6, 17, 13, 0.5);
+            P(-ex - 0.05, -0.62, 1.02, 0.05, t, 3, 13, 0.42);
+            P(ex + 0.05, -0.66, 0.92, -0.05, t + 0.6, 17, 13, 0.42);
           } else if (cam.layout === "sunset") {
             P(-ex + 0.03, -0.66, 0.92, 0.14, t, 3, 13);
             P(-ex + 0.24, -0.62, 0.62, 0.08, t + 1.3, 9, 12);
@@ -1937,7 +1937,7 @@ button:focus-visible{outline:2px solid #ffc46b;outline-offset:3px}
       W = ck.clientWidth || innerWidth;
       H = ck.clientHeight || innerHeight;
       portrait = W / H < 0.82;
-      u = portrait ? Math.min(W * 0.0128, H * 0.0105) : Math.min(W * 0.01, H * 0.0178);
+      u = portrait ? Math.min(W * 0.0116, H * 98e-4) : Math.min(W * 0.01, H * 0.0178);
       bh0 = !portrait && W / H > 1.25 ? Math.max(0, Math.round((H - W / 2.39) / 2)) : 0;
       ck.classList.toggle("pt", portrait);
       css(ck, "--u", u.toFixed(2) + "px");
