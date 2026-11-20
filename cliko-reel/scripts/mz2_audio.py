@@ -22,7 +22,7 @@ def place(b, x, t, g=1.0):
 def word(scene, rx, nth=0):
     ws = [w for w in W if w["scene"] == scene and re.search(rx, w["text"])]; return ws[min(nth, len(ws) - 1)]["start"]
 start = {s["scene"]: s["start"] for s in A["scenes"]}
-T = dict(clubs=word("hook", "^clubs"), no=word("hook", "^NO"), look=start["age"], nobody=word("age", "^nobody"), u21=word("age", "^21"),
+T = dict(usd=word("hook", "^300"), priv=word("hook", "^private"), andw=word("hook", "^and"), no=word("hook", "^NO"), look=start["age"], nobody=word("age", "^nobody"), u21=word("age", "^21"),
          car=start["car"], obey=word("car", "^Obey"), badge=word("car", "^badge"), audi=word("car", "^Audi"), ammu=start["ammu"],
          cust=word("ammu", "^Customer"), rifle=word("ammu", "^rifle"), line=word("ammu", "^That's"), out=start["outro"],
          comment=word("outro", "^Comment"), refunds=word("outro", "^no$"))
@@ -69,7 +69,9 @@ def s(n):
         x = dec(SD / f"{n}.mp3"); e = np.abs(x).max(0); x = x[:, int(np.argmax(e > e.max() * .05)):]; cache[n] = x / np.abs(x).max()
     return cache[n]
 place(sfx, s("impact"), 0, 0.8); place(sfx, s("sub"), 0, 0.6)
-for k, g in (("clubs", .5), ("no", .6), ("nobody", .6), ("obey", .5), ("badge", .6), ("cust", .6), ("line", .5)):
+for k in range(10): place(sfx, s("tick1" if k % 2 else "tick2"), T["usd"] + k * 0.05, .3)
+place(sfx, s("ding"), T["usd"] + .55, .45)
+for k, g in (("priv", .5), ("andw", .5), ("no", .6), ("nobody", .6), ("obey", .5), ("badge", .6), ("cust", .6), ("line", .5)):
     place(sfx, s("whoosh"), T[k] - 7 / FPS, g)
 for k in ("no", "nobody", "badge", "cust"): place(sfx, s("marker"), T[k] + 3 / FPS, .5)
 for k in ("u21", "audi"): place(sfx, s("thud"), T[k], .9); place(sfx, s("hit"), T[k], .45)

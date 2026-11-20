@@ -5,412 +5,460 @@
   {
    "scene": "hook",
    "start": 0.0,
-   "end": 3.273
+   "end": 6.087
   },
   {
    "scene": "age",
-   "start": 3.418,
-   "end": 8.528
+   "start": 6.209,
+   "end": 10.845
   },
   {
    "scene": "car",
-   "start": 8.674,
-   "end": 14.562
+   "start": 10.967,
+   "end": 17.043
   },
   {
    "scene": "ammu",
-   "start": 14.707,
-   "end": 22.089
+   "start": 17.164,
+   "end": 25.251
   },
   {
    "scene": "outro",
-   "start": 22.235,
-   "end": 27.253
+   "start": 25.373,
+   "end": 30.851
   }
  ],
  "words": [
   {
    "text": "GTA",
    "start": 0.0,
-   "end": 0.436,
+   "end": 0.417,
    "scene": "hook"
   },
   {
    "text": "6",
-   "start": 0.582,
-   "end": 0.8,
+   "start": 0.487,
+   "end": 0.696,
    "scene": "hook"
   },
   {
    "text": "strip",
-   "start": 0.861,
-   "end": 1.164,
+   "start": 0.73,
+   "end": 0.904,
    "scene": "hook"
   },
   {
    "text": "clubs",
-   "start": 1.236,
-   "end": 1.6,
+   "start": 0.963,
+   "end": 1.252,
    "scene": "hook"
   },
   {
-   "text": "have",
-   "start": 1.658,
-   "end": 1.891,
+   "text": "charge",
+   "start": 1.292,
+   "end": 1.53,
+   "scene": "hook"
+  },
+  {
+   "text": "300",
+   "start": 1.6,
+   "end": 2.017,
+   "scene": "hook"
+  },
+  {
+   "text": "dollars",
+   "start": 2.061,
+   "end": 2.365,
+   "scene": "hook"
+  },
+  {
+   "text": "for",
+   "start": 2.4,
+   "end": 2.504,
    "scene": "hook"
   },
   {
    "text": "a",
-   "start": 1.927,
-   "end": 1.964,
+   "start": 2.609,
+   "end": 2.713,
+   "scene": "hook"
+  },
+  {
+   "text": "private",
+   "start": 2.739,
+   "end": 2.922,
+   "scene": "hook"
+  },
+  {
+   "text": "dance\u2026",
+   "start": 2.991,
+   "end": 3.826,
+   "scene": "hook"
+  },
+  {
+   "text": "and",
+   "start": 3.861,
+   "end": 3.965,
+   "scene": "hook"
+  },
+  {
+   "text": "there's",
+   "start": 3.989,
+   "end": 4.174,
+   "scene": "hook"
+  },
+  {
+   "text": "a",
+   "start": 4.209,
+   "end": 4.243,
    "scene": "hook"
   },
   {
    "text": "NO",
-   "start": 2.036,
-   "end": 2.182,
+   "start": 4.359,
+   "end": 4.591,
    "scene": "hook"
   },
   {
    "text": "REFUNDS",
-   "start": 2.273,
-   "end": 2.764,
+   "start": 4.696,
+   "end": 5.391,
    "scene": "hook"
   },
   {
    "text": "sign.",
-   "start": 2.851,
-   "end": 3.273,
+   "start": 5.44,
+   "end": 6.087,
    "scene": "hook"
   },
   {
    "text": "Look",
-   "start": 3.418,
-   "end": 3.447,
+   "start": 6.209,
+   "end": 6.237,
    "scene": "age"
   },
   {
    "text": "closer\u2026",
-   "start": 3.52,
-   "end": 4.829,
+   "start": 6.316,
+   "end": 7.28,
    "scene": "age"
   },
   {
    "text": "there's",
-   "start": 4.841,
-   "end": 4.975,
+   "start": 7.291,
+   "end": 7.419,
    "scene": "age"
   },
   {
    "text": "even",
-   "start": 5.018,
-   "end": 5.193,
+   "start": 7.461,
+   "end": 7.628,
    "scene": "age"
   },
   {
    "text": "a",
-   "start": 5.229,
-   "end": 5.265,
+   "start": 7.697,
+   "end": 7.767,
    "scene": "age"
   },
   {
    "text": "notice:",
-   "start": 5.328,
-   "end": 5.775,
+   "start": 7.837,
+   "end": 8.81,
    "scene": "age"
   },
   {
    "text": "nobody",
-   "start": 5.92,
-   "end": 6.855,
+   "start": 8.88,
+   "end": 9.297,
    "scene": "age"
   },
   {
    "text": "under",
-   "start": 6.916,
-   "end": 7.219,
+   "start": 9.356,
+   "end": 9.645,
    "scene": "age"
   },
   {
    "text": "21",
-   "start": 7.22,
-   "end": 7.801,
+   "start": 9.767,
+   "end": 10.08,
    "scene": "age"
   },
   {
    "text": "allowed.",
-   "start": 7.865,
-   "end": 8.528,
+   "start": 10.167,
+   "end": 10.845,
    "scene": "age"
   },
   {
    "text": "This",
-   "start": 8.674,
-   "end": 9.314,
+   "start": 10.967,
+   "end": 11.802,
    "scene": "car"
   },
   {
    "text": "car?",
-   "start": 9.386,
-   "end": 9.677,
+   "start": 11.871,
+   "end": 12.15,
    "scene": "car"
   },
   {
    "text": "An",
-   "start": 9.823,
-   "end": 10.162,
+   "start": 12.271,
+   "end": 12.643,
    "scene": "car"
   },
   {
    "text": "Obey",
-   "start": 10.235,
-   "end": 10.598,
+   "start": 12.712,
+   "end": 13.06,
    "scene": "car"
   },
   {
    "text": "Tailgater",
-   "start": 10.671,
-   "end": 11.253,
+   "start": 13.143,
+   "end": 13.686,
    "scene": "car"
   },
   {
    "text": "S.",
-   "start": 11.398,
-   "end": 11.871,
+   "start": 13.808,
+   "end": 14.26,
    "scene": "car"
   },
   {
    "text": "Check",
-   "start": 11.932,
-   "end": 12.235,
+   "start": 14.341,
+   "end": 14.747,
    "scene": "car"
   },
   {
    "text": "the",
-   "start": 12.271,
-   "end": 12.38,
+   "start": 14.764,
+   "end": 14.817,
    "scene": "car"
   },
   {
    "text": "badge\u2026",
-   "start": 12.428,
-   "end": 13.18,
+   "start": 14.875,
+   "end": 15.234,
    "scene": "car"
   },
   {
    "text": "that's",
-   "start": 13.209,
-   "end": 13.471,
+   "start": 15.345,
+   "end": 15.93,
    "scene": "car"
   },
   {
    "text": "basically",
-   "start": 13.515,
-   "end": 13.907,
+   "start": 15.978,
+   "end": 16.417,
    "scene": "car"
   },
   {
    "text": "an",
-   "start": 13.932,
-   "end": 13.98,
+   "start": 16.44,
+   "end": 16.486,
    "scene": "car"
   },
   {
    "text": "Audi.",
-   "start": 14.053,
-   "end": 14.562,
+   "start": 16.556,
+   "end": 17.043,
    "scene": "car"
   },
   {
    "text": "And",
-   "start": 14.707,
-   "end": 15.144,
+   "start": 17.164,
+   "end": 17.634,
    "scene": "ammu"
   },
   {
    "text": "the",
-   "start": 15.162,
-   "end": 15.216,
+   "start": 17.651,
+   "end": 17.703,
    "scene": "ammu"
   },
   {
    "text": "gun",
-   "start": 15.271,
-   "end": 15.435,
+   "start": 17.756,
+   "end": 17.912,
    "scene": "ammu"
   },
   {
    "text": "store?",
-   "start": 15.483,
-   "end": 15.798,
+   "start": 17.97,
+   "end": 18.33,
    "scene": "ammu"
   },
   {
    "text": "Customer",
-   "start": 15.887,
-   "end": 16.598,
+   "start": 18.43,
+   "end": 19.234,
    "scene": "ammu"
   },
   {
    "text": "parking",
-   "start": 16.653,
-   "end": 17.035,
+   "start": 19.286,
+   "end": 19.651,
    "scene": "ammu"
   },
   {
    "text": "only.",
-   "start": 17.122,
-   "end": 17.689,
+   "start": 19.735,
+   "end": 20.347,
    "scene": "ammu"
   },
   {
    "text": "You",
-   "start": 17.78,
-   "end": 18.053,
+   "start": 20.451,
+   "end": 20.764,
    "scene": "ammu"
   },
   {
    "text": "can",
-   "start": 18.071,
-   "end": 18.125,
+   "start": 20.782,
+   "end": 20.834,
    "scene": "ammu"
   },
   {
    "text": "buy",
-   "start": 18.162,
-   "end": 18.271,
+   "start": 20.886,
+   "end": 21.043,
    "scene": "ammu"
   },
   {
    "text": "a",
-   "start": 18.307,
-   "end": 18.344,
+   "start": 21.077,
+   "end": 21.112,
    "scene": "ammu"
   },
   {
    "text": "rifle\u2026",
-   "start": 18.416,
-   "end": 19.144,
+   "start": 21.182,
+   "end": 21.877,
    "scene": "ammu"
   },
   {
    "text": "but",
-   "start": 19.162,
-   "end": 19.216,
+   "start": 21.912,
+   "end": 22.017,
    "scene": "ammu"
   },
   {
    "text": "parking",
-   "start": 19.262,
-   "end": 19.58,
+   "start": 22.06,
+   "end": 22.364,
    "scene": "ammu"
   },
   {
    "text": "here?",
-   "start": 19.624,
-   "end": 20.089,
+   "start": 22.406,
+   "end": 22.851,
    "scene": "ammu"
   },
   {
    "text": "That's",
-   "start": 20.147,
-   "end": 20.453,
+   "start": 22.949,
+   "end": 23.408,
    "scene": "ammu"
   },
   {
    "text": "where",
-   "start": 20.465,
-   "end": 20.525,
+   "start": 23.431,
+   "end": 23.547,
    "scene": "ammu"
   },
   {
    "text": "Rockstar",
-   "start": 20.569,
-   "end": 20.889,
+   "start": 23.603,
+   "end": 23.964,
    "scene": "ammu"
   },
   {
    "text": "draws",
-   "start": 20.937,
-   "end": 21.18,
+   "start": 24.01,
+   "end": 24.243,
    "scene": "ammu"
   },
   {
    "text": "the",
-   "start": 21.216,
-   "end": 21.325,
+   "start": 24.277,
+   "end": 24.382,
    "scene": "ammu"
   },
   {
    "text": "line.",
-   "start": 21.384,
-   "end": 22.089,
+   "start": 24.451,
+   "end": 25.251,
    "scene": "ammu"
   },
   {
    "text": "Is",
-   "start": 22.235,
-   "end": 22.55,
+   "start": 25.373,
+   "end": 25.721,
    "scene": "outro"
   },
   {
    "text": "GTA",
-   "start": 22.659,
-   "end": 22.986,
+   "start": 25.825,
+   "end": 26.138,
    "scene": "outro"
   },
   {
    "text": "6",
-   "start": 23.059,
-   "end": 23.277,
+   "start": 26.26,
+   "end": 26.469,
    "scene": "outro"
   },
   {
    "text": "too",
-   "start": 23.35,
-   "end": 23.568,
+   "start": 26.521,
+   "end": 26.677,
    "scene": "outro"
   },
   {
    "text": "realistic?",
-   "start": 23.619,
-   "end": 24.295,
+   "start": 26.726,
+   "end": 27.443,
    "scene": "outro"
   },
   {
    "text": "Comment",
-   "start": 24.35,
-   "end": 24.732,
+   "start": 27.512,
+   "end": 27.999,
    "scene": "outro"
   },
   {
    "text": "below\u2026",
-   "start": 24.78,
-   "end": 25.386,
+   "start": 28.069,
+   "end": 28.695,
    "scene": "outro"
   },
   {
    "text": "and",
-   "start": 25.423,
-   "end": 25.532,
+   "start": 28.73,
+   "end": 28.834,
    "scene": "outro"
   },
   {
    "text": "remember:",
-   "start": 25.572,
-   "end": 25.968,
+   "start": 28.88,
+   "end": 29.599,
    "scene": "outro"
   },
   {
    "text": "no",
-   "start": 26.114,
-   "end": 26.453,
+   "start": 29.715,
+   "end": 29.947,
    "scene": "outro"
   },
   {
    "text": "refunds.",
-   "start": 26.525,
-   "end": 27.253,
+   "start": 30.034,
+   "end": 30.851,
    "scene": "outro"
   }
  ]

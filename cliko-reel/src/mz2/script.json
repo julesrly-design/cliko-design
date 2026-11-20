@@ -1,10 +1,25 @@
 {
   "voiceId": "TX3LPaxmHKxFdv7VOQHJ",
   "parts": [
-    { "scene": "hook",  "say": "GTA 6 strip clubs have a NO REFUNDS sign." },
-    { "scene": "age",   "say": "[whispers] Look closer… there's even a notice: nobody under 21 allowed." },
-    { "scene": "car",   "say": "This car? An Obey Tailgater S. Check the badge… that's basically an Audi." },
-    { "scene": "ammu",  "say": "And the gun store? Customer parking only. You can buy a rifle… but parking here? That's where Rockstar draws the line." },
-    { "scene": "outro", "say": "Is GTA 6 too realistic? Comment below… and remember: no refunds." }
+    {
+      "scene": "hook",
+      "say": "GTA 6 strip clubs charge 300 dollars for a private dance… and there's a NO REFUNDS sign."
+    },
+    {
+      "scene": "age",
+      "say": "[whispers] Look closer… there's even a notice: nobody under 21 allowed."
+    },
+    {
+      "scene": "car",
+      "say": "This car? An Obey Tailgater S. Check the badge… that's basically an Audi."
+    },
+    {
+      "scene": "ammu",
+      "say": "And the gun store? Customer parking only. You can buy a rifle… but parking here? That's where Rockstar draws the line."
+    },
+    {
+      "scene": "outro",
+      "say": "Is GTA 6 too realistic? Comment below… and remember: no refunds."
+    }
   ]
 }

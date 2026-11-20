@@ -71,14 +71,16 @@ const ShotView: React.FC<{ shot: Shot }> = ({ shot }) => {
 // --- montage (coordonnées en pixels de capture 1918×1072) ------------------------------------
 const SIGN = { x: 1414, y: 848 }, NOTICE = { x: 1262, y: 853 }, BADGE = { x: 1002, y: 934 }, HUDNAME = { x: 176, y: 800 }, AMMU = { x: 1840, y: 112 };
 const T = {
-  clubs: w("hook", /^clubs/), no: w("hook", /^NO/), look: w("age", /^Look/), notice: w("age", /^notice/), nobody: w("age", /^nobody/), u21: w("age", /^21/),
+  usd: w("hook", /^300/), priv: w("hook", /^private/), and: w("hook", /^and/), no: w("hook", /^NO/), look: w("age", /^Look/), notice: w("age", /^notice/), nobody: w("age", /^nobody/), u21: w("age", /^21/),
   car: sStart("car"), obey: w("car", /^Obey/), badge: w("car", /^badge/), audi: w("car", /^Audi/),
   ammu: sStart("ammu"), cust: w("ammu", /^Customer/), rifle: w("ammu", /^rifle/), parkHere: w("ammu", /^parking/, 1), line: w("ammu", /^That's/),
   out: sStart("outro"), comment: w("outro", /^Comment/), refunds: w("outro", /^no$/),
 };
 const SHOTS: Shot[] = [
-  { img: "club", from: 0, to: T.look - 2, keys: [
-    { f: 0, ...SIGN, z: 3.4 }, { f: T.clubs, x: 1100, y: 600, z: 1.05, snap: true }, { f: T.no - 1, x: 1150, y: 620, z: 1.12 }, { f: T.no, ...SIGN, z: 3.0, snap: true }, { f: T.look, ...SIGN, z: 3.2 } ],
+  { img: "money", from: 0, to: T.priv - 2, keys: [ { f: 0, x: 1650, y: 420, z: 1.3 }, { f: T.priv, x: 1600, y: 380, z: 1.55 } ] },
+  { img: "club_rs", from: T.priv - 2, to: T.and - 2, keys: [ { f: T.priv - 2, x: 980, y: 420, z: 1.0 }, { f: T.and, x: 1020, y: 380, z: 1.2 } ] },
+  { img: "club", from: T.and - 2, to: T.look - 2, keys: [
+    { f: T.and - 2, x: 1150, y: 620, z: 1.05 }, { f: T.no - 1, x: 1200, y: 650, z: 1.2 }, { f: T.no, ...SIGN, z: 3.0, snap: true }, { f: T.look, ...SIGN, z: 3.2 } ],
     rings: [{ at: T.no + 2, ...SIGN, r: 62 }] },
   { img: "club", from: T.look - 2, to: T.car - 2, keys: [
     { f: T.look - 2, x: 1000, y: 620, z: 1.0 }, { f: T.notice, ...NOTICE, z: 2.2 }, { f: T.nobody, ...NOTICE, z: 3.8, snap: true }, { f: T.car, ...NOTICE, z: 4.1 } ],
@@ -96,10 +98,10 @@ const SHOTS: Shot[] = [
 ];
 
 // --- habillage Mile Zero -------------------------------------------------------------------
-const Header: React.FC = () => (
+const Header: React.FC<{ official: boolean }> = ({ official }) => (
   <div style={{ position: "absolute", left: 70, top: 150, fontFamily: FONT.mono }}>
     <div style={{ color: M.paper, fontSize: 28, fontWeight: 700, letterSpacing: 7 }}>MILE ZERO</div>
-    <div style={{ marginTop: 8, color: M.dim, fontSize: 20, background: "rgba(0,0,0,.45)", padding: "3px 10px", display: "inline-block" }}>My gameplay · PS5</div>
+    <div style={{ marginTop: 8, color: M.dim, fontSize: 20, background: "rgba(0,0,0,.45)", padding: "3px 10px", display: "inline-block" }}>{official ? "Image: Rockstar Games" : "My gameplay · PS5"}</div>
   </div>
 );
 const Marker: React.FC<{ n: number }> = ({ n }) => {
@@ -145,8 +147,22 @@ const Stamp: React.FC<{ at: number; text: string; color?: string; top: number; r
   );
 };
 
+// HUD « CASH » de la chaîne : le solde fond de 300 $ pendant la phrase
+const Cash: React.FC<{ at: number }> = ({ at }) => {
+  const f = useCurrentFrame() - at;
+  const t = expo(Math.min(1, f / 16));
+  const pop = spring({ frame: f, fps: R_FPS, config: { damping: 10, stiffness: 220 } });
+  return (
+    <div style={{ position: "absolute", right: 70, top: 640, textAlign: "right", fontFamily: FONT.display, transform: `scale(${0.7 + 0.3 * pop})`, transformOrigin: "100% 0" }}>
+      <div style={{ color: M.paper, fontSize: 26, fontWeight: 800, letterSpacing: 4 }}>CASH</div>
+      <div style={{ color: M.paper, fontSize: 64, fontWeight: 900, fontStyle: "italic", letterSpacing: -2, lineHeight: 1, textShadow: "0 4px 18px rgba(0,0,0,.7)" }}>${Math.round(312 - 300 * t)}</div>
+      <div style={{ color: M.red, fontSize: 104, fontWeight: 900, fontStyle: "italic", letterSpacing: -3, lineHeight: 1, textShadow: "0 4px 24px rgba(0,0,0,.7)" }}>-$300</div>
+    </div>
+  );
+};
+
 // Sous-titres : 1 à 3 mots, mots-clés en or, petit rebond
-const KEY = /^(GTA|6|NO|REFUNDS|21|closer|Audi|badge|Obey|Tailgater|gun|Customer|parking|rifle|line|realistic|Comment|refunds)/i;
+const KEY = /^(300|dollars|private|dance|GTA|6|NO|REFUNDS|21|closer|Audi|badge|Obey|Tailgater|gun|Customer|parking|rifle|line|realistic|Comment|refunds)/i;
 const chunks: Word[][] = [];
 {
   let cur: Word[] = [];
@@ -182,7 +198,7 @@ export const MzRealistic: React.FC<{ sound: boolean }> = ({ sound }) => {
   const shot = SHOTS.find((s) => f >= s.from && f < s.to) ?? SHOTS[0];
   const n = f < T.look ? 1 : f < T.car ? 2 : f < T.ammu ? 3 : 4;
   const flash = shot.from === 0 ? 0 : interpolate(f - shot.from, [0, 3], [0.45, 0], CL);
-  const kicks = [0, T.no, T.nobody, T.badge, T.cust, T.line, T.refunds];
+  const kicks = [0, T.usd, T.no, T.nobody, T.badge, T.cust, T.line, T.refunds];
   const k = kicks.filter((x) => f >= x).pop() ?? 0;
   const amp = Math.max(0, 1 - (f - k) / 8) * 14;
   const shx = Math.sin(f * 2.3) * amp, shy = Math.cos(f * 3.1) * amp;
@@ -197,9 +213,11 @@ export const MzRealistic: React.FC<{ sound: boolean }> = ({ sound }) => {
       {f >= T.line && f < T.out - 2 && (
         <div style={{ position: "absolute", left: 0, top: 1150, height: 14, width: `${lineDraw * 100}%`, background: M.red, boxShadow: `0 0 24px ${M.red}` }} />
       )}
-      <Header />
+      <Header official={shot.img === "money" || shot.img === "club_rs"} />
       <Marker n={n} />
-      {f < T.look && <Headline at={-12} lines={[["No", false], ["refunds", true]]} size={170} />}
+      {f < T.no && <Headline at={-12} lines={[["Private", false], ["dance", true]]} size={170} />}
+      {f >= T.no && f < T.look && <Headline at={T.no} lines={[["No", false], ["refunds", true]]} size={170} />}
+      {f >= T.usd && f < T.look && <Cash at={T.usd} />}
       {f >= T.look && f < T.car && <Headline at={T.nobody} lines={[["Under 21?", false], ["Not here", true]]} />}
       {f >= T.car && f < T.ammu && <Headline at={T.badge} lines={[["Basically", false], ["an Audi", true]]} />}
       {f >= T.ammu && f < T.out - 2 && <Headline at={T.cust} lines={[["Guns: yes", false], ["Parking: no", true]]} />}
