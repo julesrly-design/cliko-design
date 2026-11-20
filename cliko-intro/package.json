@@ -1,0 +1,18 @@
+{
+  "name": "cliko-intro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cliko — « GTA VI IS HERE. WE ARE TOO. » : intro motion design temps réel pour cliko.be (WebGL + Web Audio, sans dépendance)",
+  "type": "module",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "check": "node scripts/check-site.mjs",
+    "audio": "node scripts/render-audio.mjs",
+    "video": "node scripts/render-video.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.10"
+  }
+}

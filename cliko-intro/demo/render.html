@@ -1,0 +1,12 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cliko intro — rendu</title><link rel="stylesheet" href="fonts.css">
+<style>html,body{margin:0;background:#000;height:100%;overflow:hidden}</style></head>
+<body><script src="../dist/cliko-intro.debug.js"></script>
+<script>
+const lang = new URLSearchParams(location.search).get('lang') || 'fr';
+window.__ready = document.fonts.load('900 40px "Schibsted Grotesk"').then(()=>document.fonts.load('500 20px "Geist Mono"')).then(()=>document.fonts.ready).then(()=>{
+  const gp = +new URLSearchParams(location.search).get('glpx') || 0;
+  window.__ck = ClikoIntro.createIntro({ renderMode: true, lang, glPixels: gp || undefined }).mount();
+  return true;
+});
+</script></body></html>

@@ -1,0 +1,7 @@
+node_modules
+# contrôles visuels et intermédiaires (régénérables)
+out/t*/
+out/p*/
+out/check/
+out/*.png
+out/*.wav

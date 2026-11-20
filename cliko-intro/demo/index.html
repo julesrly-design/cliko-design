@@ -1,0 +1,54 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cliko GTA VI Trailer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="fonts.css">
+<style>
+/* Fond de démonstration : la page d'accueil de cliko.be, simplifiée. L'intro se pose par-dessus. */
+:root{--night:#0b1020;--raised:#141a33;--text:#f2f3fa;--mist:#b9c0e3;--faint:#8b94c8;--accent:#ffc46b;--line:rgba(185,196,240,.16);
+  --display:"Schibsted Grotesk","Inter",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;color-scheme:dark}
+html,body{height:100%}
+body{background:var(--night);color:var(--text);font-family:var(--display);-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(60% 55% at 78% 30%,rgba(34,58,140,.55),transparent 70%),radial-gradient(55% 60% at 15% 75%,rgba(18,84,104,.4),transparent 70%)}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:2}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+header svg{display:block;height:26px;width:auto;color:var(--text)}
+.pill{display:inline-flex;align-items:center;min-height:40px;padding:0 18px;border-radius:999px;background:var(--accent);color:var(--night);font-weight:600;font-size:13px;border:0;cursor:pointer;font-family:inherit}
+.pill.ghost{background:rgba(242,243,250,.07);color:var(--text);border:1px solid var(--line)}
+.pill:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+main .wrap{padding-block:clamp(48px,12vh,140px) 64px;display:grid;gap:28px}
+.kick{display:inline-flex;align-items:center;gap:10px;width:max-content;max-width:100%;padding:8px 14px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--mist)}
+.kick i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+h1{font-size:clamp(40px,7vw,84px);line-height:.98;letter-spacing:-.035em;font-weight:800;text-wrap:balance;margin:0}
+p.lead{max-width:56ch;color:var(--mist);font-size:clamp(16px,1.3vw,18px);line-height:1.6;margin:0}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.note{margin-top:28px;max-width:62ch;padding:18px 20px;border-radius:16px;background:var(--raised);border:1px solid var(--line);color:var(--mist);font-size:14px;line-height:1.6}
+.note b{color:var(--text)}
+.note code{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+</style>
+</head><body><header><div class="wrap">
+  <svg viewBox="0 0 480 148" role="img" aria-label="Cliko"><path d="M82.47 68.57A41 41 0 1 0 82.47 123.43M123 11V135M179 57V135M235 11V135M235 112L289 57M253 93.67L293 135" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><circle cx="179" cy="16" r="13" fill="currentColor"/><path d="M372 44H428A52 52 0 0 1 428 148H372A52 52 0 0 1 372 44ZM389 96A39 39 0 1 0 467 96A39 39 0 1 0 389 96Z" fill="var(--accent)" fill-rule="evenodd"/></svg>
+  <button class="pill" type="button" id="replay-top">Revoir le trailer</button>
+</div></header>
+<main id="contenu"><div class="wrap">
+  <span class="kick"><i></i>Nouveaux projets à Bruxelles</span>
+  <h1>Votre commerce<br>mérite d'être trouvé.</h1>
+  <p class="lead">Fond de démonstration qui reprend l'accueil de cliko.be. Sur le vrai site, l'intro se pose exactement ainsi par-dessus la page, puis le logo final rejoint celui de l'en-tête.</p>
+  <div class="row">
+    <button class="pill" type="button" id="replay">▶ Revoir le trailer</button>
+    <button class="pill ghost" type="button" id="replay-mobile">Version sans son</button>
+  </div>
+  <div class="note" id="contact"><b>Raccourcis pendant le trailer.</b> <code>Échap</code> passe l'intro, <code>M</code> coupe ou rétablit le son. Avec « réduire les animations » activé dans le système, la page affiche une affiche fixe à la place du film.</div>
+</div></main>
+<script src="../dist/cliko-intro.js"></script>
+<script>
+(function(){
+  var go = function(o){ ClikoIntro.play(Object.assign({ lang: "fr", frequency: "always", contactHref: "#contact" }, o || {})); };
+  document.getElementById("replay").addEventListener("click", function(){ go(); });
+  document.getElementById("replay-top").addEventListener("click", function(){ go(); });
+  document.getElementById("replay-mobile").addEventListener("click", function(){ go({ autoplay: "muted" }); });
+  go();
+})();
+</script>
+
+</body></html>
