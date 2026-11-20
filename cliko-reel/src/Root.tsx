@@ -9,6 +9,7 @@ import { ClikoMotion, MOTION_FRAMES } from "./motion/ClikoMotion";
 import { Gta6Short } from "./gta6/Gta6Short";
 import { MzHowLong, MZ_TOTAL } from "./mz/MzHowLong";
 import { MzRealistic, R_TOTAL } from "./mz2/MzRealistic";
+import { MzSecrets, SE_TOTAL } from "./mz3/MzSecrets";
 import { INTRO as GTA6_INTRO, TOTAL as GTA6_FRAMES } from "./gta6/timing";
 
 const FPS = 30;
@@ -20,6 +21,7 @@ const calculateMetadata: CalculateMetadataFunction<ReelProps> = async ({ props }
 
 export const RemotionRoot: React.FC = () => (
   <>
+    <Composition id="MzSecrets" component={MzSecrets} fps={FPS} width={1080} height={1920} durationInFrames={SE_TOTAL} defaultProps={{ sound: true }} />
     <Composition id="MzRealistic" component={MzRealistic} fps={FPS} width={1080} height={1920} durationInFrames={R_TOTAL} defaultProps={{ sound: true }} />
     <Composition id="MzHowLong" component={MzHowLong} fps={FPS} width={1080} height={1920} durationInFrames={MZ_TOTAL} defaultProps={{ sound: true }} />
     <Composition id="Gta6Short" component={Gta6Short} fps={FPS} width={1080} height={1920} durationInFrames={GTA6_FRAMES + GTA6_INTRO} defaultProps={{ sound: true }} />

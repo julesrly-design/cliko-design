@@ -1,0 +1,740 @@
+{
+ "voiceId": "TX3LPaxmHKxFdv7VOQHJ",
+ "model": "eleven_v3",
+ "scenes": [
+  {
+   "scene": "hook",
+   "start": 0.0,
+   "end": 6.89
+  },
+  {
+   "scene": "s4",
+   "start": 6.958,
+   "end": 12.856
+  },
+  {
+   "scene": "s3",
+   "start": 12.919,
+   "end": 19.805
+  },
+  {
+   "scene": "s2",
+   "start": 19.892,
+   "end": 26.89
+  },
+  {
+   "scene": "s1",
+   "start": 27.0,
+   "end": 36.5
+  },
+  {
+   "scene": "outro",
+   "start": 36.591,
+   "end": 39.144
+  }
+ ],
+ "words": [
+  {
+   "text": "Rockstar",
+   "start": 0.0,
+   "end": 0.475,
+   "scene": "hook"
+  },
+  {
+   "text": "hid",
+   "start": 0.542,
+   "end": 0.746,
+   "scene": "hook"
+  },
+  {
+   "text": "a",
+   "start": 0.847,
+   "end": 0.949,
+   "scene": "hook"
+  },
+  {
+   "text": "REAL",
+   "start": 1.044,
+   "end": 1.424,
+   "scene": "hook"
+  },
+  {
+   "text": "Easter",
+   "start": 1.492,
+   "end": 1.898,
+   "scene": "hook"
+  },
+  {
+   "text": "egg",
+   "start": 1.966,
+   "end": 2.169,
+   "scene": "hook"
+  },
+  {
+   "text": "in",
+   "start": 2.214,
+   "end": 2.305,
+   "scene": "hook"
+  },
+  {
+   "text": "GTA",
+   "start": 2.407,
+   "end": 2.712,
+   "scene": "hook"
+  },
+  {
+   "text": "6.",
+   "start": 2.822,
+   "end": 3.398,
+   "scene": "hook"
+  },
+  {
+   "text": "Here",
+   "start": 3.446,
+   "end": 3.636,
+   "scene": "hook"
+  },
+  {
+   "text": "are",
+   "start": 3.686,
+   "end": 3.839,
+   "scene": "hook"
+  },
+  {
+   "text": "4",
+   "start": 3.907,
+   "end": 4.042,
+   "scene": "hook"
+  },
+  {
+   "text": "secrets",
+   "start": 4.11,
+   "end": 4.585,
+   "scene": "hook"
+  },
+  {
+   "text": "players",
+   "start": 4.627,
+   "end": 4.924,
+   "scene": "hook"
+  },
+  {
+   "text": "found",
+   "start": 4.981,
+   "end": 5.263,
+   "scene": "hook"
+  },
+  {
+   "text": "in",
+   "start": 5.308,
+   "end": 5.398,
+   "scene": "hook"
+  },
+  {
+   "text": "the",
+   "start": 5.415,
+   "end": 5.466,
+   "scene": "hook"
+  },
+  {
+   "text": "first",
+   "start": 5.511,
+   "end": 5.737,
+   "scene": "hook"
+  },
+  {
+   "text": "24",
+   "start": 5.805,
+   "end": 6.144,
+   "scene": "hook"
+  },
+  {
+   "text": "hours.",
+   "start": 6.223,
+   "end": 6.89,
+   "scene": "hook"
+  },
+  {
+   "text": "Number",
+   "start": 6.958,
+   "end": 7.364,
+   "scene": "s4"
+  },
+  {
+   "text": "4:",
+   "start": 7.432,
+   "end": 7.771,
+   "scene": "s4"
+  },
+  {
+   "text": "go",
+   "start": 7.881,
+   "end": 8.153,
+   "scene": "s4"
+  },
+  {
+   "text": "swimming",
+   "start": 8.205,
+   "end": 8.627,
+   "scene": "s4"
+  },
+  {
+   "text": "in",
+   "start": 8.672,
+   "end": 8.763,
+   "scene": "s4"
+  },
+  {
+   "text": "the",
+   "start": 8.78,
+   "end": 8.831,
+   "scene": "s4"
+  },
+  {
+   "text": "Leonida",
+   "start": 8.898,
+   "end": 9.305,
+   "scene": "s4"
+  },
+  {
+   "text": "Keys,",
+   "start": 9.4,
+   "end": 9.847,
+   "scene": "s4"
+  },
+  {
+   "text": "and",
+   "start": 9.881,
+   "end": 9.983,
+   "scene": "s4"
+  },
+  {
+   "text": "a",
+   "start": 10.017,
+   "end": 10.051,
+   "scene": "s4"
+  },
+  {
+   "text": "dog",
+   "start": 10.161,
+   "end": 10.517,
+   "scene": "s4"
+  },
+  {
+   "text": "on",
+   "start": 10.54,
+   "end": 10.585,
+   "scene": "s4"
+  },
+  {
+   "text": "a",
+   "start": 10.619,
+   "end": 10.653,
+   "scene": "s4"
+  },
+  {
+   "text": "jet",
+   "start": 10.72,
+   "end": 10.924,
+   "scene": "s4"
+  },
+  {
+   "text": "ski",
+   "start": 11.008,
+   "end": 11.263,
+   "scene": "s4"
+  },
+  {
+   "text": "might",
+   "start": 11.319,
+   "end": 11.602,
+   "scene": "s4"
+  },
+  {
+   "text": "offer",
+   "start": 11.647,
+   "end": 11.873,
+   "scene": "s4"
+  },
+  {
+   "text": "you",
+   "start": 11.907,
+   "end": 12.008,
+   "scene": "s4"
+  },
+  {
+   "text": "a",
+   "start": 12.042,
+   "end": 12.076,
+   "scene": "s4"
+  },
+  {
+   "text": "ride.",
+   "start": 12.144,
+   "end": 12.856,
+   "scene": "s4"
+  },
+  {
+   "text": "Number",
+   "start": 12.919,
+   "end": 13.297,
+   "scene": "s3"
+  },
+  {
+   "text": "3:",
+   "start": 13.364,
+   "end": 13.636,
+   "scene": "s3"
+  },
+  {
+   "text": "Dexter's",
+   "start": 13.713,
+   "end": 14.246,
+   "scene": "s3"
+  },
+  {
+   "text": "apartment.",
+   "start": 14.293,
+   "end": 14.788,
+   "scene": "s3"
+  },
+  {
+   "text": "Trinity",
+   "start": 14.864,
+   "end": 15.398,
+   "scene": "s3"
+  },
+  {
+   "text": "Apartments,",
+   "start": 15.442,
+   "end": 15.941,
+   "scene": "s3"
+  },
+  {
+   "text": "Washington",
+   "start": 15.984,
+   "end": 16.415,
+   "scene": "s3"
+  },
+  {
+   "text": "Island.",
+   "start": 16.464,
+   "end": 16.822,
+   "scene": "s3"
+  },
+  {
+   "text": "And",
+   "start": 16.924,
+   "end": 17.229,
+   "scene": "s3"
+  },
+  {
+   "text": "his",
+   "start": 17.28,
+   "end": 17.432,
+   "scene": "s3"
+  },
+  {
+   "text": "boat,",
+   "start": 17.5,
+   "end": 17.907,
+   "scene": "s3"
+  },
+  {
+   "text": "Slice",
+   "start": 17.964,
+   "end": 18.246,
+   "scene": "s3"
+  },
+  {
+   "text": "of",
+   "start": 18.291,
+   "end": 18.381,
+   "scene": "s3"
+  },
+  {
+   "text": "Life,",
+   "start": 18.449,
+   "end": 18.788,
+   "scene": "s3"
+  },
+  {
+   "text": "is",
+   "start": 18.833,
+   "end": 18.924,
+   "scene": "s3"
+  },
+  {
+   "text": "at",
+   "start": 18.969,
+   "end": 19.059,
+   "scene": "s3"
+  },
+  {
+   "text": "the",
+   "start": 19.076,
+   "end": 19.127,
+   "scene": "s3"
+  },
+  {
+   "text": "docks.",
+   "start": 19.195,
+   "end": 19.805,
+   "scene": "s3"
+  },
+  {
+   "text": "Number",
+   "start": 19.892,
+   "end": 20.415,
+   "scene": "s2"
+  },
+  {
+   "text": "2:",
+   "start": 20.525,
+   "end": 20.797,
+   "scene": "s2"
+  },
+  {
+   "text": "Bigfoot.",
+   "start": 20.907,
+   "end": 21.534,
+   "scene": "s2"
+  },
+  {
+   "text": "Here",
+   "start": 21.642,
+   "end": 22.076,
+   "scene": "s2"
+  },
+  {
+   "text": "he's",
+   "start": 22.121,
+   "end": 22.347,
+   "scene": "s2"
+  },
+  {
+   "text": "called",
+   "start": 22.386,
+   "end": 22.619,
+   "scene": "s2"
+  },
+  {
+   "text": "Mister",
+   "start": 22.658,
+   "end": 22.89,
+   "scene": "s2"
+  },
+  {
+   "text": "Mangrove,",
+   "start": 22.971,
+   "end": 23.839,
+   "scene": "s2"
+  },
+  {
+   "text": "and",
+   "start": 23.856,
+   "end": 23.907,
+   "scene": "s2"
+  },
+  {
+   "text": "a",
+   "start": 23.941,
+   "end": 23.975,
+   "scene": "s2"
+  },
+  {
+   "text": "guy",
+   "start": 24.042,
+   "end": 24.246,
+   "scene": "s2"
+  },
+  {
+   "text": "named",
+   "start": 24.291,
+   "end": 24.517,
+   "scene": "s2"
+  },
+  {
+   "text": "Kirk",
+   "start": 24.598,
+   "end": 24.924,
+   "scene": "s2"
+  },
+  {
+   "text": "sends",
+   "start": 24.981,
+   "end": 25.263,
+   "scene": "s2"
+  },
+  {
+   "text": "you",
+   "start": 25.28,
+   "end": 25.331,
+   "scene": "s2"
+  },
+  {
+   "text": "hunting",
+   "start": 25.373,
+   "end": 25.669,
+   "scene": "s2"
+  },
+  {
+   "text": "him",
+   "start": 25.737,
+   "end": 25.941,
+   "scene": "s2"
+  },
+  {
+   "text": "in",
+   "start": 25.986,
+   "end": 26.076,
+   "scene": "s2"
+  },
+  {
+   "text": "Grassrivers.",
+   "start": 26.133,
+   "end": 26.89,
+   "scene": "s2"
+  },
+  {
+   "text": "And",
+   "start": 27.0,
+   "end": 27.559,
+   "scene": "s1"
+  },
+  {
+   "text": "number",
+   "start": 27.588,
+   "end": 27.763,
+   "scene": "s1"
+  },
+  {
+   "text": "1:",
+   "start": 27.873,
+   "end": 28.144,
+   "scene": "s1"
+  },
+  {
+   "text": "climb",
+   "start": 28.223,
+   "end": 28.619,
+   "scene": "s1"
+  },
+  {
+   "text": "a",
+   "start": 28.653,
+   "end": 28.686,
+   "scene": "s1"
+  },
+  {
+   "text": "radio",
+   "start": 28.743,
+   "end": 29.025,
+   "scene": "s1"
+  },
+  {
+   "text": "tower",
+   "start": 29.082,
+   "end": 29.364,
+   "scene": "s1"
+  },
+  {
+   "text": "for",
+   "start": 29.398,
+   "end": 29.5,
+   "scene": "s1"
+  },
+  {
+   "text": "7",
+   "start": 29.61,
+   "end": 29.746,
+   "scene": "s1"
+  },
+  {
+   "text": "minutes,",
+   "start": 29.797,
+   "end": 30.288,
+   "scene": "s1"
+  },
+  {
+   "text": "find",
+   "start": 30.329,
+   "end": 30.492,
+   "scene": "s1"
+  },
+  {
+   "text": "a",
+   "start": 30.525,
+   "end": 30.559,
+   "scene": "s1"
+  },
+  {
+   "text": "nest",
+   "start": 30.614,
+   "end": 30.831,
+   "scene": "s1"
+  },
+  {
+   "text": "of",
+   "start": 30.853,
+   "end": 30.898,
+   "scene": "s1"
+  },
+  {
+   "text": "eggs\u2026",
+   "start": 30.966,
+   "end": 31.644,
+   "scene": "s1"
+  },
+  {
+   "text": "throw",
+   "start": 31.689,
+   "end": 31.915,
+   "scene": "s1"
+  },
+  {
+   "text": "one,",
+   "start": 31.983,
+   "end": 32.254,
+   "scene": "s1"
+  },
+  {
+   "text": "and",
+   "start": 32.322,
+   "end": 32.525,
+   "scene": "s1"
+  },
+  {
+   "text": "it",
+   "start": 32.57,
+   "end": 32.661,
+   "scene": "s1"
+  },
+  {
+   "text": "smashes",
+   "start": 32.706,
+   "end": 33.068,
+   "scene": "s1"
+  },
+  {
+   "text": "a",
+   "start": 33.153,
+   "end": 33.237,
+   "scene": "s1"
+  },
+  {
+   "text": "car.",
+   "start": 33.28,
+   "end": 33.475,
+   "scene": "s1"
+  },
+  {
+   "text": "A",
+   "start": 33.585,
+   "end": 33.856,
+   "scene": "s1"
+  },
+  {
+   "text": "callback",
+   "start": 33.901,
+   "end": 34.263,
+   "scene": "s1"
+  },
+  {
+   "text": "to",
+   "start": 34.286,
+   "end": 34.331,
+   "scene": "s1"
+  },
+  {
+   "text": "Vice",
+   "start": 34.385,
+   "end": 34.602,
+   "scene": "s1"
+  },
+  {
+   "text": "City's",
+   "start": 34.642,
+   "end": 34.873,
+   "scene": "s1"
+  },
+  {
+   "text": "Easter",
+   "start": 34.921,
+   "end": 35.212,
+   "scene": "s1"
+  },
+  {
+   "text": "egg",
+   "start": 35.263,
+   "end": 35.415,
+   "scene": "s1"
+  },
+  {
+   "text": "from",
+   "start": 35.442,
+   "end": 35.551,
+   "scene": "s1"
+  },
+  {
+   "text": "2002.",
+   "start": 35.619,
+   "end": 36.5,
+   "scene": "s1"
+  },
+  {
+   "text": "Which",
+   "start": 36.591,
+   "end": 37.042,
+   "scene": "outro"
+  },
+  {
+   "text": "one",
+   "start": 37.076,
+   "end": 37.178,
+   "scene": "outro"
+  },
+  {
+   "text": "are",
+   "start": 37.195,
+   "end": 37.246,
+   "scene": "outro"
+  },
+  {
+   "text": "you",
+   "start": 37.263,
+   "end": 37.314,
+   "scene": "outro"
+  },
+  {
+   "text": "trying",
+   "start": 37.353,
+   "end": 37.585,
+   "scene": "outro"
+  },
+  {
+   "text": "first?",
+   "start": 37.642,
+   "end": 37.992,
+   "scene": "outro"
+  },
+  {
+   "text": "Follow",
+   "start": 38.059,
+   "end": 38.466,
+   "scene": "outro"
+  },
+  {
+   "text": "for",
+   "start": 38.5,
+   "end": 38.602,
+   "scene": "outro"
+  },
+  {
+   "text": "more.",
+   "start": 38.656,
+   "end": 39.144,
+   "scene": "outro"
+  }
+ ]
+}

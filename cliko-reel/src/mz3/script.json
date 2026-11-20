@@ -1,0 +1,11 @@
+{
+  "voiceId": "TX3LPaxmHKxFdv7VOQHJ",
+  "parts": [
+    { "scene": "hook",  "say": "Rockstar hid a REAL Easter egg in GTA 6. Here are 4 secrets players found in the first 24 hours." },
+    { "scene": "s4",    "say": "Number 4: go swimming in the Leonida Keys, and a dog on a jet ski might offer you a ride." },
+    { "scene": "s3",    "say": "Number 3: Dexter's apartment. Trinity Apartments, Washington Island. And his boat, Slice of Life, is at the docks." },
+    { "scene": "s2",    "say": "Number 2: Bigfoot. Here he's called Mister Mangrove, and a guy named Kirk sends you hunting him in Grassrivers." },
+    { "scene": "s1",    "say": "And number 1: climb a radio tower for 7 minutes, find a nest of eggs… throw one, and it smashes a car. A callback to Vice City's Easter egg from 2002." },
+    { "scene": "outro", "say": "Which one are you trying first? Follow for more." }
+  ]
+}

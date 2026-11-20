@@ -1,0 +1,740 @@
+{
+  "voiceId": "TX3LPaxmHKxFdv7VOQHJ",
+  "model": "eleven_v3",
+  "scenes": [
+    {
+      "scene": "hook",
+      "start": 0,
+      "end": 8.16
+    },
+    {
+      "scene": "s4",
+      "start": 8.24,
+      "end": 15.24
+    },
+    {
+      "scene": "s3",
+      "start": 15.314,
+      "end": 23.44
+    },
+    {
+      "scene": "s2",
+      "start": 23.543,
+      "end": 31.84
+    },
+    {
+      "scene": "s1",
+      "start": 32.06,
+      "end": 43.52
+    },
+    {
+      "scene": "outro",
+      "start": 43.627,
+      "end": 46.64
+    }
+  ],
+  "words": [
+    {
+      "text": "Rockstar",
+      "start": 0,
+      "end": 0.56,
+      "scene": "hook"
+    },
+    {
+      "text": "hid",
+      "start": 0.64,
+      "end": 0.88,
+      "scene": "hook"
+    },
+    {
+      "text": "a",
+      "start": 1,
+      "end": 1.12,
+      "scene": "hook"
+    },
+    {
+      "text": "REAL",
+      "start": 1.232,
+      "end": 1.68,
+      "scene": "hook"
+    },
+    {
+      "text": "Easter",
+      "start": 1.76,
+      "end": 2.24,
+      "scene": "hook"
+    },
+    {
+      "text": "egg",
+      "start": 2.32,
+      "end": 2.56,
+      "scene": "hook"
+    },
+    {
+      "text": "in",
+      "start": 2.613,
+      "end": 2.72,
+      "scene": "hook"
+    },
+    {
+      "text": "GTA",
+      "start": 2.84,
+      "end": 3.2,
+      "scene": "hook"
+    },
+    {
+      "text": "6.",
+      "start": 3.36,
+      "end": 4.04,
+      "scene": "hook"
+    },
+    {
+      "text": "Here",
+      "start": 4.096,
+      "end": 4.32,
+      "scene": "hook"
+    },
+    {
+      "text": "are",
+      "start": 4.38,
+      "end": 4.56,
+      "scene": "hook"
+    },
+    {
+      "text": "4",
+      "start": 4.64,
+      "end": 4.8,
+      "scene": "hook"
+    },
+    {
+      "text": "secrets",
+      "start": 4.88,
+      "end": 5.44,
+      "scene": "hook"
+    },
+    {
+      "text": "players",
+      "start": 5.49,
+      "end": 5.84,
+      "scene": "hook"
+    },
+    {
+      "text": "found",
+      "start": 5.907,
+      "end": 6.24,
+      "scene": "hook"
+    },
+    {
+      "text": "in",
+      "start": 6.293,
+      "end": 6.4,
+      "scene": "hook"
+    },
+    {
+      "text": "the",
+      "start": 6.42,
+      "end": 6.48,
+      "scene": "hook"
+    },
+    {
+      "text": "first",
+      "start": 6.533,
+      "end": 6.8,
+      "scene": "hook"
+    },
+    {
+      "text": "24",
+      "start": 6.88,
+      "end": 7.28,
+      "scene": "hook"
+    },
+    {
+      "text": "hours.",
+      "start": 7.373,
+      "end": 8.16,
+      "scene": "hook"
+    },
+    {
+      "text": "Number",
+      "start": 8.24,
+      "end": 8.72,
+      "scene": "s4"
+    },
+    {
+      "text": "4:",
+      "start": 8.8,
+      "end": 9.2,
+      "scene": "s4"
+    },
+    {
+      "text": "go",
+      "start": 9.36,
+      "end": 9.68,
+      "scene": "s4"
+    },
+    {
+      "text": "swimming",
+      "start": 9.742,
+      "end": 10.24,
+      "scene": "s4"
+    },
+    {
+      "text": "in",
+      "start": 10.293,
+      "end": 10.4,
+      "scene": "s4"
+    },
+    {
+      "text": "the",
+      "start": 10.42,
+      "end": 10.48,
+      "scene": "s4"
+    },
+    {
+      "text": "Leonida",
+      "start": 10.56,
+      "end": 11.04,
+      "scene": "s4"
+    },
+    {
+      "text": "Keys,",
+      "start": 11.152,
+      "end": 11.68,
+      "scene": "s4"
+    },
+    {
+      "text": "and",
+      "start": 11.72,
+      "end": 11.84,
+      "scene": "s4"
+    },
+    {
+      "text": "a",
+      "start": 11.88,
+      "end": 11.92,
+      "scene": "s4"
+    },
+    {
+      "text": "dog",
+      "start": 12.06,
+      "end": 12.48,
+      "scene": "s4"
+    },
+    {
+      "text": "on",
+      "start": 12.507,
+      "end": 12.56,
+      "scene": "s4"
+    },
+    {
+      "text": "a",
+      "start": 12.6,
+      "end": 12.64,
+      "scene": "s4"
+    },
+    {
+      "text": "jet",
+      "start": 12.72,
+      "end": 12.96,
+      "scene": "s4"
+    },
+    {
+      "text": "ski",
+      "start": 13.06,
+      "end": 13.36,
+      "scene": "s4"
+    },
+    {
+      "text": "might",
+      "start": 13.427,
+      "end": 13.76,
+      "scene": "s4"
+    },
+    {
+      "text": "offer",
+      "start": 13.813,
+      "end": 14.08,
+      "scene": "s4"
+    },
+    {
+      "text": "you",
+      "start": 14.12,
+      "end": 14.24,
+      "scene": "s4"
+    },
+    {
+      "text": "a",
+      "start": 14.28,
+      "end": 14.32,
+      "scene": "s4"
+    },
+    {
+      "text": "ride.",
+      "start": 14.4,
+      "end": 15.24,
+      "scene": "s4"
+    },
+    {
+      "text": "Number",
+      "start": 15.314,
+      "end": 15.76,
+      "scene": "s3"
+    },
+    {
+      "text": "3:",
+      "start": 15.84,
+      "end": 16.16,
+      "scene": "s3"
+    },
+    {
+      "text": "Dexter's",
+      "start": 16.251,
+      "end": 16.88,
+      "scene": "s3"
+    },
+    {
+      "text": "apartment.",
+      "start": 16.936,
+      "end": 17.52,
+      "scene": "s3"
+    },
+    {
+      "text": "Trinity",
+      "start": 17.61,
+      "end": 18.24,
+      "scene": "s3"
+    },
+    {
+      "text": "Apartments,",
+      "start": 18.291,
+      "end": 18.88,
+      "scene": "s3"
+    },
+    {
+      "text": "Washington",
+      "start": 18.931,
+      "end": 19.44,
+      "scene": "s3"
+    },
+    {
+      "text": "Island.",
+      "start": 19.497,
+      "end": 19.92,
+      "scene": "s3"
+    },
+    {
+      "text": "And",
+      "start": 20.04,
+      "end": 20.4,
+      "scene": "s3"
+    },
+    {
+      "text": "his",
+      "start": 20.46,
+      "end": 20.64,
+      "scene": "s3"
+    },
+    {
+      "text": "boat,",
+      "start": 20.72,
+      "end": 21.2,
+      "scene": "s3"
+    },
+    {
+      "text": "Slice",
+      "start": 21.267,
+      "end": 21.6,
+      "scene": "s3"
+    },
+    {
+      "text": "of",
+      "start": 21.653,
+      "end": 21.76,
+      "scene": "s3"
+    },
+    {
+      "text": "Life,",
+      "start": 21.84,
+      "end": 22.24,
+      "scene": "s3"
+    },
+    {
+      "text": "is",
+      "start": 22.293,
+      "end": 22.4,
+      "scene": "s3"
+    },
+    {
+      "text": "at",
+      "start": 22.453,
+      "end": 22.56,
+      "scene": "s3"
+    },
+    {
+      "text": "the",
+      "start": 22.58,
+      "end": 22.64,
+      "scene": "s3"
+    },
+    {
+      "text": "docks.",
+      "start": 22.72,
+      "end": 23.44,
+      "scene": "s3"
+    },
+    {
+      "text": "Number",
+      "start": 23.543,
+      "end": 24.16,
+      "scene": "s2"
+    },
+    {
+      "text": "2:",
+      "start": 24.32,
+      "end": 24.64,
+      "scene": "s2"
+    },
+    {
+      "text": "Bigfoot.",
+      "start": 24.78,
+      "end": 25.52,
+      "scene": "s2"
+    },
+    {
+      "text": "Here",
+      "start": 25.648,
+      "end": 26.16,
+      "scene": "s2"
+    },
+    {
+      "text": "he's",
+      "start": 26.213,
+      "end": 26.48,
+      "scene": "s2"
+    },
+    {
+      "text": "called",
+      "start": 26.526,
+      "end": 26.8,
+      "scene": "s2"
+    },
+    {
+      "text": "Mister",
+      "start": 26.846,
+      "end": 27.12,
+      "scene": "s2"
+    },
+    {
+      "text": "Mangrove,",
+      "start": 27.216,
+      "end": 28.24,
+      "scene": "s2"
+    },
+    {
+      "text": "and",
+      "start": 28.26,
+      "end": 28.32,
+      "scene": "s2"
+    },
+    {
+      "text": "a",
+      "start": 28.36,
+      "end": 28.4,
+      "scene": "s2"
+    },
+    {
+      "text": "guy",
+      "start": 28.48,
+      "end": 28.72,
+      "scene": "s2"
+    },
+    {
+      "text": "named",
+      "start": 28.773,
+      "end": 29.04,
+      "scene": "s2"
+    },
+    {
+      "text": "Kirk",
+      "start": 29.136,
+      "end": 29.52,
+      "scene": "s2"
+    },
+    {
+      "text": "sends",
+      "start": 29.587,
+      "end": 29.92,
+      "scene": "s2"
+    },
+    {
+      "text": "you",
+      "start": 29.94,
+      "end": 30,
+      "scene": "s2"
+    },
+    {
+      "text": "hunting",
+      "start": 30.05,
+      "end": 30.4,
+      "scene": "s2"
+    },
+    {
+      "text": "him",
+      "start": 30.48,
+      "end": 30.72,
+      "scene": "s2"
+    },
+    {
+      "text": "in",
+      "start": 30.773,
+      "end": 30.88,
+      "scene": "s2"
+    },
+    {
+      "text": "Grassrivers.",
+      "start": 30.947,
+      "end": 31.84,
+      "scene": "s2"
+    },
+    {
+      "text": "And",
+      "start": 32.06,
+      "end": 32.72,
+      "scene": "s1"
+    },
+    {
+      "text": "number",
+      "start": 32.754,
+      "end": 32.96,
+      "scene": "s1"
+    },
+    {
+      "text": "1:",
+      "start": 33.12,
+      "end": 33.44,
+      "scene": "s1"
+    },
+    {
+      "text": "climb",
+      "start": 33.533,
+      "end": 34,
+      "scene": "s1"
+    },
+    {
+      "text": "a",
+      "start": 34.04,
+      "end": 34.08,
+      "scene": "s1"
+    },
+    {
+      "text": "radio",
+      "start": 34.147,
+      "end": 34.48,
+      "scene": "s1"
+    },
+    {
+      "text": "tower",
+      "start": 34.547,
+      "end": 34.88,
+      "scene": "s1"
+    },
+    {
+      "text": "for",
+      "start": 34.92,
+      "end": 35.04,
+      "scene": "s1"
+    },
+    {
+      "text": "7",
+      "start": 35.2,
+      "end": 35.36,
+      "scene": "s1"
+    },
+    {
+      "text": "minutes,",
+      "start": 35.42,
+      "end": 36,
+      "scene": "s1"
+    },
+    {
+      "text": "find",
+      "start": 36.048,
+      "end": 36.24,
+      "scene": "s1"
+    },
+    {
+      "text": "a",
+      "start": 36.28,
+      "end": 36.32,
+      "scene": "s1"
+    },
+    {
+      "text": "nest",
+      "start": 36.384,
+      "end": 36.64,
+      "scene": "s1"
+    },
+    {
+      "text": "of",
+      "start": 36.667,
+      "end": 36.72,
+      "scene": "s1"
+    },
+    {
+      "text": "eggs…",
+      "start": 36.8,
+      "end": 37.6,
+      "scene": "s1"
+    },
+    {
+      "text": "throw",
+      "start": 37.653,
+      "end": 37.92,
+      "scene": "s1"
+    },
+    {
+      "text": "one,",
+      "start": 38,
+      "end": 38.32,
+      "scene": "s1"
+    },
+    {
+      "text": "and",
+      "start": 38.4,
+      "end": 38.64,
+      "scene": "s1"
+    },
+    {
+      "text": "it",
+      "start": 38.693,
+      "end": 38.8,
+      "scene": "s1"
+    },
+    {
+      "text": "smashes",
+      "start": 38.853,
+      "end": 39.28,
+      "scene": "s1"
+    },
+    {
+      "text": "a",
+      "start": 39.38,
+      "end": 39.48,
+      "scene": "s1"
+    },
+    {
+      "text": "car.",
+      "start": 39.53,
+      "end": 39.76,
+      "scene": "s1"
+    },
+    {
+      "text": "A",
+      "start": 40.08,
+      "end": 40.4,
+      "scene": "s1"
+    },
+    {
+      "text": "callback",
+      "start": 40.453,
+      "end": 40.88,
+      "scene": "s1"
+    },
+    {
+      "text": "to",
+      "start": 40.907,
+      "end": 40.96,
+      "scene": "s1"
+    },
+    {
+      "text": "Vice",
+      "start": 41.024,
+      "end": 41.28,
+      "scene": "s1"
+    },
+    {
+      "text": "City's",
+      "start": 41.328,
+      "end": 41.6,
+      "scene": "s1"
+    },
+    {
+      "text": "Easter",
+      "start": 41.657,
+      "end": 42,
+      "scene": "s1"
+    },
+    {
+      "text": "egg",
+      "start": 42.06,
+      "end": 42.24,
+      "scene": "s1"
+    },
+    {
+      "text": "from",
+      "start": 42.272,
+      "end": 42.4,
+      "scene": "s1"
+    },
+    {
+      "text": "2002.",
+      "start": 42.48,
+      "end": 43.52,
+      "scene": "s1"
+    },
+    {
+      "text": "Which",
+      "start": 43.627,
+      "end": 44.16,
+      "scene": "outro"
+    },
+    {
+      "text": "one",
+      "start": 44.2,
+      "end": 44.32,
+      "scene": "outro"
+    },
+    {
+      "text": "are",
+      "start": 44.34,
+      "end": 44.4,
+      "scene": "outro"
+    },
+    {
+      "text": "you",
+      "start": 44.42,
+      "end": 44.48,
+      "scene": "outro"
+    },
+    {
+      "text": "trying",
+      "start": 44.526,
+      "end": 44.8,
+      "scene": "outro"
+    },
+    {
+      "text": "first?",
+      "start": 44.867,
+      "end": 45.28,
+      "scene": "outro"
+    },
+    {
+      "text": "Follow",
+      "start": 45.36,
+      "end": 45.84,
+      "scene": "outro"
+    },
+    {
+      "text": "for",
+      "start": 45.88,
+      "end": 46,
+      "scene": "outro"
+    },
+    {
+      "text": "more.",
+      "start": 46.064,
+      "end": 46.64,
+      "scene": "outro"
+    }
+  ]
+}
