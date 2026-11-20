@@ -40,10 +40,29 @@ const clampCam = (c: { x: number; y: number; z: number }) => {
 };
 const toScreen = (c: { x: number; y: number; z: number }, tx: number, ty: number) => ({ x: 540 + (tx - c.x) * S * c.z, y: 960 + (ty - c.y) * S * c.z });
 
-type Shot = { img: string; from: number; to: number; keys: Key[]; rings?: { at: number; x: number; y: number; r: number; color?: string }[] };
+type Shot = { img: string; from: number; to: number; keys: Key[]; card?: boolean; rings?: { at: number; x: number; y: number; r: number; color?: string }[] };
+
+// Image officielle affichée en entier : carte 16:9 nette sur fond flouté de la même image, léger zoom
+const CardView: React.FC<{ shot: Shot }> = ({ shot }) => {
+  const f = useCurrentFrame();
+  const t = (f - shot.from) / Math.max(1, shot.to - shot.from);
+  const inP = shot.from === 0 ? 1 : expo(Math.min(1, (f - shot.from) / 8));
+  const z = 1 + 0.07 * t;
+  const src = staticFile(`mz2/${shot.img}.jpg`);
+  return (
+    <AbsoluteFill style={{ overflow: "hidden", background: M.ink }}>
+      <Img src={src} style={{ position: "absolute", left: -1100, top: 0, height: 1920, width: 3413, objectFit: "cover", filter: "blur(38px) brightness(.55) saturate(1.3)", transform: `scale(${1.1 + 0.05 * t})` }} />
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(13,13,15,.75) 0%, rgba(13,13,15,.2) 30%, rgba(13,13,15,.2) 65%, rgba(13,13,15,.9) 85%)" }} />
+      <div style={{ position: "absolute", left: 30, width: 1020, top: 660, height: 574, borderRadius: 26, overflow: "hidden", boxShadow: "0 30px 80px rgba(0,0,0,.65), 0 0 0 3px rgba(241,236,227,.18)", transform: `translateY(${(1 - inP) * 80}px) scale(${0.92 + 0.08 * inP})`, opacity: inP }}>
+        <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${z})` }} />
+      </div>
+    </AbsoluteFill>
+  );
+};
 
 const ShotView: React.FC<{ shot: Shot }> = ({ shot }) => {
   const f = useCurrentFrame();
+  if (shot.card) return <CardView shot={shot} />;
   const c = clampCam(cam(shot.keys, f));
   const p = clampCam(cam(shot.keys, f - 1));
   const speed = Math.abs(c.z - p.z) * 40 + Math.hypot(c.x - p.x, c.y - p.y) * 0.08;
@@ -77,8 +96,8 @@ const T = {
   out: sStart("outro"), comment: w("outro", /^Comment/), refunds: w("outro", /^no$/),
 };
 const SHOTS: Shot[] = [
-  { img: "money", from: 0, to: T.priv - 2, keys: [ { f: 0, x: 1650, y: 420, z: 1.3 }, { f: T.priv, x: 1600, y: 380, z: 1.55 } ] },
-  { img: "club_rs", from: T.priv - 2, to: T.and - 2, keys: [ { f: T.priv - 2, x: 980, y: 420, z: 1.0 }, { f: T.and, x: 1020, y: 380, z: 1.2 } ] },
+  { img: "money", card: true, from: 0, to: T.priv - 2, keys: [ { f: 0, x: 1650, y: 420, z: 1.3 }, { f: T.priv, x: 1600, y: 380, z: 1.55 } ] },
+  { img: "club_rs", card: true, from: T.priv - 2, to: T.and - 2, keys: [ { f: T.priv - 2, x: 980, y: 420, z: 1.0 }, { f: T.and, x: 1020, y: 380, z: 1.2 } ] },
   { img: "club", from: T.and - 2, to: T.look - 2, keys: [
     { f: T.and - 2, x: 1150, y: 620, z: 1.05 }, { f: T.no - 1, x: 1200, y: 650, z: 1.2 }, { f: T.no, ...SIGN, z: 3.0, snap: true }, { f: T.look, ...SIGN, z: 3.2 } ],
     rings: [{ at: T.no + 2, ...SIGN, r: 62 }] },
@@ -153,7 +172,7 @@ const Cash: React.FC<{ at: number }> = ({ at }) => {
   const t = expo(Math.min(1, f / 16));
   const pop = spring({ frame: f, fps: R_FPS, config: { damping: 10, stiffness: 220 } });
   return (
-    <div style={{ position: "absolute", right: 70, top: 640, textAlign: "right", fontFamily: FONT.display, transform: `scale(${0.7 + 0.3 * pop})`, transformOrigin: "100% 0" }}>
+    <div style={{ position: "absolute", right: 60, top: 560, textAlign: "right", fontFamily: FONT.display, zIndex: 5, transform: `scale(${0.7 + 0.3 * pop})`, transformOrigin: "100% 0" }}>
       <div style={{ color: M.paper, fontSize: 26, fontWeight: 800, letterSpacing: 4 }}>CASH</div>
       <div style={{ color: M.paper, fontSize: 64, fontWeight: 900, fontStyle: "italic", letterSpacing: -2, lineHeight: 1, textShadow: "0 4px 18px rgba(0,0,0,.7)" }}>${Math.round(312 - 300 * t)}</div>
       <div style={{ color: M.red, fontSize: 104, fontWeight: 900, fontStyle: "italic", letterSpacing: -3, lineHeight: 1, textShadow: "0 4px 24px rgba(0,0,0,.7)" }}>-$300</div>
