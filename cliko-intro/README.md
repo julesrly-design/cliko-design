@@ -4,7 +4,7 @@ Intro motion design **temps réel** pour l'arrivée sur cliko.be. Le film est ca
 
 - **Poids** : un seul fichier JavaScript de 31 Ko compressé (`dist/cliko-intro.js`), sans dépendance, sans vidéo, sans MP3 ni image.
 - **Durée** : 35 s à 110 BPM. L'intro rend la main au site automatiquement à 42 s ; on peut la passer à tout moment.
-- **Livrables vidéo** pour les réseaux, avec le même film et la même musique : `out/cliko-gta6-16x9.mp4` et `out/cliko-gta6-9x16.mp4`.
+- **Reel Instagram** : `out/cliko-gta6-reel-9x16.mp4` (1080×1920, 30 i/s, 38 s, H.264 + AAC, son à −14 LUFS), même film et même musique.
 
 ## Déroulé (grille musicale : 1 temps = 0,545 s)
 
@@ -60,7 +60,7 @@ Les navigateurs interdisent de lancer du son sans geste de l'utilisateur. Comme 
 
 ## Musique
 
-« Sunset Drive », composition originale (aucun sample, aucun emprunt) : La mineur, 110 BPM, grille Am9 · Fmaj7 · Cadd9 · G6. On y trouve des nappes de dents de scie désaccordées, une basse en croches pompée par la grosse caisse (sidechain), une caisse claire à grosse réverb, des arpèges en délai ping-pong et une mélodie à vibrato. La structure monte progressivement : intro planante, entrée de la batterie, souffle, impact du reveal, refrain, final à l'octave. Plus d'une centaine d'effets sonores (frappes, blips, glitchs, whooshes, impacts) sont calés sur les animations. Mix autour de −15 LUFS dans le navigateur ; vidéos masterisées à −14 LUFS, crête à −1 dBTP.
+« Sunset Drive », composition originale (aucun sample, aucun emprunt) : La mineur, 110 BPM, grille Am9 · Fmaj7 · Cadd9 · G6. On y trouve des nappes de dents de scie désaccordées, une basse en croches pompée par la grosse caisse (sidechain), une caisse claire à grosse réverb, des arpèges en délai ping-pong et une mélodie à vibrato. La structure monte progressivement : intro planante, entrée de la batterie, souffle, impact du reveal, refrain, final à l'octave. Plus d'une centaine d'effets sonores (frappes, blips, glitchs, whooshes, impacts) sont calés sur les animations. Mix autour de −15 LUFS dans le navigateur ; Reel masterisé à −14 LUFS, crête à −1 dBTP.
 
 ## Développement
 
@@ -73,8 +73,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 &
 open http://127.0.0.1:8765/demo/        # démo avec un faux fond de site
 npm run check            # test d'intégration sur le vrai cliko.be (Playwright)
 npm run audio            # out/cliko-intro-music.wav (rendu hors ligne de la musique)
-node scripts/render-video.mjs 1920x1080 out/cliko-gta6-16x9.mp4
-node scripts/render-video.mjs 1080x1920 out/cliko-gta6-9x16.mp4
+node scripts/render-video.mjs 1080x1920 out/cliko-gta6-reel-9x16.mp4   # Reel Instagram
 node scripts/snap.mjs out/snaps 1280x720 8 24.5 26 52      # planches de contrôle (temps en temps musicaux)
 ```
 
